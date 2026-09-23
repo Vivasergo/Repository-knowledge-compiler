@@ -8,8 +8,8 @@ is a guide for future work and must be verified against relevant source.
 
 ## Install and use
 
-RKC requires Node.js `>=24.12.0 <25` and npm `>=11 <12`. After the public
-package is released:
+RKC requires Node.js `>=24.12.0 <25` and npm `>=11 <12`. Install it for the
+current user:
 
 ```sh
 npx --yes repository-knowledge-compiler@latest install
@@ -26,9 +26,7 @@ skills:
 - `/rkc-audit-docs` — report drift without edits by default.
 
 See the [package guide](packages/bootstrap/README.md) for update, diagnostic,
-uninstall, privacy, host discovery, and troubleshooting instructions. The
-package is not yet published; the installation commands will work after its
-first public release.
+uninstall, privacy, host discovery, and troubleshooting instructions.
 
 ## How it works
 
