@@ -1,0 +1,43 @@
+{
+  "name": "repository-knowledge-compiler-workspace",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "npm@11.9.0",
+  "engines": {
+    "node": ">=24.12.0 <25",
+    "npm": ">=11 <12"
+  },
+  "workspaces": [
+    "packages/bootstrap",
+    "packages/core"
+  ],
+  "scripts": {
+    "build": "tsc -b && node scripts/assemble-bootstrap-payload.mjs",
+    "clean": "node scripts/clean.mjs",
+    "typecheck": "tsc -b --pretty false",
+    "lint": "eslint .",
+    "format": "prettier --write package.json tsconfig.json tsconfig.base.json eslint.config.mjs .github/**/*.yml packages/**/*.{json,ts,md} scripts/**/*.mjs skills/**/*.md fixtures/*.{json,md} README.md CHANGELOG.md CONTRIBUTING.md AGENTS.md docs/current/**/*.md",
+    "format:check": "prettier --check package.json tsconfig.json tsconfig.base.json eslint.config.mjs .github/**/*.yml packages/**/*.{json,ts,md} scripts/**/*.mjs skills/**/*.md fixtures/*.{json,md} README.md CHANGELOG.md CONTRIBUTING.md AGENTS.md docs/current/**/*.md",
+    "test": "npm run build && node scripts/run-tests.mjs",
+    "check:changed": "node scripts/check-changed-files.mjs",
+    "check:boundaries": "node scripts/check-boundaries.mjs",
+    "check:secrets": "node scripts/check-secrets.mjs",
+    "pack:local": "npm run build && node scripts/pack-local.mjs",
+    "pack:check": "npm pack --offline --dry-run --json --workspace repository-knowledge-compiler",
+    "test:e2e:install": "npm run build && node scripts/test-e2e-install.mjs",
+    "test:e2e:lifecycle": "npm run build && node scripts/test-e2e-lifecycle.mjs",
+    "test:e2e:process-kill": "npm run build && node scripts/test-e2e-process-kill.mjs",
+    "release:check": "npm run check && npm run pack:local && npm run test:e2e:install && npm run test:e2e:lifecycle && npm run test:e2e:process-kill",
+    "check": "npm run format:check && npm run lint && npm run typecheck && npm run check:boundaries && npm run test && npm run check:secrets && npm run pack:check"
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "@types/node": "24.13.3",
+    "eslint": "10.8.1",
+    "globals": "17.11.0",
+    "prettier": "3.9.6",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.67.0"
+  }
+}

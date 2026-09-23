@@ -1,0 +1,62 @@
+name: Full validation
+
+on:
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: Why this control-point validation is being run
+        required: false
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: full-validation-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - run: npm run check
+
+  cross-platform-foundation:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - run: npm run test
+      - run: npm run check:boundaries
+      - run: npm run pack:check
+      - run: npm run test:e2e:install
+      - run: npm run test:e2e:lifecycle
+      - run: npm run test:e2e:process-kill
+
+  release-candidate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      # This command builds and uses a local publishable tarball. It has no
+      # npm publish command and does not require Registry credentials.
+      - run: npm run release:check

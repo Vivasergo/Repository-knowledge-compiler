@@ -1,0 +1,8 @@
+{
+  "name": "node-api-monorepo-fixture",
+  "private": true,
+  "workspaces": [
+    "services/*",
+    "packages/*"
+  ]
+}

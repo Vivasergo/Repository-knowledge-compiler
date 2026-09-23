@@ -1,0 +1,62 @@
+{
+  "name": "repository-knowledge-compiler",
+  "version": "2.0.0",
+  "description": "Create, maintain, and audit task-routed Markdown documentation for coding agents.",
+  "keywords": [
+    "repository-documentation",
+    "coding-agents",
+    "markdown",
+    "agent-skills"
+  ],
+  "homepage": "https://github.com/Vivasergo/Repository-knowledge-compiler#readme",
+  "bugs": {
+    "url": "https://github.com/Vivasergo/Repository-knowledge-compiler/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vivasergo/Repository-knowledge-compiler.git",
+    "directory": "packages/bootstrap"
+  },
+  "author": "Serhii Vasilikhin",
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=24.12.0 <25",
+    "npm": ">=11 <12"
+  },
+  "bin": {
+    "rkc": "./dist/cli.js"
+  },
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "files": [
+    "dist/cli.js",
+    "dist/cli.js.map",
+    "dist/index.js",
+    "dist/index.js.map",
+    "dist/index.d.ts",
+    "dist/index.d.ts.map",
+    "dist/identity.js",
+    "dist/identity.js.map",
+    "dist/identity.d.ts",
+    "dist/identity.d.ts.map",
+    "dist/help.js",
+    "dist/help.js.map",
+    "dist/help.d.ts",
+    "dist/help.d.ts.map",
+    "dist/lifecycle.js",
+    "dist/lifecycle.js.map",
+    "dist/lifecycle.d.ts",
+    "dist/lifecycle.d.ts.map",
+    "dist/maintenance.js",
+    "dist/maintenance.js.map",
+    "dist/maintenance.d.ts",
+    "dist/maintenance.d.ts.map",
+    "payload",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}
