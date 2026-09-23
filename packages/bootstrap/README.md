@@ -13,8 +13,8 @@ and privacy settings; RKC does not run a separate model service.
 
 ## Requirements and installation
 
-Node.js `>=24.12.0 <25` and npm `>=11 <12` are required. After the package is
-publicly released, install it for the current user:
+Node.js `>=24.12.0 <25` and npm `>=11 <12` are required. Install it for the
+current user:
 
 ```sh
 npx --yes repository-knowledge-compiler@latest install
