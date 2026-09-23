@@ -1,10 +1,8 @@
 # Changelog
 
-RKC has no previously published npm release. This file records the first
-public release candidate; its version and date will be finalized with the
-validated release commit.
+## 2.0.0
 
-## 2.0.0 — planned
+First public release of RKC V2.
 
 - Introduced the Markdown-first, init-free RKC V2 workflow with four skills:
   `/rkc-help`, `/rkc-create-docs`, `/rkc-update-docs`, and
