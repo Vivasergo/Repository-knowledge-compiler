@@ -1,15 +1,17 @@
 # Repository Knowledge Compiler
 
-RKC helps coding agents create, maintain, and audit task-routed Markdown
-documentation for a repository. The agent reads the relevant source and writes
-ordinary files such as root `AGENTS.md` and a detailed documentation router.
-The goal is faster navigation, less repeated codebase reading, and more accurate
-future work. Documentation remains a guide to verify against code, not a
-guarantee of completeness.
+RKC helps coding agents create and maintain task-routed documentation for
+software repositories. On the first run, `/rkc-create-docs` guides the
+client's coding agent through the repository's code and existing documentation
+to build routes to important entry points, rules, and tests. Future agents can
+use those routes to find relevant context faster, avoid repeated codebase
+exploration and unsupported guesses, and use context and tokens more
+efficiently.
 
-RKC supplies a versioned protocol and deterministic Markdown checks. The
-coding agent running the skills does the repository analysis with its own model
-and privacy settings; RKC does not run a separate model service.
+RKC provides the skills, a versioned documentation workflow, and deterministic
+Markdown checks. The coding agent selected by the client performs the analysis
+using its own model and provider settings; RKC does not run a separate AI
+service or upload repository content.
 
 ## Requirements and installation
 
@@ -77,9 +79,14 @@ secrets, production configuration, Git history, and unrelated user changes.
 Create and Update may edit authorized documentation; Audit and Help are
 read-only by default.
 
-Generated knowledge may be partial or stale. Check primary code and relevant
-tests before a behavior-changing edit; run Audit when accuracy or routing is
-uncertain. If the skills are missing, check `version`, `doctor`, the user-scoped
+The documentation records what the client's coding agent could establish from
+the repository when `/rkc-create-docs` or `/rkc-update-docs` ran. Its detail and
+coverage can vary with repository size and complexity, the available code and
+tests, and the agent and model the client uses. It is designed to guide future
+agents to relevant sources, not to describe every line of code. After relevant
+repository changes, run `/rkc-update-docs`; run `/rkc-audit-docs` periodically
+to check whether important routes and documented behavior still match the
+code. If the skills are missing, check `version`, `doctor`, the user-scoped
 skill paths, and your host's discovery settings. Report reproducible problems
 at [GitHub Issues](https://github.com/Vivasergo/Repository-knowledge-compiler/issues)
 with the RKC version and redacted diagnostics. See the

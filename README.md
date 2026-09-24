@@ -1,10 +1,10 @@
 # Repository Knowledge Compiler
 
-Repository Knowledge Compiler (RKC) helps coding agents create, maintain, and
-audit task-routed Markdown documentation for software repositories. The agent
-inspects the code; RKC provides a versioned workflow, four skills, safe
-user-scoped installation, and deterministic Markdown checks. The documentation
-is a guide for future work and must be verified against relevant source.
+Repository Knowledge Compiler (RKC) helps coding agents create and maintain
+task-routed documentation for software repositories. It gives future agents a
+faster path to relevant code, tests, and repository rules, helping them avoid
+repeated exploration and unsupported assumptions. RKC aims to make repository
+work more focused and accurate while using context and tokens more efficiently.
 
 ## Install and use
 
@@ -40,8 +40,11 @@ RKC does not run a model API or upload repository content. The coding agent
 uses its own provider connection and settings. Documentation skills protect
 application source, dependencies, lockfiles, CI/CD, secrets, production
 configuration, Git history, and unrelated worktree changes. Generated
-documentation may be partial or become stale; check relevant source and tests
-before relying on behavioral claims.
+documentation is a practical map of the repository, not an exhaustive
+description of its code. Its coverage depends on factors such as repository
+size, the available evidence, and the coding agent and model used to create it.
+Run `/rkc-update-docs` after relevant changes and `/rkc-audit-docs`
+periodically to review accuracy, coverage, and routing.
 
 ## Develop RKC
 
