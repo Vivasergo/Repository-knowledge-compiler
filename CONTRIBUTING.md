@@ -32,6 +32,30 @@ npm run test:e2e:process-kill
 
 None of these commands publishes to npm.
 
+## Versioning and changelog
+
+Only `packages/bootstrap` is published as `repository-knowledge-compiler`.
+The root workspace and `@rkc/core` are private and their `0.0.0` versions do
+not determine the product release version.
+
+Until the first public `2.0.0` release, commits refine the same release
+candidate; do not bump SemVer for each commit. Keep the `2.0.0` section of
+[CHANGELOG.md](CHANGELOG.md) accurate for material user-facing changes. Finalize
+the exact commit, run release validation, and tag `v2.0.0` when publishing is
+approved.
+
+After publication, record material user-facing changes under `Unreleased` in
+the changelog. For the next npm release, choose a version using SemVer:
+`PATCH` for compatible fixes, `MINOR` for compatible new functionality,
+and `MAJOR` for incompatible changes. Move the relevant entries into the new
+version section, update the published package version and lockfile, validate
+the exact release commit, then tag and publish that version.
+
+A Git commit does not automatically require an npm release. Repository-only
+changes may stay in Git; changes to files shipped in the npm package, such as
+the package README, need a new version if they are to reach npm users after
+`2.0.0` is published. Do not reuse or overwrite a published version.
+
 ## Architectural rules
 
 1. Use the root `README.md` for product scope and the versioned

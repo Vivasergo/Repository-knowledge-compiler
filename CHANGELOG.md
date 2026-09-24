@@ -19,7 +19,10 @@ First public release of RKC V2.
 
 ### Known limits
 
-Generated documentation requires task-local source verification and may be
-incomplete or stale. Installing a new RKC version does not automatically
-rewrite or migrate a repository's Markdown. Host-specific skill discovery
-must be checked in the user's coding agent.
+RKC's skills guide the client's coding agent; RKC does not provide its own AI
+model or analyze repository code independently. The documentation produced by
+`/rkc-create-docs` depends on the repository evidence and the agent and model
+used by the client, so its coverage is not exhaustive. As the repository
+changes, use `/rkc-update-docs` to maintain affected documentation and
+`/rkc-audit-docs` to review its accuracy and routing. Installing a new RKC
+version does not automatically rewrite repository Markdown.
