@@ -29,9 +29,10 @@ export interface SelfDescriptionManifest {
   readonly distribution_version: string;
   readonly documentation_prompt_version: string;
   readonly skills: readonly string[];
+  readonly host_policy: "provider-neutral";
   readonly supported_hosts: readonly {
-    readonly id: "codex-vscode" | "github-copilot-vscode";
-    readonly status: "supported_after_conformance";
+    readonly id: "codex-vscode" | "github-copilot-vscode" | "claude-code";
+    readonly status: "usage_verified_by_owner";
   }[];
   readonly capabilities: readonly string[];
   readonly topics: readonly RkcHelpTopic[];
@@ -138,6 +139,7 @@ const modules: Readonly<Record<RkcHelpTopic, SelfDescriptionModule>> = {
     [
       "Successful automatic checks use a seven-day cadence; failed checks retry after 24 hours.",
       "Normal help reports cached state; doctor --check-updates performs a fresh diagnostic check.",
+      "A cached comparison for a different installed version is historical; the current update status is unknown until a fresh check.",
       "No discovered update is installed automatically.",
     ],
     ["rkc-help", "rkc-update-docs"],
@@ -145,11 +147,11 @@ const modules: Readonly<Record<RkcHelpTopic, SelfDescriptionModule>> = {
   hosts: module(
     "hosts",
     "Host integration",
-    "Codex and GitHub Copilot use the same provider-neutral skills and installed protocol.",
+    "RKC uses the coding agent, model, and settings of the environment where the skill is invoked.",
     [
       "RKC generates no provider-specific repository instruction files.",
-      "The documentation protocol is host-neutral.",
-      "Other compatible agents require separate validation before a support claim.",
+      "The documentation protocol is provider-neutral; the host list records verified examples, not an allowlist of agents or models.",
+      "The owner has confirmed successful skill use in Codex, GitHub Copilot, and Claude Code; this is usage evidence, not exhaustive conformance certification.",
     ],
     ["rkc-help"],
   ),
@@ -191,12 +193,14 @@ export function createSelfDescriptionManifest(
     distribution_version: distributionVersion,
     documentation_prompt_version: RKC_DOCUMENTATION_PROMPT_VERSION,
     skills,
+    host_policy: "provider-neutral",
     supported_hosts: [
-      { id: "codex-vscode", status: "supported_after_conformance" },
+      { id: "codex-vscode", status: "usage_verified_by_owner" },
       {
         id: "github-copilot-vscode",
-        status: "supported_after_conformance",
+        status: "usage_verified_by_owner",
       },
+      { id: "claude-code", status: "usage_verified_by_owner" },
     ],
     capabilities: [
       "evidence_backed_documentation_creation",

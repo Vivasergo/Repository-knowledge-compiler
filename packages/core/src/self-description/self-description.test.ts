@@ -21,6 +21,12 @@ void test("publishes the V2 Markdown-first self-description", () => {
     "rkc-audit-docs",
   ]);
   assert.equal(manifest.provider_specific_instruction_files, false);
+  assert.equal(manifest.host_policy, "provider-neutral");
+  assert.deepEqual(manifest.supported_hosts, [
+    { id: "codex-vscode", status: "usage_verified_by_owner" },
+    { id: "github-copilot-vscode", status: "usage_verified_by_owner" },
+    { id: "claude-code", status: "usage_verified_by_owner" },
+  ]);
   assert.equal(getSelfDescriptionModule("safety").topic, "safety");
   assert.throws(
     () => createSelfDescriptionManifest("not-a-version"),

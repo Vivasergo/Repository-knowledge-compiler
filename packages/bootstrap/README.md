@@ -28,10 +28,10 @@ Installation stores the active versioned core under `~/.rkc`, canonical skills
 under `~/.agents/skills`, and managed Claude Code links under
 `~/.claude/skills`. It does not add dependencies or state to the target
 repository. Restart or refresh your coding agent if it does not detect newly
-installed skills. The skill format is provider-neutral; host discovery may
-require host-specific configuration. Claude Code link discovery has been
-exercised; Codex VS Code and GitHub Copilot VS Code conformance remains to be
-checked before claiming full host support.
+installed skills. The skill format is provider-neutral and uses the agent,
+model, and settings of the environment where it is invoked. Successful use in
+Codex, GitHub Copilot, and Claude Code has been confirmed by the project owner;
+these are verified examples, not a restriction to those environments.
 
 ## First documentation run
 

@@ -46,8 +46,9 @@ try {
   assert.equal(selfDescription.distribution_version, expectedVersion);
   assert.deepEqual(
     selfDescription.supported_hosts.map((host) => host.id),
-    ["codex-vscode", "github-copilot-vscode"],
+    ["codex-vscode", "github-copilot-vscode", "claude-code"],
   );
+  assert.equal(selfDescription.host_policy, "provider-neutral");
   assert.equal(selfDescription.provider_specific_instruction_files, false);
   await readFile(
     join(

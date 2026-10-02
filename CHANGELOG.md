@@ -2,6 +2,9 @@
 
 ## 2.1.0
 
+- Simplified Help's environment explanation and clarified that verified host
+  examples do not restrict agents or models. Included owner-confirmed Claude
+  Code usage and distinguished historical update checks from current status.
 - Improved documentation guidance for recurring changes, including affected
   contracts, related paths, and appropriate verification.
 - Clarified test coverage boundaries and manual acceptance scenarios so

@@ -22,6 +22,14 @@ settings, and privacy controls; RKC does not separately send the repository to
 another AI service. For installation, status, or troubleshooting questions,
 answer the requested fact first rather than repeating a generic pitch.
 
+Keep routine Help focused on installation, documentation state, and the next
+skill. When explaining execution, say briefly that RKC uses the agent, model,
+and settings of the environment where the skill is invoked. Discuss named
+hosts or compatibility only when asked or when an observed discovery problem
+requires it. The manifest's host list records verified examples, not an
+allowlist or a model restriction; do not infer incompatibility from an absent
+entry. Distinguish owner-confirmed use from automated installation checks.
+
 Distinguish:
 
 - machine installation and active RKC version;
@@ -46,7 +54,10 @@ operation. Do not describe old compiler IR, manifests, work orders, or
 dual-renderer lifecycle as current V2 behavior.
 
 For installation, version, update, rollback, or uninstall questions,
-use only version-matched core self-description and diagnostics. Network update
-checks and machine mutation require the explicit corresponding CLI action.
+use only version-matched core self-description and diagnostics. Help does not
+perform network checks or machine mutation; use the explicit corresponding CLI
+action when requested. Create/Update/Audit have their own advisory update-check
+policy. Report a cache for a different installed version as historical and the
+current update status as unknown, without a lengthy cache narrative.
 Never invent installation, project, version, revision, documentation, or audit
 status.
