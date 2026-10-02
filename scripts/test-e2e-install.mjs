@@ -74,7 +74,7 @@ try {
   );
   assert.equal(
     coreManifest.documentation_prompt_version,
-    "RKC-DOCS-CREATE-2.15",
+    "RKC-DOCS-CREATE-2.16",
   );
   const masterPrompt = await readFile(
     join(current.version_path, coreManifest.documentation_master_prompt),
@@ -89,7 +89,7 @@ try {
     selfDescription.documentation_prompt_version,
     coreManifest.documentation_prompt_version,
   );
-  assert.match(masterPrompt, /RKC-DOCS-CREATE-2\.15/u);
+  assert.match(masterPrompt, /RKC-DOCS-CREATE-2\.16/u);
   assert.match(masterPrompt, /planned coverage map/u);
   assert.match(masterPrompt, /TASK-LOCAL DOCUMENTATION FEEDBACK/u);
   assert.match(

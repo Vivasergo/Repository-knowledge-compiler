@@ -31,7 +31,10 @@ Within the bounded semantic sample, assess a plausible maintenance task for a
 consequential feature already named in the docs as well as missing routes.
 Check whether the route retains needed contracts, change guidance, and honest
 test/manual coverage boundaries; a feature mention alone is not proof of
-sufficiency. Do not demand detail for locally recoverable behavior or expand
+sufficiency. Assess supporting and contradicting evidence neutrally, including
+conditions and exceptions in merged or summarized areas. Sufficient coverage
+and no findings are valid outcomes; smaller size is not evidence of quality.
+Do not demand detail for locally recoverable behavior or expand
 this into a second repository sweep.
 
 Use change history and maintenance triggers to focus the audit when impact is

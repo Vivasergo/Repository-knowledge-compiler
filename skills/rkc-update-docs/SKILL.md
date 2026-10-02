@@ -28,6 +28,10 @@ Determine semantic impact before editing documentation:
 5. if no documentation change is justified, report that outcome without
    rewriting files.
 
+Preserve useful conditions, exceptions, scope, and alternative outcomes when
+updating or consolidating knowledge. Shorter documents are not an update goal;
+add explanation when verified changes require it.
+
 Keep recurring change guidance and relevant verification boundaries current in
 the affected canonical document. Check test setup and assertions before
 describing coverage. Preserve consequential contracts in routed documentation;

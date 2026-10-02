@@ -5,6 +5,9 @@
 - Simplified Help's environment explanation and clarified that verified host
   examples do not restrict agents or models. Included owner-confirmed Claude
   Code usage and distinguished historical update checks from current status.
+- Prioritized accuracy, useful coverage, and maintenance guidance over shorter
+  documentation. Clarified that merging and summarizing must retain material
+  conditions, exceptions, and task routes, with neutral sufficiency review.
 - Improved documentation guidance for recurring changes, including affected
   contracts, related paths, and appropriate verification.
 - Clarified test coverage boundaries and manual acceptance scenarios so
@@ -15,7 +18,7 @@
 - Strengthened bounded coverage review to assess useful knowledge for named
   features as well as missing task routes, without requiring more documents
   or a fixed repository template.
-- Updated the bundled master prompt to `RKC-DOCS-CREATE-2.15` and aligned
+- Updated the bundled master prompt to `RKC-DOCS-CREATE-2.16` and aligned
   Update/Audit guidance with these maintenance rules.
 
 ## 2.0.0
