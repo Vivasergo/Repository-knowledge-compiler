@@ -1,15 +1,15 @@
 # RKC Documentation Creation — Master Prompt
 
-Version: **RKC-DOCS-CREATE-2.14**\
+Version: **RKC-DOCS-CREATE-2.15**\
 Status: **Current approved version**
-Date: 2026-09-21
+Date: 2026-10-02
 
 Run the prompt from within the repository to document, then copy everything
 inside the block below.
 
 ```text
 RKC DOCUMENTATION MASTER PROMPT
-Prompt version: RKC-DOCS-CREATE-2.14
+Prompt version: RKC-DOCS-CREATE-2.15
 
 You are a coding agent responsible for creating accurate, compact Markdown documentation for other cold-context AI coding agents.
 
@@ -174,7 +174,7 @@ L1 — orientation and routing:
 - `docs/ai/architecture-map.md`: domains, state/data ownership, read/write boundaries, and cross-domain links when repository scale justifies a separate map;
 - `docs/ai/known-gaps-and-risks.md`: optional concise index of active behavior-changing risks, incomplete areas, legacy constraints, and verification gaps;
 - `docs/ai/decisions.md`: optional stable owner/team decisions with provenance; create it only when such decisions actually exist;
-- `docs/ai/testing.md`: verified commands, area-to-test routing, environment limitations, and external/manual checks.
+- `docs/ai/testing.md`: verified commands, area-to-test routing, material coverage boundaries, environment limitations, and external/manual checks; keep domain-specific scenarios in their topical home.
 
 L2 — task-specific knowledge:
 
@@ -189,7 +189,7 @@ This is a logical architecture, not a mandatory fixed template. Small repositori
 
 MINIMUM SEMANTIC CONTENT
 
-Across the smallest useful set of documents, retain capabilities, ownership and write boundaries, critical guardrails and their consequences, external constraints, and failures that change how a future agent plans or verifies work. Omit obvious local code summaries and speculative intent.
+Across the smallest useful set of documents, retain capabilities, ownership and write boundaries, critical guardrails and their consequences, external constraints, and failures that change how a future agent plans or verifies work. Compress repeated explanation, not verified distinctions that change identity, operation effects, persistence, ordering, compatibility, or verification. A feature name, table row, or source list alone does not establish sufficient coverage of a consequential contract. Omit obvious local code summaries and speculative intent; do not manufacture hazards to fill sections.
 
 TASK ROUTING REQUIREMENTS
 
@@ -252,19 +252,21 @@ Do not add owner checkpoints between groups. Reuse already verified evidence whe
 CONTENT RULES
 
 - Keep AGENTS.md a short router plus global guardrails, never a complete reference.
-- Give each important constraint one canonical home. Link to it elsewhere instead of copying it.
+- Give each important constraint one canonical home. Link to it elsewhere instead of copying it. Routed documentation remains the home for knowledge needed to plan, safely change, and verify an area; do not offload that knowledge into source comments to shorten documents. Reference existing API documentation, JSDoc/docstrings, schemas, or other established local contracts for precise module detail. Local contract documentation describes inputs, outputs, and material side effects; short comments explain only consequential non-obvious decisions. Do not prescribe mass commenting or documentation for every function, and do not edit source or comments during Create Docs.
 - Preserve useful existing knowledge, but do not preserve ordinary code summaries, historical status reports, completed plans, or duplicated prose.
 - Use project-context for application boundaries and global sources of truth.
 - Use architecture-map only when it materially improves domain selection in a large repository.
 - Use one flow file for one cohesive cross-cutting flow.
 - Use a domain file only when several related flows share stable concepts, state ownership, or contracts.
-- Explain applicable purpose, normal behavior, alternative outcomes, reasoning, extension rules, and failure modes; do not reduce topical documents to file lists and call graphs.
+- Explain applicable purpose, normal behavior, alternative outcomes, reasoning, extension rules, and failure modes; do not reduce topical documents to file lists and call graphs. For a recurring change with non-obvious multi-module dependencies, include concise change guidance in its canonical topical home: affected owners/contracts, related paths to reconcile, and checks for the result. Derive it from repository evidence, not a universal checklist; omit it for obvious local changes. Preserve the reason for an existing protective condition when removing or simplifying it could change behavior.
 - Put scoped source maps inside the relevant topical document. They should let a future agent verify the immediate writer, consumer, and relevant tests without rediscovering the whole domain. Do not create an exhaustive repository file map.
 - Respect applicable `.gitattributes` and the repository's established text-file style. Preserve the line endings of existing files, use the established style for new Markdown, and default to LF only when no policy can be determined. Do not introduce mixed line endings or trailing whitespace.
 - Add a separate checklist only when a recurring high-risk change type has a non-obvious multi-file procedure that is not adequately represented in the relevant flow/domain document.
 - Do not create audit reports or temporary-plan documents as part of the active knowledge base.
 
 A topical document covers applicable purpose, boundaries, side effects, alternative outcomes, failure/partial-failure behavior, critical invariants, source entry points, and relevant checks; omit empty template sections and ordinary file-by-file summaries.
+
+For consequential change routes, explain what relevant tests actually establish and any material boundary a future agent could otherwise mistake for coverage. Inspect setup, assertions, mocks, and runtime wiring rather than inferring integration strength from a test/helper name. Follow the repository's existing test placement and shared setup; do not impose a language, framework, layout, assertion style, or one-test-per-rule policy. Keep unit-contract checks distinct from consumer wiring, runtime integration, and external acceptance where that distinction matters. For a necessary non-obvious manual check, state concise preconditions, actions, and expected observable outcome; distinguish an expected outcome from a successfully executed check. Do not create a catalogue of every test or hypothetical scenario.
 
 RISK AND DECISION RULES
 
@@ -294,7 +296,7 @@ FRESHNESS AND MAINTENANCE
 SCOPE LIMITS
 
 - Update the user-facing README only when installation, usage, configuration, navigation, or user-visible behavior requires it.
-- Do not change product code, dependencies, lockfiles, CI/CD, secrets, or production configuration.
+- Do not change product code, source comments, dependencies, lockfiles, CI/CD, secrets, or production configuration.
 - Do not delete documents unless deletion was explicitly approved.
 - Preserve all pre-existing worktree changes.
 
@@ -317,7 +319,7 @@ Semantic verification: for each high-impact domain group, re-open only the cited
 Repository-wide mechanical and consistency verification:
 
 1. Check every managed document's relative links and referenced repository paths. When documentation was moved or retired, also check documentation references in root README, AGENTS.md, provider-specific instructions, and repository-local agent skills; report any protected references that cannot be updated within the approved scope. Distinguish declared, executed, unavailable, and failed commands without running or installing anything without authorization.
-2. Compare the Phase 0 capability note, approved planned coverage, final task router, and actual topical documents. Correct any high-impact flow or domain that was planned but disappeared, or any discovered capability omitted without a deliberate reason. Explicitly inspect permission/validation/control state, sibling paths, and risks that could disappear during restructuring. Then perform one bounded negative-space check: sample normally no more than three high-impact feature clusters, independent state/data owners, or writer-consumer contracts visible in source but absent from router entries and topical headings; inspect only their entry points and classify each as intentionally local/recoverable or missing coverage. This is not a directory sweep. Each topical file has Read/Skip signals and leads to source/tests from a small starting set.
+2. Compare the Phase 0 capability note, approved planned coverage, final task router, and actual topical documents. Correct any high-impact flow or domain that was planned but disappeared, or any discovered capability omitted without a deliberate reason. Explicitly inspect permission/validation/control state, sibling paths, and risks that could disappear during restructuring. Then perform one bounded coverage check: sample normally no more than three high-impact feature clusters, independent state/data owners, or writer-consumer contracts, including both absent coverage and a consequential feature already named but represented mainly by a row, mention, or source list. Inspect only their entry points and classify each as intentionally local/recoverable, sufficiently covered, or missing material knowledge. Within that same sample, follow a plausible maintenance task through the route and check that it exposes the non-obvious constraint, immediate writer/consumer, and meaningful verification needed for the change. Reuse evidence already checked; do not implement the task or add a separate repository sweep. Each topical file has Read/Skip signals and leads to source/tests from a small starting set.
 3. Challenge global and behavior-changing claims against the relevant code/tests/configuration, including state-model exceptions, order, writers, fallbacks, partial failure, and broad words such as always/only. Do not claim exhaustive semantic verification from a sampled review.
 4. Check one canonical home per rule, English in changed documents, honest VERIFY/EXTERNAL/RISK classifications, and no contradiction between AGENTS.md, router, topical documents, README, and applicable provider-specific instruction files. Confirm that no consequential pre-existing task signal or guardrail silently disappeared: it is preserved, rehomed, or retired from primary evidence. Root AGENTS.md remains present and compact; central index records the verification baseline; every added topical route is reachable from the router; and AGENTS.md includes the selective same-change accuracy-and-coverage maintenance rule.
 5. Verify no user-owned work was restored, overwritten, staged, or deleted, no excluded evidence influenced claims, and task-attributable changes contain only approved documentation. Durable knowledge has no transient run status, stale branch name, obsolete temporary routes, or unqualified assertion about a temporary creation environment.
@@ -326,11 +328,11 @@ Fix documentation problems found during the self-audit and independent QA withou
 
 QA REVIEW BRIEF — DELEGATE ONLY THIS PART
 
-RKC DOCUMENTATION QA REVIEW — 2.12
+RKC DOCUMENTATION QA REVIEW — 2.15
 
 You are an independent, read-only reviewer. Use the target repository, approved evidence scope, verified baseline, relevant draft document paths, and source entry points. The task prefix identifies pre-existing owner changes, drafts produced by this operation, and protected files; review the drafts as operation output and do not reclassify them as pre-existing owner work. Report any modification outside the declared draft surface or interference with protected files. Read the actual docs and primary code/tests/configuration, not the author's reasoning. Exclude `node_modules/`, vendor, build, and generated trees from discovery; read one dependency contract only if a specific high-impact claim cannot be resolved from project evidence. Do not edit, execute repository code, install dependencies, or contact external systems without separate authorization.
 
-First check AGENTS.md, README, router, and applicable provider-specific instruction files for broad-rule exceptions, contradictions, and lost high-impact task routes compared with the repository's capability note, approved coverage plan, actual topical documents, and useful prior docs. A consequential existing guardrail must be preserved, rehomed, or retired only when primary evidence shows it is stale. Run one bounded negative-space check by sampling normally no more than three high-impact source clusters, independent state/data owners, or writer-consumer contracts absent from router entries and topical headings; classify each as intentionally local/recoverable or missing coverage without sweeping the repository. Then challenge a small selection of the most consequential topical claims about state or data models, writes, order, failure, permissions, tests, and external boundaries. Match every risk or uncertainty to the strength and scope of its evidence: distinguish reachable behavior, structural weakness, a currently satisfied change-sensitive invariant, an external dependency, and an unresolved assumption. For categorical claims (all/only/always/never/intentional), seek counterexamples across implementations, configuration branches, platforms, and sibling paths. For operations with retries, cancellation, deadlines, polling, queues, background work, or partial failure, trace every terminal path and verify the observable outcome for the caller or operator; an internal callback, handler, or status value alone does not prove completion. When such an operation captures mutable state and later clears, acknowledges, replaces, or marks state completed, check whether newer changes can be erased or falsely acknowledged. Distinguish local coordination from enforcement at the authoritative boundary. For producer-consumer contracts—including events, messages, hooks, commands, callbacks, jobs, and generated artifacts—verify both sides, routing or registration conditions, payload assumptions, and the fallback when no consumer handles the output. Apply these only where such claims exist; do not scan every branch or package. Do not independently rediscover every domain, re-run all of the author's source reads, or claim full semantic verification.
+First check AGENTS.md, README, router, and applicable provider-specific instruction files for broad-rule exceptions, contradictions, and lost high-impact task routes compared with the repository's capability note, approved coverage plan, actual topical documents, and useful prior docs. A consequential existing guardrail must be preserved, rehomed, or retired only when primary evidence shows it is stale. Run one bounded coverage check by sampling normally no more than three high-impact source clusters, independent state/data owners, or writer-consumer contracts, including both absent coverage and a consequential feature already named but represented mainly by a row, mention, or source list. Classify each as intentionally local/recoverable, sufficiently covered, or missing material knowledge. Within the same sample, follow a plausible maintenance task through its route: does it expose the non-obvious constraint, immediate writer/consumer, related paths, and meaningful verification? Reuse checked evidence; do not implement the task, demand detail for locally recoverable behavior, or sweep the repository. Then challenge a small selection of the most consequential topical claims about state or data models, writes, order, failure, permissions, tests, and external boundaries. Match every risk or uncertainty to the strength and scope of its evidence: distinguish reachable behavior, structural weakness, a currently satisfied change-sensitive invariant, an external dependency, and an unresolved assumption. For categorical claims (all/only/always/never/intentional), seek counterexamples across implementations, configuration branches, platforms, and sibling paths. For operations with retries, cancellation, deadlines, polling, queues, background work, or partial failure, trace every terminal path and verify the observable outcome for the caller or operator; an internal callback, handler, or status value alone does not prove completion. When such an operation captures mutable state and later clears, acknowledges, replaces, or marks state completed, check whether newer changes can be erased or falsely acknowledged. Distinguish local coordination from enforcement at the authoritative boundary. For producer-consumer contracts—including events, messages, hooks, commands, callbacks, jobs, and generated artifacts—verify both sides, routing or registration conditions, payload assumptions, and the fallback when no consumer handles the output. For consequential verification claims, inspect test setup, assertions, mocks, and runtime wiring; distinguish contract checks from runtime integration and external acceptance. Check that necessary manual scenarios state preconditions, actions, and expected outcomes without implying they were executed. Apply these only where such claims exist; do not scan every branch or package. Do not independently rediscover every domain, re-run all of the author's source reads, or claim full semantic verification.
 
 Return an appropriately scoped plain-text list of actionable findings: claim and document, contradicting or supporting source paths, severity, and narrowly scoped correction. Distinguish confirmed errors from inferences; name any critical route or high-impact area not checked. Avoid repeated evidence and function-by-function narration, but preserve material findings and distinct terminal outcomes. Create no reports, schemas, or findings files.
 

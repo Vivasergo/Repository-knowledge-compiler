@@ -28,6 +28,12 @@ Determine semantic impact before editing documentation:
 5. if no documentation change is justified, report that outcome without
    rewriting files.
 
+Keep recurring change guidance and relevant verification boundaries current in
+the affected canonical document. Check test setup and assertions before
+describing coverage. Preserve consequential contracts in routed documentation;
+source comments are not a substitute and remain outside this operation's
+mutation scope. Add no mandatory documents, checklists, or commentary policy.
+
 Do not regenerate the entire documentation tree by default. Expand inspection
 when impact is structural, cross-domain, weakly mapped, or uncertain. If safe
 scope cannot be established, stop with a clear wider-audit recommendation

@@ -1,5 +1,20 @@
 # Changelog
 
+## 2.1.0
+
+- Improved documentation guidance for recurring changes, including affected
+  contracts, related paths, and appropriate verification.
+- Clarified test coverage boundaries and manual acceptance scenarios so
+  future agents can choose checks without overstating their guarantees.
+- Kept routed documentation responsible for consequential knowledge, with
+  local API contracts and short comments serving their own limited purpose.
+  Documentation operations do not add or modify source comments.
+- Strengthened bounded coverage review to assess useful knowledge for named
+  features as well as missing task routes, without requiring more documents
+  or a fixed repository template.
+- Updated the bundled master prompt to `RKC-DOCS-CREATE-2.15` and aligned
+  Update/Audit guidance with these maintenance rules.
+
 ## 2.0.0
 
 First public release of RKC V2.

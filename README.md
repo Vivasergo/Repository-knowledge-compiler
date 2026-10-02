@@ -66,3 +66,7 @@ npm pack --dry-run --workspace repository-knowledge-compiler
 Read [AGENTS.md](AGENTS.md) and [CONTRIBUTING.md](CONTRIBUTING.md)
 before proposing changes. The [CHANGELOG.md](CHANGELOG.md) records releases;
 [LICENSE](LICENSE) contains the MIT terms. Local checks and packing do not publish to npm.
+
+The [2.1.0 candidate validation plan](docs/development/2.1.0-validation.md)
+records the documentation refinements and controlled local evaluation before
+release acceptance.

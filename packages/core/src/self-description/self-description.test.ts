@@ -13,7 +13,7 @@ import { inspectProjectHelpContext, resolveRkcHelp } from "./help.js";
 void test("publishes the V2 Markdown-first self-description", () => {
   const manifest = createSelfDescriptionManifest("2.0.0");
   assert.equal(manifest.distribution_version, "2.0.0");
-  assert.equal(manifest.documentation_prompt_version, "RKC-DOCS-CREATE-2.14");
+  assert.equal(manifest.documentation_prompt_version, "RKC-DOCS-CREATE-2.15");
   assert.deepEqual(manifest.skills, [
     "rkc-help",
     "rkc-create-docs",

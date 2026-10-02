@@ -68,7 +68,7 @@ await writeFile(
       self_description_manifest: "self-description-manifest.json",
       documentation_master_prompt:
         "documentation/RKC-Documentation-Master-Prompt.md",
-      documentation_prompt_version: "RKC-DOCS-CREATE-2.14",
+      documentation_prompt_version: coreModule.RKC_DOCUMENTATION_PROMPT_VERSION,
       skills: [
         "rkc-help",
         "rkc-create-docs",

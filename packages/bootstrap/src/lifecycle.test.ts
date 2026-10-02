@@ -145,7 +145,7 @@ void test("installs one versioned core and four thin skills without repository w
   );
   assert.equal(
     coreManifest.documentation_prompt_version,
-    "RKC-DOCS-CREATE-2.14",
+    "RKC-DOCS-CREATE-2.15",
   );
   await readFile(
     join(installed.version_path, coreManifest.documentation_master_prompt),
@@ -628,7 +628,7 @@ void test("doctor uses the installed core for forced, cached, disabled, and enab
   await install({ testUserHome: environment.userHome });
 
   const checked = await doctor({
-    latestVersionSource: () => Promise.resolve("2.0.1"),
+    latestVersionSource: () => Promise.resolve("2.1.1"),
     mode: "check",
     now: new Date("2026-08-17T08:00:00.000Z"),
     testUserHome: environment.userHome,
@@ -639,7 +639,7 @@ void test("doctor uses the installed core for forced, cached, disabled, and enab
 
   const cached = await doctor({ testUserHome: environment.userHome });
   assert.equal(cached.update.source, "cache");
-  assert.equal(cached.update.latest_version, "2.0.1");
+  assert.equal(cached.update.latest_version, "2.1.1");
 
   const disabled = await doctor({
     mode: "disable",
@@ -647,7 +647,7 @@ void test("doctor uses the installed core for forced, cached, disabled, and enab
   });
   assert.equal(disabled.update.automatic_enabled, false);
   const forcedWhileDisabled = await doctor({
-    latestVersionSource: () => Promise.resolve("2.0.2"),
+    latestVersionSource: () => Promise.resolve("2.1.2"),
     mode: "check",
     testUserHome: environment.userHome,
   });
@@ -701,7 +701,7 @@ void test("post-operation discovery is terminal-only, best-effort, and notices o
     displayNotice: (notice) => {
       notices.push(notice);
     },
-    latestVersionSource: () => Promise.resolve("2.0.1"),
+    latestVersionSource: () => Promise.resolve("2.1.1"),
     operation: "rkc-create-docs",
     terminalResultKnown: false,
     testUserHome: environment.userHome,
@@ -713,7 +713,7 @@ void test("post-operation discovery is terminal-only, best-effort, and notices o
     displayNotice: (notice) => {
       notices.push(notice);
     },
-    latestVersionSource: () => Promise.resolve("2.0.1"),
+    latestVersionSource: () => Promise.resolve("2.1.1"),
     now: new Date("2026-08-17T08:00:00.000Z"),
     operation: "rkc-create-docs",
     terminalResultKnown: true,
@@ -726,7 +726,7 @@ void test("post-operation discovery is terminal-only, best-effort, and notices o
     notices[0] ?? "",
     new RegExp(`Installed: ${escapeRegExp(FOUNDATION_VERSION)}`, "u"),
   );
-  assert.match(notices[0] ?? "", /Available: 2\.0\.1/u);
+  assert.match(notices[0] ?? "", /Available: 2\.1\.1/u);
   assert.doesNotMatch(notices[0] ?? "", /major-version update/u);
   assert.match(notices[0] ?? "", /No update was installed automatically/u);
   assert.match(
@@ -738,7 +738,7 @@ void test("post-operation discovery is terminal-only, best-effort, and notices o
     displayNotice: (notice) => {
       notices.push(notice);
     },
-    latestVersionSource: () => Promise.resolve("2.0.1"),
+    latestVersionSource: () => Promise.resolve("2.1.1"),
     now: new Date("2026-08-18T08:00:00.000Z"),
     operation: "rkc-audit-docs",
     terminalResultKnown: true,
@@ -752,7 +752,7 @@ void test("post-operation discovery is terminal-only, best-effort, and notices o
     displayNotice: () => {
       throw new Error("host output unavailable");
     },
-    latestVersionSource: () => Promise.resolve("2.1.0"),
+    latestVersionSource: () => Promise.resolve("2.2.0"),
     now: new Date("2026-08-25T08:00:00.000Z"),
     operation: "rkc-update-docs",
     terminalResultKnown: true,

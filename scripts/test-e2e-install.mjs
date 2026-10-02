@@ -73,13 +73,22 @@ try {
   );
   assert.equal(
     coreManifest.documentation_prompt_version,
-    "RKC-DOCS-CREATE-2.14",
+    "RKC-DOCS-CREATE-2.15",
   );
   const masterPrompt = await readFile(
     join(current.version_path, coreManifest.documentation_master_prompt),
     "utf8",
   );
-  assert.match(masterPrompt, /RKC-DOCS-CREATE-2\.14/u);
+  assert.equal(
+    masterPrompt,
+    await readFile("docs/current/RKC-Documentation-Master-Prompt.md", "utf8"),
+    "Installed prompt differs from the exact source candidate.",
+  );
+  assert.equal(
+    selfDescription.documentation_prompt_version,
+    coreManifest.documentation_prompt_version,
+  );
+  assert.match(masterPrompt, /RKC-DOCS-CREATE-2\.15/u);
   assert.match(masterPrompt, /planned coverage map/u);
   assert.match(masterPrompt, /TASK-LOCAL DOCUMENTATION FEEDBACK/u);
   assert.match(
