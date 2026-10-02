@@ -145,7 +145,7 @@ void test("installs one versioned core and four thin skills without repository w
   );
   assert.equal(
     coreManifest.documentation_prompt_version,
-    "RKC-DOCS-CREATE-2.16",
+    "RKC-DOCS-CREATE-2.14",
   );
   await readFile(
     join(installed.version_path, coreManifest.documentation_master_prompt),

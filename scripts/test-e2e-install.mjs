@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { createHash } from "node:crypto";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 
@@ -74,7 +75,7 @@ try {
   );
   assert.equal(
     coreManifest.documentation_prompt_version,
-    "RKC-DOCS-CREATE-2.16",
+    "RKC-DOCS-CREATE-2.14",
   );
   const masterPrompt = await readFile(
     join(current.version_path, coreManifest.documentation_master_prompt),
@@ -89,7 +90,12 @@ try {
     selfDescription.documentation_prompt_version,
     coreManifest.documentation_prompt_version,
   );
-  assert.match(masterPrompt, /RKC-DOCS-CREATE-2\.16/u);
+  assert.match(masterPrompt, /RKC-DOCS-CREATE-2\.14/u);
+  assert.equal(
+    createHash("sha256").update(masterPrompt).digest("hex"),
+    "781eb552765706b35d28ce7f445510baf3b3280aff15a0aebb42915e9ab8c948",
+    "Control run must install the exact v2.0.0 prompt 2.14 bytes.",
+  );
   assert.match(masterPrompt, /planned coverage map/u);
   assert.match(masterPrompt, /TASK-LOCAL DOCUMENTATION FEEDBACK/u);
   assert.match(
