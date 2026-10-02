@@ -63,6 +63,9 @@ the package README, need a new version if they are to reach npm users after
    check the implementation and tests for actual behavior.
 2. Keep skills thin and provider-neutral. Canonical documentation-creation
    behavior belongs to the master prompt, not duplicated adapter logic.
+   The unaccepted staged-Create experiment uses one skill reference to vary
+   execution while holding the canonical prompt bytes fixed; its scoped
+   exceptions and acceptance criteria are recorded in the candidate plan.
 3. Keep permanent repository knowledge in Markdown. Do not reintroduce a
    knowledge manifest, semantic IR, graph, database, or provider SDK without an
    approved observed need.

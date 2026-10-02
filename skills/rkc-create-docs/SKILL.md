@@ -24,6 +24,14 @@ Apply the master prompt to the current repository. Its phases, evidence order,
 uncertainty markers, progressive-disclosure architecture, owner checkpoint,
 content rules, and internal verification are authoritative.
 
+This candidate enables the `RKC-CREATE-FLOW-EXPERIMENT-1` execution experiment.
+After loading the unchanged master prompt, read
+[the staged workflow](references/staged-workflow-experiment.md) from this
+installed skill. Apply its scoped overrides for temporary research checkpoints,
+coverage reconciliation and the two QA assignments. All other master-prompt
+requirements remain authoritative. The host agent performs this workflow;
+the core does not launch agents or guarantee context isolation.
+
 Preserve these operation boundaries:
 
 - inspect before writing and present the prompt's single concise preflight;

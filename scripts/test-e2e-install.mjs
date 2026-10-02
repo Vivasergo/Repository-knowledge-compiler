@@ -153,6 +153,29 @@ try {
     assert.match(instructions, /post-operation\.js/u);
   }
 
+  const workflowReference = "references/staged-workflow-experiment.md";
+  for (const hostDirectory of [".agents", ".claude"]) {
+    const installedCreateSkill = join(
+      environment.userHome,
+      hostDirectory,
+      "skills",
+      "rkc-create-docs",
+    );
+    const createInstructions = await readFile(
+      join(installedCreateSkill, "SKILL.md"),
+      "utf8",
+    );
+    assert.ok(createInstructions.includes(workflowReference));
+    assert.equal(
+      await readFile(join(installedCreateSkill, workflowReference), "utf8"),
+      await readFile(
+        join("skills", "rkc-create-docs", workflowReference),
+        "utf8",
+      ),
+      "Installed staged workflow differs from the source candidate.",
+    );
+  }
+
   const helpSkill = await readFile(
     join(environment.userHome, ".agents", "skills", "rkc-help", "SKILL.md"),
     "utf8",
