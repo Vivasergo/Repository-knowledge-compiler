@@ -1,11 +1,12 @@
 # Staged analysis and QA execution experiment
 
-Execution identity: `RKC-CREATE-FLOW-EXPERIMENT-3`.
+Execution identity: `RKC-CREATE-FLOW-EXPERIMENT-4B`.
 
 Keep the loaded master prompt's content requirements, evidence scope, repository
 protections and single owner preflight unchanged. Override only its research-file
-prohibition, worker/QA allocation and the small preflight/final-report additions
-under Limitations and reporting. Keep all other completion rules unchanged.
+prohibition, research handoff/transfer sequence, worker/QA allocation and the
+small preflight/final-report additions under Limitations and reporting. Keep
+all other completion rules unchanged.
 Use the following stages to execute its research, synthesis and review phases.
 The host agent executes them; the core does not manage context or launch agents.
 Do not load evaluation reports, other branches or expected answers as evidence.
@@ -13,8 +14,8 @@ Do not load evaluation reports, other branches or expected answers as evidence.
 ## Stages
 
 1. Orient: select consequential capabilities and coherent research groups.
-2. Research: inspect each group and retain source-supported checkpoints.
-3. Reconcile: verify consequential connections between groups from both sides.
+2. Research: inspect each group and preserve original bounded reports.
+3. Reconcile and close research: verify connections and resolve material scope gaps.
 4. Synthesize: assign knowledge to routes, present the single preflight, draft.
 5. Check transfer: trace selected research contracts to actual document passages.
 6. Review: accuracy QA, corrections, usefulness QA, corrections, mechanical checks.
@@ -47,29 +48,29 @@ Apply the common safety brief below to researchers as well as QA reviewers.
 ### 2. Research and continuity
 
 Research one coherent group at a time in the primary context; independent
-workers may investigate their assigned groups concurrently. Before shortening a
-worker's bounded report, select the consequential findings that change a future
-agent's location, plan, implementation or checks. Retain that report in the
-operation notes and annotate its selected findings rather than repeatedly
-paraphrasing them. For primary-agent research, record the same bounded contract
-statements before synthesis. Selection is not a requirement to document all
-findings or ordinary local details.
+workers may investigate their assigned groups concurrently. On receiving a
+worker's bounded report, save its returned wording unchanged in the operation
+notes before selecting, indexing or summarizing it. Check that the saved report
+reproduces the returned text. Treat it as a read-only original; a condensed
+checkpoint must not replace it. Keep primary annotations and source-checked
+corrections beside the original or in a linked note. A short navigation index
+may point to finding IDs and report locations without retelling their claims.
+If safe file storage is unavailable, preserve the original message and its
+conversation location, not just a summary, and disclose that limitation.
 
-For each selected finding, keep a short linked statement in plain Markdown:
-rule with condition/exception -> source path and symbol -> evidence boundary ->
-planned canonical home or specific local-recoverability reason. Preserve the
-original bounded wording; annotate source-verified corrections alongside it so
-an evaluator can distinguish a corrected finding from a transfer loss. Mark
-repository-verified behavior, inference and external unknowns distinctly;
-verification applies only to the stated branch and evidence scope.
+For primary-agent research, record the same bounded contract statements before
+selection: rule with condition/exception -> source path and symbol -> evidence
+boundary or open relationship. During research, establish the contract before
+deciding its documentation home. Mark repository-verified behavior, inference
+and external unknowns distinctly; verification applies only to the stated
+branch and evidence scope. Do not require all findings or ordinary local
+details to enter documentation.
 
-The checkpoint may reference these retained statements rather than retell them.
-Before finishing it, compare the selected findings with the checkpoint and
-account for omitted material conditions, exceptions, test limits and open
-connections. A topic label does not preserve a contract. Keep unverified findings
-and unresolved questions separate from facts. Avoid file-by-file summaries,
-source dumps, per-sentence evidence ledgers and structured evidence schemas.
-Reuse checked evidence instead of rereading the entire group after handoff.
+Use the original reports and annotations when resuming or checking a contract;
+the index is only a locator. Keep unverified findings and unresolved questions
+separate from facts. Avoid file-by-file summaries, source dumps, per-sentence
+evidence ledgers and structured evidence schemas. Reuse checked evidence
+instead of rereading the entire group after handoff.
 
 Use safe host-provided session storage outside the target repository. This is
 the scoped exception to the master's ban on research files. Create no `.rkc`
@@ -91,7 +92,7 @@ Keep them out of the generated knowledge base and Git; never delete pre-existing
 files. Notes must remain accessible to the host for evaluation, but transient
 storage is not a durability guarantee. Report unavailable evidence honestly.
 
-### 3. Cross-group verification
+### 3. Cross-group verification and research closure
 
 Before planning documents, the primary agent resolves the consequential
 connections identified during research. Trace the immediate writer and consumer
@@ -100,7 +101,7 @@ completion or failure where relevant. Verify the conditions and exceptions
 that change a future implementation or its checks. Reuse source evidence and
 inspect only the missing connection; do not run another whole-repository sweep.
 
-Before treating a selected consequential assertion as repository-verified,
+Before treating a consequential assertion as repository-verified,
 inspect the acting predicate and the immediate writer/consumer where relevant.
 Check the actual unit of data read, replaced or cleared; for asynchronous work,
 check when values are read relative to await/completion. Inspect the specific
@@ -108,7 +109,9 @@ input, assertions, mocks and wiring behind a test-based claim. A comment, test
 name or source anchor is a locator, not proof of a broader rule. Apply these
 checks only where they affect the contract; do not repeat an identical checklist
 for every function. Narrow categorical words such as all/always/never to the
-established scope, and retain material external limits.
+established scope, and retain material external limits. Check a relevant sibling
+path when it can contradict a broad rule; a shared hook or adapter does not
+establish identical contracts for all of its callers.
 
 Record the reconciled contract and evidence in the relevant checkpoint. Resolve
 material disagreements from primary sources; keep external behavior and owner
@@ -117,9 +120,29 @@ reports are not evidence that their interaction works. If a consequential
 connection remains unverified, carry that specific limit into synthesis and QA.
 Do not force every possible connection into a graph or invent missing contracts.
 
+Close research only after all assigned reports are available, or their missing
+scope has been investigated by the primary agent or explicitly bounded. Return
+to the source inventory and open connections, not only selected findings. For
+consequential capabilities still represented only by a topic label or a generic
+pattern, inspect the immediate relationship needed to establish their contract.
+Record the outcome briefly in existing notes: established contract, a specific
+unresolved/external boundary, or ordinary local behavior with a precise source
+and a reason that recovery needs no repeated multi-module investigation. Do
+not declare an unexamined capability locally recoverable because it uses the
+same infrastructure or will not receive a separate document.
+
+This closes the selected research scope, not every repository function. Inspect
+only missing material relationships; supported contracts and justified local
+outcomes are valid, with no required defect count. Carry material unresolved
+behavior into synthesis as a limit rather than expanding a whole-repository
+audit. Do not describe an unfinished group or partially checked assertion as
+fully verified. Selection and canonical-home decisions follow this closure.
+
 ### 4. Synthesis and preflight
 
-Assign each consequential discovered item a planned canonical home or an
+After research closure, select contracts that change a future agent's location,
+plan, implementation or checks from the original reports and annotations.
+Assign each selected consequential item a planned canonical home or an
 evidence-based omission reason in the existing coverage map. A UI label,
 directory, or apparent locality alone does not establish local recoverability.
 Use the master's architecture and existing-document reconciliation rules;
@@ -129,9 +152,11 @@ Draft and source-check coherent groups within the approved scope.
 
 ### 5. Transfer reconciliation
 
-Start from the selected findings in the retained bounded research statements,
-not only their shortened checkpoints. Compare each source-checked contract with
-the actual document paragraph or table and its route. Briefly annotate the same
+Start from the selected contracts in the original bounded reports and accepted
+annotations, not the condensed index. Check their planned canonical homes and
+local/unresolved dispositions; an overall topic route is not a disposition.
+Compare each source-checked contract with the actual document paragraph or table
+and its route. Briefly annotate the same
 finding with the document path and section/identifiable passage, or a specific
 local-recoverability reason, unresolved boundary or accidental loss. No separate
 permanent transfer ledger is required.
@@ -139,7 +164,13 @@ permanent transfer ledger is required.
 Mark retained only after checking that the passage preserves the rule, material
 conditions/exceptions and evidence boundary without unsupported strengthening.
 A heading, source list, router row or statement that a topic is covered is not
-proof of transfer. When knowledge remains local, identify a precise recoverable
+proof of transfer. For a compound finding, check the material conditions,
+exceptions and limits individually against the passage; do not mark ranges of
+finding IDs retained as a substitute. Keep the original and corrected wording
+distinguishable. Prioritize changed or combined contracts and claims elevated
+to root guidance: verify that broader guardrails preserve interface differences,
+predicates and external limits established in the topical evidence.
+When knowledge remains local, identify a precise recoverable
 source and explain why the omitted relationship does not require repeating a
 multi-module investigation. Carry material unresolved behavior into useful
 guidance rather than silently calling it verified or locally recoverable.
