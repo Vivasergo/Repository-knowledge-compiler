@@ -1,6 +1,6 @@
 # Staged analysis and QA execution experiment
 
-Execution identity: `RKC-CREATE-FLOW-EXPERIMENT-2`.
+Execution identity: `RKC-CREATE-FLOW-EXPERIMENT-3`.
 
 Keep the loaded master prompt's content requirements, evidence scope, repository
 protections and single owner preflight unchanged. Override only its research-file
@@ -16,7 +16,7 @@ Do not load evaluation reports, other branches or expected answers as evidence.
 2. Research: inspect each group and retain source-supported checkpoints.
 3. Reconcile: verify consequential connections between groups from both sides.
 4. Synthesize: assign knowledge to routes, present the single preflight, draft.
-5. Check transfer: compare consequential checkpoint items with actual documents.
+5. Check transfer: trace selected research contracts to actual document passages.
 6. Review: accuracy QA, corrections, usefulness QA, corrections, mechanical checks.
 
 ### 1. Orientation and allocation
@@ -47,11 +47,28 @@ Apply the common safety brief below to researchers as well as QA reviewers.
 ### 2. Research and continuity
 
 Research one coherent group at a time in the primary context; independent
-workers may investigate their assigned groups concurrently. After each group,
-retain a short plain Markdown checkpoint of verified consequential knowledge,
-its source anchors, conditions, exceptions, test boundaries and open connections.
-Clearly separate unverified worker findings and unresolved questions from facts.
-Avoid file-by-file summaries, source dumps and structured evidence schemas.
+workers may investigate their assigned groups concurrently. Before shortening a
+worker's bounded report, select the consequential findings that change a future
+agent's location, plan, implementation or checks. Retain that report in the
+operation notes and annotate its selected findings rather than repeatedly
+paraphrasing them. For primary-agent research, record the same bounded contract
+statements before synthesis. Selection is not a requirement to document all
+findings or ordinary local details.
+
+For each selected finding, keep a short linked statement in plain Markdown:
+rule with condition/exception -> source path and symbol -> evidence boundary ->
+planned canonical home or specific local-recoverability reason. Preserve the
+original bounded wording; annotate source-verified corrections alongside it so
+an evaluator can distinguish a corrected finding from a transfer loss. Mark
+repository-verified behavior, inference and external unknowns distinctly;
+verification applies only to the stated branch and evidence scope.
+
+The checkpoint may reference these retained statements rather than retell them.
+Before finishing it, compare the selected findings with the checkpoint and
+account for omitted material conditions, exceptions, test limits and open
+connections. A topic label does not preserve a contract. Keep unverified findings
+and unresolved questions separate from facts. Avoid file-by-file summaries,
+source dumps, per-sentence evidence ledgers and structured evidence schemas.
 Reuse checked evidence instead of rereading the entire group after handoff.
 
 Use safe host-provided session storage outside the target repository. This is
@@ -83,6 +100,16 @@ completion or failure where relevant. Verify the conditions and exceptions
 that change a future implementation or its checks. Reuse source evidence and
 inspect only the missing connection; do not run another whole-repository sweep.
 
+Before treating a selected consequential assertion as repository-verified,
+inspect the acting predicate and the immediate writer/consumer where relevant.
+Check the actual unit of data read, replaced or cleared; for asynchronous work,
+check when values are read relative to await/completion. Inspect the specific
+input, assertions, mocks and wiring behind a test-based claim. A comment, test
+name or source anchor is a locator, not proof of a broader rule. Apply these
+checks only where they affect the contract; do not repeat an identical checklist
+for every function. Narrow categorical words such as all/always/never to the
+established scope, and retain material external limits.
+
 Record the reconciled contract and evidence in the relevant checkpoint. Resolve
 material disagreements from primary sources; keep external behavior and owner
 intent unresolved when the repository cannot establish them. Independent group
@@ -102,13 +129,23 @@ Draft and source-check coherent groups within the approved scope.
 
 ### 5. Transfer reconciliation
 
-Compare every consequential checkpoint item with the actual text and router.
-Record its disposition briefly in the same notes: retained with conditions,
-deliberately local/recoverable with a reason, unresolved, or accidentally lost.
-A heading, source list or router row alone does not preserve a behavioral
-contract. Restore accidental losses and correct unsupported strengthening;
-verify changes against the relevant source rather than copying notes blindly.
-Publish only useful repository guidance and material limits, not bookkeeping.
+Start from the selected findings in the retained bounded research statements,
+not only their shortened checkpoints. Compare each source-checked contract with
+the actual document paragraph or table and its route. Briefly annotate the same
+finding with the document path and section/identifiable passage, or a specific
+local-recoverability reason, unresolved boundary or accidental loss. No separate
+permanent transfer ledger is required.
+
+Mark retained only after checking that the passage preserves the rule, material
+conditions/exceptions and evidence boundary without unsupported strengthening.
+A heading, source list, router row or statement that a topic is covered is not
+proof of transfer. When knowledge remains local, identify a precise recoverable
+source and explain why the omitted relationship does not require repeating a
+multi-module investigation. Carry material unresolved behavior into useful
+guidance rather than silently calling it verified or locally recoverable.
+Restore accidental losses and verify corrections against the relevant source;
+do not copy an unverified original finding into documentation. Publish only
+useful repository guidance and material limits, not bookkeeping.
 
 These stages preserve discovered knowledge but cannot prove that everything
 important was discovered. Independent usefulness QA therefore also samples
@@ -191,8 +228,11 @@ call it independently passed. Confirmed blocking defects still block completion.
 Retain the reviewers’ bounded findings and the disposition of material
 corrections in the operation scratch notes for evaluation. Do not give the
 second reviewer the first reviewer’s answers. After usefulness corrections,
-recheck their affected contracts and checkpoint dispositions; a local correction
-does not require repeating the whole research or both reviews.
+recheck their affected contracts and finding dispositions against the final
+passages. Include dependent summaries, tables and global rules so a corrected
+paragraph does not leave a conflicting claim elsewhere. Apply the same local
+recheck after accuracy corrections, before usefulness QA. Do not restart the
+whole research or both reviews unless the correction invalidates their scope.
 
 In preflight identify the execution experiment briefly. In the final verification
 summary distinguish staged research, cross-group verification, draft
