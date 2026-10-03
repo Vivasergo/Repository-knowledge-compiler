@@ -1,6 +1,6 @@
 {
   "name": "repository-knowledge-compiler",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Create, maintain, and audit task-routed Markdown documentation for coding agents.",
   "keywords": [
     "repository-documentation",

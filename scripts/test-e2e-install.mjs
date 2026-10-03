@@ -143,6 +143,31 @@ try {
     assert.match(instructions, /post-operation\.js/u);
   }
 
+  const workflowReference = "references/chunk-cycle-experiment.md";
+  for (const hostDirectory of [".agents", ".claude"]) {
+    const installedCreateSkill = join(
+      environment.userHome,
+      hostDirectory,
+      "skills",
+      "rkc-create-docs",
+    );
+    const createInstructions = await readFile(
+      join(installedCreateSkill, "SKILL.md"),
+      "utf8",
+    );
+    assert.equal(
+      createInstructions,
+      await readFile("skills/rkc-create-docs/SKILL.md", "utf8"),
+      "Installed Create instructions differ from the candidate.",
+    );
+    assert.ok(createInstructions.includes("RKC-CREATE-FLOW-CHUNK-PILOT-1"));
+    assert.equal(
+      await readFile(join(installedCreateSkill, workflowReference), "utf8"),
+      await readFile(join("skills/rkc-create-docs", workflowReference), "utf8"),
+      "Installed local-cycle reference differs from the candidate.",
+    );
+  }
+
   const helpSkill = await readFile(
     join(environment.userHome, ".agents", "skills", "rkc-help", "SKILL.md"),
     "utf8",

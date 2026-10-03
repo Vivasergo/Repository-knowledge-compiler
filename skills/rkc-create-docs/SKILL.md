@@ -20,9 +20,12 @@ The source-repository canonical prompt is
 different installed version or reproduce a divergent copy of its semantics in
 this skill.
 
-Apply the master prompt to the current repository. Its phases, evidence order,
-uncertainty markers, progressive-disclosure architecture, owner checkpoint,
-content rules, and internal verification are authoritative.
+Load `references/chunk-cycle-experiment.md` beside this skill and apply
+`RKC-CREATE-FLOW-CHUNK-PILOT-1`. It replaces the master's execution order,
+global assignment ceiling, research-note prohibition and default QA allocation
+only as explicitly stated there. The master remains authoritative for content,
+evidence strength, document selection, uncertainty, source protection and
+completion rules. This is an unpublished small-input pilot, not production flow.
 
 Preserve these operation boundaries:
 
@@ -53,7 +56,7 @@ At each genuine phase transition, give a concise owner-facing progress update
 through the host conversation, including when scoped read-only workers are
 running or the agent is awaiting their results. Do not invent percentages,
 ask for extra checkpoints, or create progress files. Before recording
-success, follow the master prompt's independent QA brief, resolve confirmed
+success, follow the reference's local checks and two final QA briefs, resolve confirmed
 documentation defects, and report any review/check that could not run. Keep
 the installed core's mechanical checks distinct from semantic QA.
 
