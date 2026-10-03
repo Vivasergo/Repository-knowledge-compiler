@@ -177,7 +177,7 @@ try {
       await readFile("skills/rkc-create-docs/SKILL.md", "utf8"),
       "Installed Create instructions differ from the source candidate.",
     );
-    assert.ok(createInstructions.includes("RKC-CREATE-FLOW-EXPERIMENT-3"));
+    assert.ok(createInstructions.includes("RKC-CREATE-FLOW-EXPERIMENT-4"));
     assert.equal(
       await readFile(join(installedCreateSkill, workflowReference), "utf8"),
       await readFile(

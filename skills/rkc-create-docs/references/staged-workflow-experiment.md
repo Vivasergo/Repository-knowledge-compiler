@@ -1,6 +1,6 @@
 # Staged analysis and QA execution experiment
 
-Execution identity: `RKC-CREATE-FLOW-EXPERIMENT-3`.
+Execution identity: `RKC-CREATE-FLOW-EXPERIMENT-4`.
 
 Keep the loaded master prompt's content requirements, evidence scope, repository
 protections and single owner preflight unchanged. Override only its research-file
@@ -15,9 +15,10 @@ Do not load evaluation reports, other branches or expected answers as evidence.
 1. Orient: select consequential capabilities and coherent research groups.
 2. Research: inspect each group and retain source-supported checkpoints.
 3. Reconcile: verify consequential connections between groups from both sides.
-4. Synthesize: assign knowledge to routes, present the single preflight, draft.
-5. Check transfer: trace selected research contracts to actual document passages.
-6. Review: accuracy QA, corrections, usefulness QA, corrections, mechanical checks.
+4. Review research: check selected findings and consequential omission decisions.
+5. Synthesize: assign knowledge to routes, present the single preflight, draft.
+6. Check transfer: trace selected research contracts to actual document passages.
+7. Review: accuracy QA, corrections, usefulness QA, corrections, mechanical checks.
 
 ### 1. Orientation and allocation
 
@@ -117,17 +118,55 @@ reports are not evidence that their interaction works. If a consequential
 connection remains unverified, carry that specific limit into synthesis and QA.
 Do not force every possible connection into a graph or invent missing contracts.
 
-### 4. Synthesis and preflight
+### 4. Post-research review
+
+Before synthesis, the primary agent checks a small source-grounded sample on
+both sides of the research selection. Reuse the inventory, bounded reports,
+checkpoints and checked connections; inspect only evidence needed to settle a
+material claim or omission. This is not another whole-repository investigation,
+an extra worker assignment or a requirement to find defects.
+
+- **Included findings.** Select consequential assertions across distinct owners,
+  especially broad guarantees, mutable-state replacement, asynchronous ordering
+  and verification claims. Challenge their conditions and scope using the acting
+  predicate, actual data unit, read/write timing, immediate consumer and relevant
+  test setup. Check a sibling path when it can contradict the stated rule. Keep
+  supported findings unchanged; annotate source-checked corrections beside the
+  original wording and retain material unknowns.
+- **Excluded knowledge.** Select consequential capabilities or writer-consumer
+  contracts from the source inventory that the findings leave unrepresented or
+  propose to keep local. Check whether their omitted conditions could change a
+  future agent's location, implementation plan, persistence, integration or
+  verification. A component label, a short function or a source pointer alone
+  does not establish recoverability. Check the immediate relationship, not every
+  file in that area. Retain newly established material contracts, or identify a
+  precise source and explain why local recovery needs no repeated multi-module
+  investigation. Leave insufficiently established behavior unresolved.
+
+Adapt the sample to repository scale and consequence; normally a few findings
+and a few omissions suffice. Extend only to resolve a material dependency exposed
+by the sample. Record the selected scope, sources, outcome and important unchecked
+scope briefly in the existing operation notes. An unchanged finding or a justified
+omission is a valid outcome. Preserve the distinction between an initially wrong
+finding, newly discovered knowledge and later transfer loss; do not rewrite the
+original report as if it had discovered the correction.
+
+### 5. Synthesis and preflight
 
 Assign each consequential discovered item a planned canonical home or an
 evidence-based omission reason in the existing coverage map. A UI label,
 directory, or apparent locality alone does not establish local recoverability.
 Use the master's architecture and existing-document reconciliation rules;
 checkpoints are inputs, not a mandated documentation outline or size budget.
-Present the normal single preflight after research and cross-group verification.
+Use the post-research results to reconsider canonical homes and task routes
+under the master's existing granularity rules. Give independent consequential
+subflows a usable route or a justified local disposition; a broad domain heading
+does not account for them. A section or precise pointer may suffice. Do not target
+a document count or impose a new file template.
+Present the normal single preflight after the post-research review.
 Draft and source-check coherent groups within the approved scope.
 
-### 5. Transfer reconciliation
+### 6. Transfer reconciliation
 
 Start from the selected findings in the retained bounded research statements,
 not only their shortened checkpoints. Compare each source-checked contract with
@@ -139,7 +178,10 @@ permanent transfer ledger is required.
 Mark retained only after checking that the passage preserves the rule, material
 conditions/exceptions and evidence boundary without unsupported strengthening.
 A heading, source list, router row or statement that a topic is covered is not
-proof of transfer. When knowledge remains local, identify a precise recoverable
+proof of transfer. A retained label for a compound finding does not account for
+its omitted material subconditions; record their specific disposition. Use the
+corrected contract without hiding its original research wording.
+When knowledge remains local, identify a precise recoverable
 source and explain why the omitted relationship does not require repeating a
 multi-module investigation. Carry material unresolved behavior into useful
 guidance rather than silently calling it verified or locally recoverable.
@@ -235,7 +277,8 @@ recheck after accuracy corrections, before usefulness QA. Do not restart the
 whole research or both reviews unless the correction invalidates their scope.
 
 In preflight identify the execution experiment briefly. In the final verification
-summary distinguish staged research, cross-group verification, draft
+summary distinguish staged research, cross-group verification, post-research
+review, draft
 reconciliation, accuracy QA, usefulness QA and
 mechanical checks that actually ran. State reviewer independence and material
 limits honestly. Keep raw notes and resolved findings out of the owner report
