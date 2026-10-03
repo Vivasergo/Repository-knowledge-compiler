@@ -1,11 +1,12 @@
 # Staged analysis and QA execution experiment
 
-Execution identity: `RKC-CREATE-FLOW-EXPERIMENT-3`.
+Execution identity: `RKC-CREATE-FLOW-EXPERIMENT-5A`.
 
 Keep the loaded master prompt's content requirements, evidence scope, repository
 protections and single owner preflight unchanged. Override only its research-file
-prohibition, worker/QA allocation and the small preflight/final-report additions
-under Limitations and reporting. Keep all other completion rules unchanged.
+prohibition, research decomposition and original-report retention, worker/QA
+allocation and the small preflight/final-report additions under Limitations and
+reporting. Keep all other completion rules unchanged.
 Use the following stages to execute its research, synthesis and review phases.
 The host agent executes them; the core does not manage context or launch agents.
 Do not load evaluation reports, other branches or expected answers as evidence.
@@ -13,7 +14,7 @@ Do not load evaluation reports, other branches or expected answers as evidence.
 ## Stages
 
 1. Orient: select consequential capabilities and coherent research groups.
-2. Research: inspect each group and retain source-supported checkpoints.
+2. Research: distinguish consequential contracts and preserve original reports.
 3. Reconcile: verify consequential connections between groups from both sides.
 4. Synthesize: assign knowledge to routes, present the single preflight, draft.
 5. Check transfer: trace selected research contracts to actual document passages.
@@ -39,37 +40,64 @@ Give a researcher only the assigned group, source entry points, evidence
 revision, owner-worktree baseline and research protections. Request a bounded
 plain-text findings report: consequential contracts with conditions/exceptions,
 source anchors, actual test limits, material unknowns and connections requiring
-verification. Do not pass the whole master prompt, source dumps, comparison
-answers or another worker's conclusions. Workers inspect read-only and return
+verification. Apply the contract decomposition below within the assigned group;
+do not return one generic infrastructure rule for materially different paths.
+Include this decomposition guidance in the scoped research brief. Do not pass
+the whole master prompt, source dumps, comparison answers or another worker's conclusions. Workers inspect read-only and return
 findings; the primary agent verifies consequential claims and records notes.
 Apply the common safety brief below to researchers as well as QA reviewers.
 
 ### 2. Research and continuity
 
 Research one coherent group at a time in the primary context; independent
-workers may investigate their assigned groups concurrently. Before shortening a
-worker's bounded report, select the consequential findings that change a future
-agent's location, plan, implementation or checks. Retain that report in the
-operation notes and annotate its selected findings rather than repeatedly
-paraphrasing them. For primary-agent research, record the same bounded contract
-statements before synthesis. Selection is not a requirement to document all
-findings or ordinary local details.
+workers may investigate their assigned groups concurrently. On receiving a
+worker's bounded report, save its returned wording unchanged in the operation
+notes before selecting, indexing or summarizing it. Check that the saved report
+reproduces the returned text. Treat it as a read-only original; a condensed
+checkpoint must not replace it. Keep primary annotations and source-checked
+corrections beside the original or in a linked note. A short navigation index
+may point to finding IDs and report locations without retelling their claims.
+If safe file storage is unavailable, preserve the original message and its
+conversation location, not just a summary, and disclose that limitation.
 
-For each selected finding, keep a short linked statement in plain Markdown:
-rule with condition/exception -> source path and symbol -> evidence boundary ->
-planned canonical home or specific local-recoverability reason. Preserve the
-original bounded wording; annotate source-verified corrections alongside it so
-an evaluator can distinguish a corrected finding from a transfer loss. Mark
-repository-verified behavior, inference and external unknowns distinctly;
-verification applies only to the stated branch and evidence scope.
+Within each selected group, distinguish consequential contracts before reducing
+it to a common pattern. Separate behaviors when their task impact, acting
+conditions, immediate writers/consumers, unit of persisted or replaced data,
+execution/completion order or verification boundary materially differ. Shared
+helpers, storage, UI placement or feature names do not establish equivalence.
+Inspect the direct paths needed to decide whether they share a contract; combine
+only source-supported equivalents and retain their material exceptions.
 
-The checkpoint may reference these retained statements rather than retell them.
-Before finishing it, compare the selected findings with the checkpoint and
-account for omitted material conditions, exceptions, test limits and open
-connections. A topic label does not preserve a contract. Keep unverified findings
-and unresolved questions separate from facts. Avoid file-by-file summaries,
-source dumps, per-sentence evidence ledgers and structured evidence schemas.
-Reuse checked evidence instead of rereading the entire group after handoff.
+For each distinct consequential contract, explain the behavior and its material
+conditions, immediate writer/consumer or relevant owner, data/update boundary,
+and checks with their limits. Follow alternate paths, sibling implementations
+or asynchronous boundaries only where they can change that statement or a
+future maintenance plan. Record an unresolved relationship explicitly rather
+than filling it from the group's generic pattern. This is a unit of research,
+not one note per function, a required checklist for every path, or a new data
+schema. Use short identifiable statements within existing group notes; require
+neither a fixed contract count nor a fixed number of research or document files.
+Research decomposition does not determine document decomposition: apply the
+unchanged master's document selection and routing rules after research.
+
+For primary-agent research, record the same bounded contract statements before
+selection: rule with condition/exception -> source path and symbol -> evidence
+boundary or open relationship. During research, establish the contract before
+deciding its documentation home. Mark repository-verified behavior, inference
+and external unknowns distinctly; verification applies only to the stated
+branch and evidence scope. Do not require all findings or ordinary local
+details to enter documentation.
+
+Before leaving a primary research group or handing it off, save its bounded
+statements in the same operation notes. Index only existing saved notes or
+explicit conversation locations; disclose missing notes instead of listing
+planned files as completed evidence.
+
+Use the original reports and annotations when resuming or checking a contract;
+the index is only a locator. Keep unverified findings and unresolved questions
+separate from facts. Avoid file-by-file summaries, source dumps, per-sentence
+evidence ledgers and structured evidence schemas. Reuse checked evidence
+instead of rereading the entire group after handoff.
 
 Use safe host-provided session storage outside the target repository. This is
 the scoped exception to the master's ban on research files. Create no `.rkc`
