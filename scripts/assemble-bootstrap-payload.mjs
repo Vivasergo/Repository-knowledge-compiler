@@ -100,6 +100,8 @@ async function copyInstalledHostBoundaryRuntime() {
     "lifecycle.js",
     "maintenance.js",
     "post-operation.js",
+    "research-workspace.js",
+    "research-notes.js",
   ]) {
     await cp(
       join(bootstrapDirectory, "dist", entry),

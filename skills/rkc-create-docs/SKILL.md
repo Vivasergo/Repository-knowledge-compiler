@@ -20,9 +20,14 @@ The source-repository canonical prompt is
 different installed version or reproduce a divergent copy of its semantics in
 this skill.
 
-Apply the master prompt to the current repository. Its phases, evidence order,
-uncertainty markers, progressive-disclosure architecture, owner checkpoint,
-content rules, and internal verification are authoritative.
+Load `references/research-checkpoint-experiment.md` beside this skill and apply
+`RKC-CREATE-FLOW-RESEARCH-CHECKPOINT-PILOT-2`. It replaces the master's execution order,
+global assignment ceiling, research-note prohibition and default QA allocation
+only as explicitly stated there. The master remains authoritative for content,
+evidence strength, document selection, uncertainty, source protection and
+completion rules. This is an unpublished experiment, initially tested on a small
+source packet. Create its research workspace automatically after ordinary
+preflight approval; no extra owner request for notes is needed.
 
 Preserve these operation boundaries:
 
@@ -52,8 +57,11 @@ provider SDK or require a separate model service.
 At each genuine phase transition, give a concise owner-facing progress update
 through the host conversation, including when scoped read-only workers are
 running or the agent is awaiting their results. Do not invent percentages,
-ask for extra checkpoints, or create progress files. Before recording
-success, follow the master prompt's independent QA brief, resolve confirmed
+ask for extra approvals, or create project progress files. The three temporary
+Markdown working files required by the reference are the sole research-storage
+exception; keep them outside the target repository and installed version tree.
+Before recording success, follow the reference's research and transfer checks
+and two final QA briefs, resolve confirmed
 documentation defects, and report any review/check that could not run. Keep
 the installed core's mechanical checks distinct from semantic QA.
 
