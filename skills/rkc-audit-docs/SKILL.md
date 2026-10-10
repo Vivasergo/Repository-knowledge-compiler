@@ -55,6 +55,11 @@ installs an update. It is the sole automatic external-system exception to the
 operation boundary above. Append a printed new-version notice after the audit
 result; a failed check must not change that result.
 
+Briefly report material inconsistencies in future-agent rules when checked,
+with canonical locations and evidence. Distinguish established project practices
+from generic guidance and unresolved choices. Do not claim rules were added or
+changed by this read-only audit, or repeat the whole rule set as a checklist.
+
 The report must distinguish:
 
 - documentation that was semantically checked;

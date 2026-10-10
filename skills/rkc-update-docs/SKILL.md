@@ -80,6 +80,11 @@ not already authorized; do not commit automatically or repeat approval prompts.
 Respect the project's version/changelog policy; show required release-text edits
 before making them. Do not propose an empty commit after a no-change result.
 
+When future-agent rules changed in this update, briefly identify the added or
+clarified rules and canonical locations. Mention preserved rules only when
+material to the task; do not repeat an unchanged checklist after every update.
+Distinguish established project conventions, generic guidance and open decisions.
+
 Report changed documentation paths, unchanged affected documents when useful,
 remaining uncertainty, verification actually performed, and unavailable
 checks. Never claim that all documentation is current when only a bounded

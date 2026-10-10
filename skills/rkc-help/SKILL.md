@@ -22,6 +22,14 @@ settings, and privacy controls; RKC does not separately send the repository to
 another AI service. For installation, status, or troubleshooting questions,
 answer the requested fact first rather than repeating a generic pitch.
 
+When explaining the result of Create Docs, add one short paragraph: RKC also
+prepares instructions for future coding agents, adapted to the repository and
+existing documentation. These can cover code clarity, meaningful tests, commits
+and version/changelog practices. Existing project rules take priority; absent
+conventions are identified rather than presented as established policy. The
+completion report names the rules actually added, clarified or preserved and
+where to find them. Do not inspect all project policies just to answer Help.
+
 Distinguish:
 
 - machine installation and active RKC version;

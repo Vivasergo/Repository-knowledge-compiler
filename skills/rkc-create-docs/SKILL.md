@@ -87,6 +87,10 @@ owner-facing response after the documentation result. A check failure must not
 change the documentation result.
 
 Write the concise owner-facing completion report required by the master prompt.
+Include a short list of material future-agent rules actually added, clarified or
+preserved and their canonical locations; distinguish project conventions from
+generic guidance or unresolved choices. Do not reproduce whole policies or
+claim that a future agent has already followed them.
 Summarize the documentation surface, why its routes were selected, how future
 agents will use it, verification actually performed, and only limitations that
 affect readiness or need owner attention. Describe resolved QA work neutrally as

@@ -9,6 +9,8 @@
 - Add project-adaptive code clarity, risk-based testing, explicit commit approval
   and version/changelog guidance for future coding agents.
 - Explain skill availability without agent support lists or name-based warnings.
+- Make future-agent guidance visible in Help, Create preflight and completion;
+  distinguish existing project practices, generic guidance and unresolved choices.
 
 ## 2.0.0
 

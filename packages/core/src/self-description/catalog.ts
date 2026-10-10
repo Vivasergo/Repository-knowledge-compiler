@@ -91,6 +91,8 @@ const modules: Readonly<Record<RkcHelpTopic, SelfDescriptionModule>> = {
       "AGENTS.md is the compact entry router and docs/ai/README.md may provide deeper task routing.",
       "Document count follows repository complexity rather than a fixed quota.",
       "Existing documentation is preserved and reconciled within the approved scope.",
+      "Documentation also includes future-agent instructions adapted to project practices; the completion report identifies rules actually added, clarified or preserved and their locations.",
+      "Existing testing and version/changelog conventions take priority; missing conventions remain explicit choices rather than silently adopted policies.",
     ],
     ["rkc-create-docs", "rkc-update-docs", "rkc-audit-docs"],
   ),
