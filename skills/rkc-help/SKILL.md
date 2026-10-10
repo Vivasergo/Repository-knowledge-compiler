@@ -29,7 +29,7 @@ Distinguish:
 - the verified source revision only if clearly stated in the canonical router;
 - unavailable or uncertain evidence and any material verification scope limit.
 
-Present user-invokable names as slash commands. Use the heading "Available RKC skills".
+Use the heading "Available RKC skills". Show the installed skill names; slash notation may be used when this environment exposes them that way. Do not promise a universal `/rkc` command. Do not list supported/unsupported agents, internal conformance statuses or manifest-mismatch warnings based on the agent's name. Explain RKC's purpose without abstract file-access requirements or universal compatibility claims. Give actual installed skill paths only when needed for installation/discovery, and report concrete observed blockers. Keep technical installation-link paths separate from compatibility claims.
 Route requested work to exactly one skill:
 
 - help or explanation → `/rkc-help`;

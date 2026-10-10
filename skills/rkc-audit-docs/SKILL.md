@@ -27,6 +27,15 @@ Audit two layers:
   canonical knowledge, incorrect uncertainty markers, and routes that omit
   relevant sibling paths or checks.
 
+Within the affected scope, check whether important existing conditions,
+fallback/removal reasons, owner decisions and external evidence were lost or
+misclassified. Check stable risk IDs and index/detail links when that structure
+exists, and whether adaptive implementation, test and commit/version guidance is
+reachable and consistent with project rules. Do not create findings to fill a
+quota, require a second details file, run a global comment/test audit or treat a
+proposed remedy as an accepted design. This read-only operation performs no commit
+and does not propose an empty one.
+
 Use change history and maintenance triggers to focus the audit when impact is
 bounded. Expand to a wider repository audit when the baseline is missing,
 structural changes are present, routing is unreliable, or material

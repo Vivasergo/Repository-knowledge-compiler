@@ -28,6 +28,17 @@ Determine semantic impact before editing documentation:
 5. if no documentation change is justified, report that outcome without
    rewriting files.
 
+Preserve applicable existing guidance, owner decisions and external knowledge
+with provenance; absence of code proof does not invalidate a requirement. Resolve
+current-behavior conflicts from primary evidence and keep the uncertainty clear.
+Retain important conditions, fallback reasons and removal criteria; refine the
+canonical explanation rather than appending duplicates. Reconcile directly
+affected developer docs, README and agent/skill routes within scope. Update active
+risk IDs, index/detail links and resolved entries together; do not require a
+second details file for a small surface. Retain the adaptive code-clarity,
+risk-based testing, commit and project-version guidance without rewriting source,
+tests or release files during this docs-only operation.
+
 Do not regenerate the entire documentation tree by default. Expand inspection
 when impact is structural, cross-domain, weakly mapped, or uncertain. If safe
 scope cannot be established, stop with a clear wider-audit recommendation
@@ -63,6 +74,11 @@ respects the owner's automatic-check setting and cached cadence, and never
 installs an update. It is the sole automatic external-system exception to the
 operation boundary above. Append a printed new-version notice after the task
 result; a failed check must not change that result.
+
+If files changed, offer one end-of-task commit proposal only when useful and
+not already authorized; do not commit automatically or repeat approval prompts.
+Respect the project's version/changelog policy; show required release-text edits
+before making them. Do not propose an empty commit after a no-change result.
 
 Report changed documentation paths, unchanged affected documents when useful,
 remaining uncertainty, verification actually performed, and unavailable

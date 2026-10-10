@@ -1,5 +1,15 @@
 # Changelog
 
+## Unreleased
+
+- Bound Create Docs to five subagent assignments, with lightweight preflight,
+  targeted research checks and two final accuracy/usefulness reviews.
+- Preserve material existing knowledge and original reviews, verify meaningful
+  transfer, and route focused documents and risk details without file quotas.
+- Add project-adaptive code clarity, risk-based testing, explicit commit approval
+  and version/changelog guidance for future coding agents.
+- Explain skill availability without agent support lists or name-based warnings.
+
 ## 2.0.0
 
 First public release of RKC V2.

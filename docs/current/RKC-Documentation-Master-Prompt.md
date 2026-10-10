@@ -1,8 +1,12 @@
 # RKC Documentation Creation — Master Prompt
 
 Version: **RKC-DOCS-CREATE-2.14**\
-Status: **Current approved version**
-Date: 2026-09-21
+Status: **Unpublished candidate based on approved 2.14**
+Date: 2026-10-10
+
+Unpublished candidate revision: bounded research and knowledge preservation.
+The 2.14 protocol identifier is retained; identify this candidate by its commit,
+flow reference and file hashes, not by the identifier alone.
 
 Run the prompt from within the repository to document, then copy everything
 inside the block below.
@@ -57,6 +61,11 @@ Use this source-of-truth order within the owner-selected repository state:
 3. Configuration, CI, and dependency manifests (not installed dependency trees).
 4. Explicit owner decisions.
 5. Existing documentation.
+
+This order resolves claims about current implementation, not the validity of
+owner requirements or external experience. Preserve applicable decisions with
+provenance; describe implementation separately when it does not meet them. An old
+document is neither automatically authoritative nor automatically obsolete.
 
 Code cannot prove owner intent or external-system behavior. Mark those statements honestly instead of presenting them as verified facts.
 
@@ -127,13 +136,13 @@ PHASE 0 — REPOSITORY INVENTORY (READ ONLY)
 5. Identify the repository's major functional domains without yet deciding how many documents to create. Within each major domain, note independent state/data owners, behavior-changing subflows, and writer-consumer contracts that may need distinct routing; do not enumerate every local component.
 6. Keep a brief internal note of application capabilities, high-impact task signals, current documentation routes, and areas needing deeper inspection. This is not a file, schema, or permanent artifact.
 
-Do not change files. When the working tree is clean, continue directly to Phase 1A without mentioning evidence modes or offering a mode switch. When it is dirty, resolve only the plain-language evidence-scope checkpoint above, then continue without asking the owner to classify individual changes.
+Do not change files. Keep Phase 0 to a lightweight inventory and relevant instruction/navigation reading; do not trace complete domain implementations or run an independent research review before preflight. When the tree is dirty, resolve only the evidence-scope checkpoint above. Present the single preflight after Phase 0; after approval continue to Phase 1A and synthesis. The initial coverage plan is provisional and may gain focused routes during authorized research without another approval.
 
 PHASE 1A — SYSTEMATIC DOMAIN DISCOVERY (READ ONLY)
 
 Research the high-impact flows and hidden contracts identified in Phase 0. Use source and test entry points, not an exhaustive directory or dependency traversal. A short inventory is enough for low-impact domains whose relevant behavior can be recovered locally; deepen them only when a real cross-domain risk, competing writer, or routing gap is found. Preserve coverage of major capabilities and task signals without applying the full checklist to every component.
 
-The primary agent researches by default. Use at most three scoped subagent assignments across the entire create-docs operation, including independent QA; this is a ceiling, not a target, and one assignment is reserved for the required fresh-context QA review. Use no research subagent for a small or locally recoverable repository, one for a consequential independent domain when it is likely to save work, and at most two only for genuinely independent domains in a large, heterogeneous, or high-risk repository. Do not spawn workers for a domain inventory, mirrored summaries, or extra prose. Give each only its domain, source entry points, protected-worktree scope, and a brief plain-text output request. Do not pass the entire creation prompt or source dumps to workers. Review their claims and cross-domain exceptions yourself. Lack of workers must never mean lack of coverage.
+The primary agent researches by default. Use at most five subagent assignments across the entire Create Docs operation, counting all nested assignments, retries and seam reviews. Reserve two for the final accuracy and task-usefulness QA; use at most three before them, only for consequential uncertainty or a complex independent responsibility. This is a ceiling, not a target. Do not assign a reviewer to every area or file, spawn workers for inventories or mirrored summaries, or bypass the ceiling by having workers delegate. If delegation is unavailable, perform separate primary passes and disclose the lack of independence. Give each only its domain, source entry points, protected-worktree scope, and a brief plain-text output request. Do not pass the entire creation prompt or source dumps to workers. Review their claims and cross-domain exceptions yourself. Lack of workers must never mean lack of coverage.
 
 Ask each research worker for an appropriately scoped findings report whose depth reflects the complexity, uncertainty, and risk of the assigned domain. Preserve verified contracts, invariants, materially distinct terminal paths, confirmed risks, external dependencies, and unresolved questions that could affect future implementation or verification. Avoid repetitive evidence, exhaustive function-by-function narration, and ordinary happy-path detail when it does not affect a material contract. For asynchronous or partially failure-tolerant behavior, preserve every materially distinct terminal path and its observable outcome. Separate verified repository facts, confirmed risks or invariants, external dependencies, and questions that repository evidence cannot resolve.
 
@@ -148,7 +157,7 @@ PHASE 1B — CROSS-DOMAIN SYNTHESIS (READ ONLY)
 3. Identify hidden contracts, invariants, non-goals, external assumptions, and regression risks.
 4. Treat non-obvious rules about identity, cardinality, uniqueness, ownership, scope, ordering, compatibility, and lifecycle as documentation-worthy when misunderstanding them could materially change implementation, persistence, integration behavior, or verification. Place each rule in its canonical flow or domain document; do not expand ordinary local details into permanent documentation or duplicate the rule across unrelated documents.
 5. Remove ordinary code summaries and semantic duplicates.
-6. Assign every important knowledge item one canonical home.
+6. Assign every important knowledge item one canonical home. Before adding a statement, find and refine its existing explanation rather than appending a parallel description. Preserve the evidenced reason for a compatibility fallback and the conditions for removing it; a proposed remedy is not an accepted design.
 7. Design progressive disclosure from the task to the relevant documentation and then to source evidence.
 8. Propose as many topical documents as the repository genuinely needs. Do not impose a file-count quota and do not create files merely to mirror folders.
 9. Compare task-signal coverage against existing useful documentation before replacing its routes. Preserve or deliberately rehome critical navigation for state/writers, configuration, permissions/workflow, validation and user-facing control state, save/editing, collaboration, and external contracts when they exist in this repository. Do not copy old claims without source checks. For previously undocumented capabilities, compare the Phase 0 inventory with the planned coverage map and proposed router. A broad domain name or topical filename does not prove that its independent owners, subflows, or writer-consumer contracts are covered: give each high-impact item a route or deliberately omit it as locally recoverable and low risk. Note high-impact omissions explicitly; do not require a topical file for every directory.
@@ -195,6 +204,20 @@ TASK ROUTING REQUIREMENTS
 
 The single canonical router connects task signals to the smallest useful document set, relevant source entry points, sibling paths, risk IDs, and checks. Each flow/domain starts with `Read this when...` and `Skip this when...`. AGENTS.md points to the router without duplicating it. Start with relevant topical knowledge; expand only when the task requires it, never by default to all L1 or L2.
 
+FUTURE CODING-AGENT GUIDANCE
+
+Keep these rules concise in AGENTS.md or route to an applicable canonical operating-rules document. Preserve more specific project instructions and explicit user authorization; do not duplicate whole policies across entry and domain files.
+
+- Prefer the simplest reliable solution that fits the existing architecture. Check existing mechanisms before adding an abstraction, workaround or fallback; justify complexity by a concrete constraint. Preserve the reason for a fallback and the evidence or decision required to remove it.
+- Do not fabricate data, supported behavior or guarantees. Trace actual owners, producers and consumers; distinguish verified implementation, owner requirements and external assumptions.
+- Reuse still-current knowledge loaded in the session. Reopen it when it changed, the task enters a new area or relevant context was lost. For a handoff or condensation, retain the objective, relevant constraints and source paths, verified scope, unresolved questions and next steps; keep temporary session status outside durable knowledge.
+- For created or materially changed code, check explanatory documentation using the project's language and format, such as documentation comments or docstrings. Document the important contract of public interfaces and non-obvious internals: purpose, necessary conditions, outcomes, side effects and constraints. Do not repeat clear types or signatures. Add compact inline comments where a reader could misunderstand a decision, ordering, state ownership, edge case or race protection; explain why and what failure is prevented. Correct stale comments after changes. Do not mandate JSDoc, English comments or documentation of every trivial function regardless of project conventions.
+- Choose tests by significant risk and critical behavior, not automatic per-function or line-coverage targets. Exercise the real implementation and observable outcome. Do not mock the logic or interaction whose correctness is being tested; isolate external or uncontrollable dependencies only when needed, and state the resulting boundary. Test significant wiring with real participants at an appropriate integration seam. Reuse setup and fixtures, avoid duplicate contract tests and incidental assertions, and retain necessary regressions. A small helper can own a critical rule; test complexity must be justified by risk, not a fixed ratio of test to implementation lines. Follow required repository checks; a low-risk change may use existing checks without a new test.
+- Commit only on an explicit user instruction or a previously agreed auto-commit policy in its scope. A request to edit files does not by itself authorize commit. Otherwise, finish the task and checks, then offer one commit proposal with branch, change summary, results and a short concrete message following repository conventions. Wait for confirmation; silence is not approval. Do not repeat the question after every action or after a refusal. Clarify at the start only if intermediate commits or branch choice require it. Check actual branch and staged diff, exclude unrelated user work, and do not infer permission to push, merge, rewrite history, tag or publish.
+- When preparing a commit or release-related change, inspect the project's version/changelog rules and canonical version sources. Repository policy has priority; use SemVer when the project adopts it, not merely because a number has three parts. Do not bump on every commit, invent a changelog, duplicate automated versioning or synchronize independent version identifiers. Include the exact brief, informative changelog text and proposed version change in the same final proposal before editing those files. Obtain one combined confirmation unless an existing authorization covers those edits and commit; then apply the agreed edits, check consistency and commit in scope. Release tags and publication need their own applicable authorization. If no version/changelog change is required, explain briefly; do not create another approval loop.
+
+Create Docs only writes authorized documentation. These rules guide future implementation tasks; they do not authorize source-comment edits, test creation, version bumps or Git mutation during a docs-only operation. Infer local formats and commands from relevant instructions already read; do not add a repository-wide comment, test or release audit merely to write this guidance. More specific owner instructions take precedence.
+
 TASK-LOCAL DOCUMENTATION FEEDBACK
 
 Generated documentation is maintained guidance, not a completeness guarantee. Require future agents to notice documentation drift or material missing coverage only within source paths already inspected for the current task; this is not a separate repository scan.
@@ -209,14 +232,14 @@ Generated documentation is maintained guidance, not a completeness guarantee. Re
 
 PREFLIGHT — ONE OWNER CHECKPOINT
 
-Finish Phases 0, 1A, and 1B with one concise owner-facing preflight containing:
+After the lightweight Phase 0 inventory, before systematic research, present one concise owner-facing preflight containing:
 
 - baseline and environment limitations;
 - for a clean tree, a simple statement that the current committed version is being analyzed, with no mode choice; for a dirty tree, whether uncommitted changes are included and the practical effect;
 - a concise planned coverage map naming the major application flows, stable domains, and cross-cutting concerns, plus any high-impact omission or unresolved area;
 - proposed L0/L1/L2 reading routes and a brief reason the planned flows and domains were selected;
 - existing documents to preserve, merge conceptually, exclude from the active router, or propose for deletion;
-- unresolved items already classified as `[VERIFY]`, `[EXTERNAL]`, or `[RISK]`;
+- material uncertainties already visible during inventory, without pretending that domain research has been completed;
 - a safe documentation-only change plan;
 - one clear request to approve or reject documentation creation.
 
@@ -226,7 +249,7 @@ Do not ask the owner to answer non-blocking technical questions. "Proceed" and "
 
 Interpret the owner's response as follows:
 
-- Unqualified approval: execute the complete proposed safe plan and Phases 2–3. Do not ask the owner to repeat the plan, restate repository protections, classify findings, or tell you what to do next.
+- Unqualified approval: execute the complete proposed safe plan, research and synthesis in Phases 1A–1B, then Phases 2–3. Do not ask the owner to repeat the plan, restate repository protections, classify findings, or tell you what to do next.
 - Approval with corrections or additional constraints: treat them as amendments to the agreed scope and proceed without another approval unless the owner explicitly asks to review the revised plan first.
 - Questions or comments without approval: answer them concisely, revise the proposal if needed, and remain paused until approval is clear.
 - Rejection or stop: make no changes.
@@ -243,7 +266,7 @@ Work in coherent domain groups rather than drafting the entire tree before check
 
 1. Create or reconcile root `AGENTS.md`, then create or update the root README navigation and L1 entry layer; check that purpose, guardrails, and routing are clear and not duplicated. Never treat a provider-specific instruction file as a substitute for `AGENTS.md`.
 2. Create one coherent group of related flow/domain documents.
-3. Re-open only that group's cited code, tests, and configuration and actively try to disprove behavior-changing claims before continuing. For consequential categorical claims, seek counterexamples across implementations, configuration branches, platforms, and sibling paths. When a claim involves retries, cancellation, deadlines, polling, queues, background work, or partial failure, trace every terminal path and verify the observable outcome for the caller or operator. For producer-consumer contracts, verify both sides, routing or registration conditions, payload assumptions, and the fallback when no consumer handles the output. Apply only the checks relevant to that group; do not inventory all branches or dependencies.
+3. Compare the draft group with the already checked findings, source anchors and limits. Reopen sources for a new or disputed claim, changed meaning, unresolved seam or corrected evidence; do not mechanically repeat every research read. Verify behavior-changing claims before continuing. For consequential categorical claims, seek counterexamples across implementations, configuration branches, platforms, and sibling paths. When a claim involves retries, cancellation, deadlines, polling, queues, background work, or partial failure, trace every terminal path and verify the observable outcome for the caller or operator. For producer-consumer contracts, verify both sides, routing or registration conditions, payload assumptions, and the fallback when no consumer handles the output. Apply only the checks relevant to that group; do not inventory all branches or dependencies.
 4. Correct the group, then move to the next one.
 5. Finish with one repository-wide routing, coverage, and consistency pass; reuse checked evidence rather than re-reading all sources.
 
@@ -252,7 +275,7 @@ Do not add owner checkpoints between groups. Reuse already verified evidence whe
 CONTENT RULES
 
 - Keep AGENTS.md a short router plus global guardrails, never a complete reference.
-- Give each important constraint one canonical home. Link to it elsewhere instead of copying it.
+- Give each important constraint one canonical home. Find and refine an existing explanation before adding another; link to it elsewhere instead of copying it. Reconcile material existing-document knowledge within its domain research: retain, qualify, rehome, keep a useful reference, or retire from active guidance on a concrete basis. Account for conditions, exceptions and reasons, not merely topic names. Do not read every archive or require a new preservation reviewer.
 - Preserve useful existing knowledge, but do not preserve ordinary code summaries, historical status reports, completed plans, or duplicated prose.
 - Use project-context for application boundaries and global sources of truth.
 - Use architecture-map only when it materially improves domain selection in a large repository.
@@ -273,9 +296,9 @@ RISK AND DECISION RULES
 - State the constraint, why it matters, and supporting code/test/configuration paths or explicit owner provenance.
 - Match wording to the evidence by distinguishing currently reachable behavior, a confirmed structural weakness, an invariant that current code satisfies but future changes must preserve, an external dependency, and an unresolved assumption. Do not present a conditional modification hazard as an existing defect or an unverified possibility as confirmed behavior.
 - Do not convert probable bugs into permanent architectural rules.
-- Remove resolved knowledge from the active knowledge base; Git history is the archive.
+- Remove resolved gaps from the active index and update their details and links together. Preserve any still-applicable invariant or owner decision in its canonical home. Follow the project's retention policy; Git history is an archive only when an additional audit trail is not required.
 - When active gaps or risks materially change agent behavior, create a compact `known-gaps-and-risks.md` index. Each entry should contain only ID, classification, affected area, consequence, and a link to its canonical detail.
-- Keep detailed risk behavior in the relevant flow/domain document. Create a separate details document only when the volume or cross-domain nature of the evidence makes that clearly more usable.
+- Keep detailed risk behavior in its canonical flow/domain document. When details make task reading unwieldy, use a separate details document or split details by responsibility, with stable IDs and direct links from the index. Do not mandate a second file for small projects or copy the same details into both places.
 - Keep decisions separate from probable defects. Create `decisions.md` only for real, stable decisions with explicit provenance.
 
 COMMAND AND VERIFICATION ACCURACY
@@ -302,7 +325,7 @@ PHASE 3 — INTERNAL VERIFICATION (NO ADDITIONAL OWNER GATE)
 
 INDEPENDENT QA — REQUIRED BEFORE COMPLETION
 
-After the Phase 2 draft and its per-group source checks, ask one independent read-only subagent in a fresh context, if delegation is available, to review the actual draft. Give it the QA brief, selected evidence scope, verified baseline, and only the document paths and source entry points needed for high-impact routes and claims. Prepend a concise worktree baseline that separately lists pre-existing owner changes, documentation drafts created or modified by this operation, and protected files that the operation must not modify. Tell the reviewer to treat the drafts as outputs under review rather than reclassifying them as pre-existing owner work, and to report changes outside the declared draft surface or interference with protected files. Do not create a manifest or permanent baseline file for this purpose. Do not pass the full creation prompt, all source dumps, or the author's conclusions. Ask for a bounded, actionable review of global rules, lost critical task routes, and the highest-risk behavior claims; wait for its findings. A second QA reviewer is exceptional and may use the remaining overall subagent budget only when the first reviewer identifies a critical unchecked area or a confirmed contradiction requires independent verification. It must receive that narrow unresolved scope, not repeat the first review. Reuse per-group checks and narrow the review only after coverage of major capabilities is confirmed.
+After the assembled draft, run two fresh read-only QA assignments sequentially: accuracy first, then task usefulness. Reserve these two within the five-assignment operation budget. Use the installed flow's unchanged accuracy and task-usefulness briefs when supplied; otherwise use the accuracy brief below and the task-usefulness brief following it. Provide selected evidence scope, verified baseline, draft paths, source entry points and a concise protected-worktree baseline. Do not supply the whole creation prompt, source dumps or the author's conclusions as expected answers. Correct confirmed issues and recheck affected claims once between passes and after the second. Do not add a third final QA or independent seam review outside the budget.
 
 If independent delegation is unavailable or denied, perform the same adversarial review yourself as a separate pass, re-reading the relevant code and documents; disclose that independent QA could not run. Do not bypass permissions or install host-specific agents.
 
@@ -310,9 +333,9 @@ Resolve each confirmed contradiction or unsupported high-impact claim in the doc
 
 After corrections, recheck the changed claims and dependent global rules once, then run the installed core's deterministic Markdown checks over every managed document created or modified by the operation, including untracked files. Check mixed line endings and trailing whitespace directly; do not rely only on `git diff --check`, which does not cover unstaged untracked files. Report a confirmed blocking defect as blocked, and a missing independent QA or required check as completed with warnings only when no confirmed blocking defect remains. Report completion only when independent QA, corrections, and required mechanical checks actually passed. These are owner-facing outcomes, not repository-local operation records.
 
-Use the delimited QA brief below as the subagent task instruction; pass only that brief to the reviewer, not the whole creation prompt.
+Use only the relevant delimited QA brief as the reviewer instruction, with its bounded task context; do not pass the whole creation prompt.
 
-Semantic verification: for each high-impact domain group, re-open only the cited primary sources needed to challenge its behavior-changing claims rather than validating from memory. Give extra scrutiny to claims about operation order, conditions and branches, timers/retries/polling, data mutation, fallback/error behavior, competing writers, external contracts, and broad words such as "all", "only", "always", "never", "must", or "intentional". When an operation captures mutable state, performs asynchronous work, and later clears, acknowledges, replaces, or marks state as completed, verify that completion applies only to the state represented by that operation and cannot erase or falsely acknowledge newer changes. When correctness depends on concurrent writes, distinguish local coordination from enforcement at the authoritative boundary. Before stating a global rule, check relevant domain exceptions and narrow the rule when the repository uses more than one model or pattern. Unsupported intent remains `[VERIFY]`; external behavior remains `[EXTERNAL]`.
+Semantic verification: compare high-impact claims with checked evidence and original findings, not memory. Reopen cited primary sources for disputed, new or meaning-changing claims and unresolved seams; do not repeat all domain reads by default. Give extra scrutiny to operation order, conditions, timers/retries/polling, mutations, fallbacks, partial failure, competing writers, external contracts and broad words such as "all", "only", "always", "never", "must" or "intentional". Verify that acknowledgement or clearing after asynchronous work cannot erase or falsely acknowledge newer changes. Distinguish local coordination from enforcement at the authoritative boundary, and qualify global rules by real exceptions. Unsupported intent remains `[VERIFY]`; external behavior remains `[EXTERNAL]`.
 
 Repository-wide mechanical and consistency verification:
 
@@ -336,6 +359,12 @@ Return an appropriately scoped plain-text list of actionable findings: claim and
 
 END QA REVIEW BRIEF
 
+TASK-USEFULNESS QA BRIEF
+
+Choose a realistic maintenance task from source before reading topical prose; choose a second only for a materially different responsibility. Follow AGENTS and routes to owners, implementation constraints and meaningful verification. Inspect source to judge whether the docs lead to a correct plan and preserve constraints that change it. Return task outcome, source/passage anchors, narrow corrections and limits. Do not implement the task, modify files, rediscover the repository or perform unauthorized execution.
+
+END TASK-USEFULNESS QA BRIEF
+
 FINAL REPORT
 
 Write a concise owner-facing completion report in the owner's language and derive it from the final router, actual documents, and verification results. Lead with the outcome: completed, completed with warnings, or blocked.
@@ -352,7 +381,7 @@ Report only:
 - confirmation that protected product code, dependencies, CI/CD, and user-owned worktree changes were not modified; derive the changed-file surface from complete worktree status including untracked files, not from `git diff --stat` alone;
 - the next safe action, or that the documentation is ready for review when verification permits it.
 
-After a successful initial creation, recommend review and commit of the generated documentation. Do not recommend `/rkc-update-docs` solely because that documentation-only commit changes repository HEAD; recommend it after later code, configuration, contract, or repository-structure changes that may affect the documentation.
+After a successful initial creation, offer review and one commit proposal for the generated documentation when useful. Follow existing user authorization and the commit/version guidance above; never commit or change version/changelog implicitly. Do not recommend `/rkc-update-docs` solely because that documentation-only commit changes repository HEAD; recommend it after later code, configuration, contract, or repository-structure changes that may affect the documentation.
 
 Do not use a default "key preserved knowledge" section, list a sample of low-level functions, dump raw risk identifiers, or reproduce detailed QA findings. Treat resolved QA work as internal verification and refinement, not as a user-facing error log. Technical detail belongs in the routed documentation unless it explains a blocker, a warning, or a decision the owner must make. Do not claim broader coverage or verification than the final documents and checks support.
 ```

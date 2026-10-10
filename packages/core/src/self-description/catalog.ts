@@ -29,10 +29,6 @@ export interface SelfDescriptionManifest {
   readonly distribution_version: string;
   readonly documentation_prompt_version: string;
   readonly skills: readonly string[];
-  readonly supported_hosts: readonly {
-    readonly id: "codex-vscode" | "github-copilot-vscode";
-    readonly status: "supported_after_conformance";
-  }[];
   readonly capabilities: readonly string[];
   readonly topics: readonly RkcHelpTopic[];
   readonly provider_specific_instruction_files: false;
@@ -144,12 +140,12 @@ const modules: Readonly<Record<RkcHelpTopic, SelfDescriptionModule>> = {
   ),
   hosts: module(
     "hosts",
-    "Host integration",
-    "Codex and GitHub Copilot use the same provider-neutral skills and installed protocol.",
+    "Skill availability",
+    "RKC provides skills for creating and maintaining project documentation; the AI agent in which you invoke them uses its own model and settings.",
     [
-      "RKC generates no provider-specific repository instruction files.",
-      "The documentation protocol is host-neutral.",
-      "Other compatible agents require separate validation before a support claim.",
+      "Installation supplies four canonical skills and their version-matched instructions.",
+      "Invocation follows the skill discovery mechanism available in your environment.",
+      "Report a concrete missing skill or unavailable operation without inferring support from the agent's name.",
     ],
     ["rkc-help"],
   ),
@@ -191,13 +187,6 @@ export function createSelfDescriptionManifest(
     distribution_version: distributionVersion,
     documentation_prompt_version: RKC_DOCUMENTATION_PROMPT_VERSION,
     skills,
-    supported_hosts: [
-      { id: "codex-vscode", status: "supported_after_conformance" },
-      {
-        id: "github-copilot-vscode",
-        status: "supported_after_conformance",
-      },
-    ],
     capabilities: [
       "evidence_backed_documentation_creation",
       "documentation_maintenance",

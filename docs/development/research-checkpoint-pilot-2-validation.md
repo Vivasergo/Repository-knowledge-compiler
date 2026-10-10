@@ -1,5 +1,9 @@
 # Research checkpoint pilot 2: implementation and P02 candidate R2
 
+Historical R2 record. The next candidate and full-R4 instructions are in
+[bounded-preservation-pilot-3-validation.md](bounded-preservation-pilot-3-validation.md).
+Do not use the installation hashes or next-run instructions below for pilot 3.
+
 Status: unpublished candidate. Packaging/lifecycle validation is separate from
 semantic acceptance, which requires the owner run below.
 

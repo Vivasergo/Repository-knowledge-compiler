@@ -21,6 +21,7 @@ void test("publishes the V2 Markdown-first self-description", () => {
     "rkc-audit-docs",
   ]);
   assert.equal(manifest.provider_specific_instruction_files, false);
+  assert.equal("supported_hosts" in manifest, false);
   assert.equal(getSelfDescriptionModule("safety").topic, "safety");
   assert.throws(
     () => createSelfDescriptionManifest("not-a-version"),

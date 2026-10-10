@@ -21,12 +21,11 @@ different installed version or reproduce a divergent copy of its semantics in
 this skill.
 
 Load `references/research-checkpoint-experiment.md` beside this skill and apply
-`RKC-CREATE-FLOW-RESEARCH-CHECKPOINT-PILOT-2`. It replaces the master's execution order,
-global assignment ceiling, research-note prohibition and default QA allocation
-only as explicitly stated there. The master remains authoritative for content,
+`RKC-CREATE-FLOW-BOUNDED-PRESERVATION-PILOT-3`. It supplies bounded research checkpoints and retained notes,
+within the master's five-assignment ceiling and two final QA passes. The master remains authoritative for content,
 evidence strength, document selection, uncertainty, source protection and
-completion rules. This is an unpublished experiment, initially tested on a small
-source packet. Create its research workspace automatically after ordinary
+completion rules. This is an unpublished candidate for a full-repository control
+run. Create its research workspace automatically after ordinary
 preflight approval; no extra owner request for notes is needed.
 
 Preserve these operation boundaries:
@@ -95,7 +94,9 @@ review and refinement rather than a user-facing error log. Do not dump sample
 functions, raw risk identifiers, detailed QA findings, or counts of unresolved
 markers. Do not claim broader coverage or verification than the final documents
 and checks support.
-After an initial creation, recommend review and commit of the generated
-documentation. Do not recommend `rkc-update-docs` merely because that
+After an initial creation, offer one review/commit proposal when useful;
+never commit automatically. Include exact version/changelog proposals only when
+required by project policy, before editing those files, and respect existing
+authorization. Do not recommend `rkc-update-docs` merely because that
 documentation-only commit changes repository HEAD; use it after later changes
 whose meaning may affect the documentation.

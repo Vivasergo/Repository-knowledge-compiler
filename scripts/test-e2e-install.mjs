@@ -55,10 +55,7 @@ try {
     ),
   );
   assert.equal(selfDescription.distribution_version, expectedVersion);
-  assert.deepEqual(
-    selfDescription.supported_hosts.map((host) => host.id),
-    ["codex-vscode", "github-copilot-vscode"],
-  );
+  assert.equal("supported_hosts" in selfDescription, false);
   assert.equal(selfDescription.provider_specific_instruction_files, false);
   await readFile(
     join(
@@ -173,7 +170,7 @@ try {
     );
     assert.ok(
       createInstructions.includes(
-        "RKC-CREATE-FLOW-RESEARCH-CHECKPOINT-PILOT-2",
+        "RKC-CREATE-FLOW-BOUNDED-PRESERVATION-PILOT-3",
       ),
     );
     assert.equal(

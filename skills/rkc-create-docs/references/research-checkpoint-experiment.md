@@ -1,179 +1,160 @@
-# Research checkpoints and faithful transfer experiment
+# Bounded research and knowledge preservation candidate
 
-Identity: `RKC-CREATE-FLOW-RESEARCH-CHECKPOINT-PILOT-2`.
+Identity: `RKC-CREATE-FLOW-BOUNDED-PRESERVATION-PILOT-3`.
 
-Contents: [workspace](#working-files-and-continuity), [research](#1-map-and-research),
-[research review](#2-review-research-before-drafting), [transfer](#3-transfer-and-document-granularity),
-[assembly and QA](#4-assembly-and-two-final-qa), [completion](#5-completion-and-retention).
+Contents: [preflight](#1-lightweight-preflight-and-budget),
+[notes](#2-working-files-and-continuity), [research](#3-research-and-targeted-review),
+[transfer](#4-transfer-granularity-and-assembly), [QA](#5-two-final-qa),
+[completion](#6-completion-and-retention).
 
-Keep master `RKC-DOCS-CREATE-2.14` unchanged. Replace its execution order,
-research-note prohibition, operation-wide assignment ceiling and default QA
-allocation only as stated here. Preserve its content selection, evidence rules,
-English documentation, source protection, single preflight and completion rules.
-No benchmark answers, previous evaluation reports or repository-specific expected
-topics may enter research or reviewer briefs.
+Use master `RKC-DOCS-CREATE-2.14` with this candidate's content revisions.
+The master owns evidence, architecture and future-agent guidance; this reference
+supplies bounded checkpoints and retained notes, replacing its prohibition on
+research files only as stated here. Preserve the single preflight, English
+documentation, source protection and completion rules. No evaluation answers,
+previous test reports or repository-specific expected topics enter generation.
 
-## Working files and continuity
+## 1. Lightweight preflight and budget
 
-After the master's ordinary preflight approval, before substantive research,
-automatically run the installed helper with quoted platform paths:
+Inspect root, branch, revision, worktree, applicable instructions, capabilities
+and existing documentation routes. Read enough orientation to propose scope;
+do not research full implementations, write findings or delegate before approval.
+Give one concise provisional documentation-only plan. Ordinary approval covers
+research and the external notes below; respect prior authorization. Refine routes
+during research without another gate unless scope or authority materially changes.
+
+At most **five subagent assignments for the whole Create operation**:
+up to three targeted research/review assignments and two reserved final QA.
+Count nested work, retries and seam reviewers in the same ceiling; instruct
+workers not to delegate. Five is not a target. No mandatory review per area,
+file or directory, no inventory/summarization worker, and no third final QA.
+Use primary research by default; lack of a worker never excuses missing coverage.
+If independence is unavailable, perform separate primary passes and disclose it.
+
+## 2. Working files and continuity
+
+After approval, before substantive research, run the installed helper with actual
+quoted paths resolved from installation metadata:
 
 ```text
 node "<core_path>/node_modules/repository-knowledge-compiler/dist/research-notes.js" start "<target-root>" "<checked-revision>"
 ```
 
-Resolve `core_path` from this skill's installation metadata. Obtain the actual
-source revision read-only; for uncommitted input record its worktree evidence
-boundary too. Do not invent a revision when Git evidence is unavailable: use an
-explicit unavailable-revision description and disclose the limit. The helper
-creates a unique user-scoped `.rkc/temp/create-docs-<run>/` adjacent to `versions/`,
-never inside the project or installed version. This authorized local RKC helper
-is not target-application execution. Preserve its ownership marker and provenance
-at the top of each of the three files:
+For uncommitted evidence retain its boundary. If a revision is unavailable,
+record that explicitly, never invent it. The helper creates an owned
+`.rkc/temp/create-docs-<run>/` adjacent to user-scoped `versions/`, outside the
+target and installed version. This local helper is not application execution.
 
-- `research.md`: coverage map, original findings with evidence, exclusions,
-  unchecked edges and next area. Append findings before shortening or drafting.
-- `review.md`: complete original research/final QA responses, separate verified
-  corrections, readiness decisions, seam checks and actual mechanical results.
-- `transfer.md`: each material finding's canonical passage or justified exclusion,
-  retention of conditions, assembly/QA rechecks and final completion status.
+Preserve its ownership/provenance headers. Use only these three Markdown files:
 
-Use ordinary Markdown, short area headings and local finding labels for reference.
-Do not build a semantic schema, one record per function, source dumps or a new
-project knowledge manifest. Preserve material evidence rather than verbatim code.
-Copy reviewer responses completely; a paraphrase is not the original review.
-Record corrections separately instead of rewriting the original findings/reviews.
-Do not copy secrets or unrelated private content into notes.
+- `research.md`: a compact capability/owner map, material findings and anchors,
+  conditions, exclusions and unresolved edges. Save evidence before condensation.
+- `review.md`: original responses, separate corrections, budget usage and actual
+  checks. Capture each reviewer handback directly from its output; do not ask a
+  model to regenerate, condense or translate it for storage. Append notes separately.
+- `transfer.md`: material findings' canonical passages or justified exclusions,
+  significant conditions, corrected seams and final disposition.
 
-Checkpoint after each research area, review/correction, transfer and final QA.
-Before continuing, read the relevant saved section and outstanding edges; after
-context loss read provenance and coverage first. Reconcile the repository,
-revision and worktree boundary before reuse. Changed evidence requires a targeted
-recheck of affected findings; a different repository/revision never silently
-inherits a completed status. If persistence fails, retain available evidence,
-report the blocked checkpoint and do not claim this flow completed in memory.
+If the host supplies only truncated review text, preserve exactly that available
+text, mark the archive incomplete and disclose the limit; do not label it a
+complete original or invent missing content. Do not launch a replacement review
+just to repair storage. A completed semantic review and a complete archive are
+different claims; report each truthfully.
 
-## 1. Map and research
+No schemas, source dumps, per-function ledgers or duplicate narrative summaries.
+Checkpoint at meaningful area/correction/draft/QA transitions, not every tool call.
+Reload only relevant notes and unresolved edges; after context loss check
+provenance and scope first. Reuse valid evidence, with targeted rechecks when
+sources or meaning changed. Persistence failure blocks a claim that this flow
+completed; retain available evidence and report the checkpoint.
 
-During read-only orientation, map meaningful responsibilities and their
-relationships, source entry points, tests, existing documents and missing source.
-Present one concise preflight; ordinary approval covers documentation and these
-external working files. Respect prior session authorization; no area approvals.
+## 3. Research and targeted review
 
-After approval, develop the map while researching small coherent areas
-sequentially. An area follows a responsibility and the relationships needed to
-understand it, including immediate implementations, consumers and relevant tests.
-Split an area when distinct conditions or too many relationships prevent reliable
-checking. Directories and byte sizes help locate or bound reading; they do not
-define semantic boundaries. Do not cap area/file counts or hide leftover scope
-to meet an arbitrary quota. On large inputs, checkpoint and review areas
-incrementally rather than waiting for all source to fit in one context.
+The primary agent researches coherent responsibilities and meaningful connections.
+Read relevant implementations, immediate writers/consumers and test setup.
+Use source entry points rather than an exhaustive directory traversal. Inspect
+conditions, alternative outcomes, ownership, transformations, persistence,
+rollback, compatibility and consequential async/failure paths where applicable.
+Do not reread the same verified sources for each neighboring topic.
 
-For each area, read whole relevant implementations, not only search hits.
-Trace entry conditions, alternate branches, exceptions, observable outcomes,
-owners, shared dependencies and cross-area connections that change a future
-implementation decision. Check test setup and assertions: names, imports and
-fixtures alone do not establish the claimed coverage or runtime guarantees.
-Challenge broad statements with reachable counterexamples and qualify them by
-the conditions actually established. Keep observed behavior, inference, likely
-defects, external guarantees and intent distinguishable.
+Read relevant existing own-project docs alongside each area. Reconcile material
+guardrails, decisions, external experience and fallback reasons using the master's
+evidence policy. Preserve useful knowledge, qualify conflicts or retire from active
+guidance on a concrete basis. Do not recursively read archives or assign another
+existing-doc reviewer by default. Current code establishes behavior, not whether
+an owner requirement is valid or an external guarantee holds.
 
-Save consequential findings with rule, conditions/exceptions, outcome, source
-path/symbol and evidence boundary. Preserve distinctions before condensation;
-shared helpers or similar names do not establish equivalent behavior. Inventory
-every relevant source area as researched, excluded with reason, or unchecked with
-an explicit limit; listing a file is not reading it. Record outgoing edges and
-existing documentation not yet reconciled. Do not require every local detail to
-become a finding; select knowledge that would change a realistic task or prevent
-a material mistake. Do not draft final topical prose before the research gate.
+Save only task-changing findings: rule, important condition/exception, outcome,
+source anchor and evidence limit. A short reusable map accounts for independent
+capabilities and owners as researched, locally recoverable with reason or
+unchecked; no record per file. A small capability may still need a task route.
+An inventory or broad domain heading does not establish coverage.
 
-## 2. Review research before drafting
-
-For each area, give a fresh read-only reviewer the brief below, source entry
-points, original findings, the coverage map including residual/excluded scope,
-actual revision and worktree baseline. Include nearby relationships required to
-judge the area, not unrelated repository dumps or anticipated evaluation answers.
-Run one assignment at a time. Do not have the researcher write the reviewer's
-conclusions for it. This replaces the previous pilot's combined draft checker:
-the reviewer checks research before prose can steer what appears important.
+Use a research assignment only for consequential uncertainty, a complex independent
+responsibility, or a seam the primary cannot settle. Give the smallest necessary
+scope, findings/anchors, source entry points and protected-worktree baseline.
+Combine related questions when they share evidence; do not replicate whole-area
+research or send the full creation prompt.
 
 ### Research reviewer brief
 
-Read the assigned primary implementations, immediate consumers, relevant test
-setup and existing documents. Check two directions separately:
+Check assigned material claims and unresolved/residual paths against primary
+implementations, consumers, tests and applicable existing docs. Distinguish
+verified conditions and outcomes from inference, intent and external limits.
+Report confirmed discrepancies, necessary additions or supported adequacy with
+source anchors and remaining unchecked scope. Do not manufacture omissions or
+rediscover unrelated areas. Read only the necessary scope; edit nothing, execute
+no application code, install nothing, access no external systems and delegate no work.
 
-1. Included findings: verify consequential rules, their conditions, exceptions,
-   outcomes and evidence strength. Look for counterexamples to categorical claims,
-   unsupported equivalence, inference presented as fact and overstated tests.
-2. Residual sources: inspect relevant excluded/unrepresented implementations,
-   branches, consumers, tests and existing documents. Identify consequential
-   knowledge absent from findings or a boundary that makes an exclusion unsound.
-   An unread area cannot be marked covered because its directory was inventoried.
+### Primary correction checkpoint
 
-Existing documentation supplies leads, not authority over current implementation.
-Report confirmed discrepancies or justified adequacy, primary source anchors,
-required additions/qualifications and remaining unchecked scope. Do not invent
-omissions to meet a quota or require exhaustive transcription. Modify no files,
-execute no application code, install nothing and contact no external systems.
+Save the original response directly, then source-check disputed corrections and
+record the result separately. Agreement is not evidence. For unreviewed areas,
+the primary checks consequential claims and boundaries without repeating a full
+pass. A known consequential false rule or omission must be resolved before its
+draft is accepted. Unknown external facts stay visible limits. No independent
+readiness ceremony, second reviewer or full resweep per area.
 
-### Research readiness checkpoint
+## 4. Transfer, granularity and assembly
 
-Save the complete response in `review.md`. Source-verify suggested corrections,
-append corrected/additional findings with their relationship to originals, and
-resolve affected edges in the coverage map. Use one correction cycle per area,
-with targeted primary source rechecks. Agreement between agents is not evidence.
+Draft each coherent group from its saved findings and corrections. Choose files
+by reader task, responsibility and distinct contract, not research-area count.
+Split unrelated contracts or verification routes when a shared document would
+bury them. Use sections where one task needs the knowledge together.
+No document quota, target length or default count; retain L0/L1/L2 and AGENTS.
+Every substantive document needs a task route and one canonical home per rule.
 
-Mark the area ready only when material findings have evidence and preserved
-conditions, review issues are resolved, and residual scope has been checked,
-justifiably excluded or explicitly bounded. A known consequential omission or
-false rule blocks drafting that area. Unavailable evidence stays a visible limit;
-do not count it as verified coverage. Record the readiness basis, not just PASS.
-If independence is unavailable, perform the separate source pass yourself and
-disclose that limitation. Do not silently add repeated complete research sweeps.
+For each material finding, record its actual document/section and retained
+condition/outcome, or a concrete justified exclusion. Related findings may share
+a passage only when their significant conditions are present; vague topic labels,
+RETAINED or source links alone do not prove transfer. Do not transcribe minor
+local facts into a ledger or discard task-changing knowledge merely because code
+contains it.
 
-## 3. Transfer and document granularity
+Compare draft text with the saved evidence as it is written. Reopen source only
+for a changed/new claim, disputed condition, correction or unresolved seam.
+At assembly check significant cross-area dependencies on both sides and ensure
+important capabilities and prior useful routes survived. This is one reuse-based
+transfer/consistency pass, not another full research phase or automatic seam review.
+A seam assignment, if necessary before final QA, consumes the three-assignment
+research allocation.
 
-Read the area's original findings, corrections and readiness decision from disk
-before drafting. Transfer checked knowledge into canonical documents under the
-master's task routes. Keep conditions and limits with the actual claim.
+Keep gaps indexes compact with stable IDs and links to canonical details.
+Use a separate details file or split by area when task reading requires it,
+not as a mandatory template. Keep resolved entries and links consistent.
+Generate adaptive guidance for code clarity, meaningful tests, explicit commits
+and project version/changelog practice from the master; do not change code,
+tests, versions or Git state to enforce those future-agent rules.
 
-Choose files by distinct reader tasks, responsibility and evidence scope. Split
-when materially different contracts or verification routes would be buried in
-one document; use sections when a single task needs the related knowledge
-together. Research areas are not output files. Do not impose a document quota,
-target length or one-file-per-area rule; do not merge distinct behavior to make
-the surface look smaller. Keep every substantive document reachable from the
-router; avoid duplicated canonical rules.
+## 5. Two final QA
 
-In `transfer.md`, give every material finding, including review additions, an
-individual disposition: actual document/section and the retained rule with its
-conditions, or a concrete reason for exclusion consistent with the master's
-knowledge selection. A shared heading, list of finding labels, vague RETAINED
-status or source link alone is not evidence that the passage preserves knowledge.
-Do not exclude a consequential finding just because it is recoverable from code.
-
-Perform a separate primary transfer pass using saved findings/corrections and
-actual text. Check conditions, exceptions, outcomes and evidence limits for each
-disposition; inspect the source again where wording changed meaning. Re-read
-relevant scope exclusions so shortening cannot silently discard an unresolved
-edge. Resolve confirmed losses before assembly; leave honest unknowns visible
-in the corresponding documentation. This pass is not another full research run.
-
-## 4. Assembly and two final QA
-
-Assemble canonical homes, root AGENTS, concise README navigation and task routes.
-Check material cross-area seams against both sides: ownership, inputs/outputs,
-identities/units, ordering, registration, defaults, errors and evidence limits.
-Preserve distinct cases. Record changed passages in `transfer.md` and recheck
-their original findings; rearranging or shortening is not automatically harmless.
-Use a separate read-only seam reviewer only for a material connection the primary
-cannot settle; do not manufacture a seam or redundant summary assignment.
-
-Run two fresh read-only final QA assignments sequentially on the assembled docs.
-Supply actual document paths, source entry points, revision, limits and protected
-worktree baseline. Do not supply author conclusions as expected answers.
-Preserve complete reviews in `review.md`. Correct confirmed issues and check
-affected passages/source once between reviews and after the second.
+Run two fresh read-only assignments sequentially on assembled docs: accuracy,
+then task usefulness. Supply document paths, source entry points, revision,
+limits and protected-worktree baseline, without author conclusions as expected
+answers. Both are reserved inside the five-assignment ceiling; no third final QA.
+Capture complete original outputs directly in `review.md`. Correct confirmed
+issues and recheck affected passages/source once between reviews and after the
+second. Disclose unavailable independence instead of implying reviewers ran.
 
 ### Accuracy QA brief
 
@@ -194,39 +175,31 @@ source to judge whether the docs lead to a correct plan and retain constraints
 that change it. Return task outcome, source/passage anchors, narrow corrections
 and limits. Do not implement the task or perform unauthorized execution.
 
-Use one research reviewer per area, optional material seam review and these two
-final reviewers; this replaces the master's global assignment ceiling. Keep
-assignments sequential, consolidate overlapping areas and avoid repeated summaries
-or full reruns. For the first small packet aim for one or two areas based on
-actual responsibilities; do not omit a necessary third to satisfy a number.
-Disclose unavailable independence rather than implying a reviewer ran.
-
 Run the master's mechanical checks over every created/modified managed document,
-including untracked files. Record actual results, not inferred execution.
+including untracked files. Record actual results; link validity is not semantic
+proof. The two briefs retain the R2 review responsibilities.
 
-## 5. Completion and retention
+## 6. Completion and retention
 
-Before recording success, revisit `transfer.md` after both QA corrections. Each
-material finding must still have a correct published passage or justified
-exclusion; all necessary seams, source scope and unresolved limits must be
-accounted for. Carry reader-relevant uncertainty into docs and material readiness
-limits into the handback. Complete the master's source-protection and mechanical
-checks. Append actual completion/revision/review status to the three notes.
+After QA corrections, check affected transfer dispositions and global routes
+without rereading all sources. Carry reader-relevant uncertainty into documents
+and readiness limits into the handback. Record actual baseline, assignments,
+completed checks and archive limits in the notes.
 
-Only after these gates succeed run:
+Only after semantic/source-protection/mechanical gates succeed run:
 
 ```text
 node "<core_path>/node_modules/repository-knowledge-compiler/dist/research-notes.js" finish "<run-path>" retain --verified
 ```
 
-This experiment retains notes automatically for evaluation. Name their exact
-folder in the final response; the owner need not ask for them. On interruption,
-blocked gate or failed checks, keep notes and record the last reliable checkpoint;
-do not invoke successful finish. Never erase another run or reuse stale status.
+Retain notes automatically for this unpublished candidate and report their exact
+folder. On interruption or blocking checks keep the last checkpoint; do not invoke
+successful finish. Never erase another run. The helper's verified flag is an
+agent assertion, not automated semantic validation. Incomplete review archival
+must remain an explicit warning, not a claim of a full original archive.
 
-The helper also supports `delete` in place of `retain` for an accepted ordinary
-flow after all gates, or explicitly authorized disposal of an evaluated run.
-Do not select `delete` during this experiment. It validates owned paths/files and
-never recursively removes the parent, siblings or installed versions. The helper
-manages storage; `--verified` is the agent's assertion, not an automated semantic
-quality verdict. State semantic and packaging validation separately.
+Offer one end-of-task commit proposal only within the master's authorization
+policy. Existing version/changelog conventions govern any proposed release edits;
+do not implicitly commit, tag, publish or bump a product version for docs creation.
+Record available duration/usage facts outside durable project docs; never infer
+billed tokens from characters or claim this candidate is faster before measurement.
