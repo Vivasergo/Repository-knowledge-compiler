@@ -2,17 +2,14 @@
 
 ## Unreleased
 
-- Balance named sections and separate topical documents: group small related
-  responsibilities with direct section routes, without count or length targets.
-- Retain indirect transformations and configurable value shapes; check exclusions
-  for persistence, and reconcile concise claims with their evidence in existing QA.
-- Preserve non-obvious core contracts in small and non-delegated areas; distinguish
-  layer-specific capabilities from broader behavior or external guarantees.
+- Restore the candidate-5 Create research, assembly and QA instructions; remove
+  later preferences for separate files or grouped sections. Keep installation
+  fixes, requested note retention and informative completion reports.
 
 - Preserve informative completion reports with a positive scope explanation, precise
   linked actions and visibility of obsolete routes in protected instructions.
-- Recheck QA corrections against verified exceptions and precedence; remove temporary
-  research notes after successful completion unless retention is requested.
+- Remove temporary research notes after successful completion unless retention
+  is requested.
 
 - Scope global rules to verified contracts, preserve consequential value-shape and
   state-owner boundaries, and keep external uncertainties consistent.

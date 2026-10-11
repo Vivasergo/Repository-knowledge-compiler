@@ -21,12 +21,8 @@ different installed version or reproduce a divergent copy of its semantics in
 this skill.
 
 Load `references/research-checkpoint-experiment.md` beside this skill and apply
-`RKC-CREATE-FLOW-RELEASE-CANDIDATE-8`. It supplies bounded research checkpoints and temporary notes,
-within the master's five-assignment ceiling and two final QA passes. Route material
-responsibilities to named sections or separate documents; group small related
-topics without burying substantive contracts. Research assignment count never
-determines file count. Preserve non-obvious core contracts
-rather than replacing them with source-only routes. The master remains authoritative for content,
+`RKC-CREATE-FLOW-RELEASE-CANDIDATE-9`. It supplies bounded research checkpoints and temporary notes,
+within the master's five-assignment ceiling and two final QA passes. The master remains authoritative for content,
 evidence strength, document selection, uncertainty, source protection and
 completion rules. This is an unpublished release candidate for one final full-repository control
 run. Delete this run's notes after successful completion unless the owner explicitly

@@ -1,3 +1,5 @@
+Superseded by [the R5-restored control](r5-restored-2.1-candidate-validation.md).
+
 # Balanced structure 2.1: controlled generation
 
 Status: unpublished candidate. Branch `release/create-docs-balanced-2.1`.
