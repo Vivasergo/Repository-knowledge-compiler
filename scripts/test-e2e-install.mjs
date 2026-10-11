@@ -4,11 +4,12 @@ import {
   access,
   mkdir,
   readFile,
+  realpath,
   symlink,
   unlink,
   writeFile,
 } from "node:fs/promises";
-import { join } from "node:path";
+import { basename, dirname, join } from "node:path";
 import { promisify } from "node:util";
 
 import { TEST_USER_HOME_VARIABLE } from "../packages/bootstrap/dist/lifecycle.js";
@@ -196,12 +197,14 @@ try {
   const firstRun = started[0].stdout.trim();
   const secondRun = started[1].stdout.trim();
   assert.notEqual(firstRun, secondRun, "Concurrent runs must not share notes.");
-  assert.equal(
-    firstRun.startsWith(
-      join(environment.userHome, ".rkc", "temp", "create-docs-"),
-    ),
-    true,
+  // The helper returns a canonical path; Windows TEMP may use an 8.3 alias.
+  const expectedNotesRoot = await realpath(
+    join(environment.userHome, ".rkc", "temp"),
   );
+  for (const run of [firstRun, secondRun]) {
+    assert.equal(dirname(run), expectedNotesRoot);
+    assert.match(basename(run), /^create-docs-[A-Za-z0-9]+$/u);
+  }
   assert.match(
     await readFile(join(firstRun, "research.md"), "utf8"),
     /test revision A/u,
