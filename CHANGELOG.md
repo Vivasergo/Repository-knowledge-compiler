@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+- Scope global rules to verified contracts, preserve consequential value-shape and
+  state-owner boundaries, and keep external uncertainties consistent.
+- Make Create completion reports clearer: usable entry points, actual checks,
+  concise agent guidance and actionable links without technical inventories.
+
 - Preserve task-changing conditions in non-delegated and compact areas, check
   semantic transfer and global-rule exceptions, and scope async claims precisely.
 - Retain declared release conventions separately from unknown version sources;

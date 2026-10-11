@@ -1,6 +1,8 @@
 # Contract preservation pilot 4: full-R4 control run
 
-Status: unpublished candidate for owner evaluation, not release acceptance.
+Status: historical pilot-4 procedure, not the current control-run instructions.
+Use [final 2.1 candidate validation](final-2.1-candidate-validation.md) for the
+next run. Pilot 4 remains comparison evidence, not generator input.
 The previous R2 and pilot-3 instructions are historical; use this procedure for pilot 4.
 Pilot 3 is retained as a comparison, not input to the generator.
 

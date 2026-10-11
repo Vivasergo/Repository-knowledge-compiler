@@ -21,10 +21,10 @@ different installed version or reproduce a divergent copy of its semantics in
 this skill.
 
 Load `references/research-checkpoint-experiment.md` beside this skill and apply
-`RKC-CREATE-FLOW-CONTRACT-PRESERVATION-PILOT-4`. It supplies bounded research checkpoints and retained notes,
+`RKC-CREATE-FLOW-RELEASE-CANDIDATE-5`. It supplies bounded research checkpoints and retained notes,
 within the master's five-assignment ceiling and two final QA passes. The master remains authoritative for content,
 evidence strength, document selection, uncertainty, source protection and
-completion rules. This is an unpublished candidate for a full-repository control
+completion rules. This is an unpublished release candidate for one final full-repository control
 run. Create its research workspace automatically after ordinary
 preflight approval; no extra owner request for notes is needed.
 
@@ -86,20 +86,12 @@ boundary above. If a new-version notice is printed, append it to the final
 owner-facing response after the documentation result. A check failure must not
 change the documentation result.
 
-Write the concise owner-facing completion report required by the master prompt.
-Summarize actual future-agent rules in short generic categories with clickable
-canonical links; distinguish added, clarified and preserved guidance. Keep
-project-specific implementation details in the documents. For a material
-owner decision or recommended follow-up, state its purpose, consequence, evidence
-strength, detail link and next action as required by the master. Do not list
-unrelated risks, give risk counts or claim future compliance.
-Summarize the documentation surface, why its routes were selected, how future
-agents will use it, verification actually performed, and only limitations that
-affect readiness or need owner attention. Describe resolved QA work neutrally as
-review and refinement rather than a user-facing error log. Do not dump sample
-functions, raw risk identifiers, detailed QA findings, or counts of unresolved
-markers. Do not claim broader coverage or verification than the final documents
-and checks support.
+Follow the master's owner-facing report order: result, actual checks, short generic
+rule categories with canonical links, useful actions only, and one next step.
+Use plain language; keep implementation and detailed QA findings in the docs.
+Reuse final passages to verify scoped claims, links and executable recommendations.
+Distinguish unavailable host transcripts from preserved reviewer handbacks.
+Do not add another QA pass, promise completeness, or hide a material readiness limit.
 After an initial creation, offer one review/commit proposal when useful;
 never commit automatically. Include exact version/changelog proposals only when
 required by project policy, before editing those files, and respect existing

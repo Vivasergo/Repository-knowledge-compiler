@@ -1,6 +1,6 @@
 # Bounded research and knowledge preservation candidate
 
-Identity: `RKC-CREATE-FLOW-CONTRACT-PRESERVATION-PILOT-4`.
+Identity: `RKC-CREATE-FLOW-RELEASE-CANDIDATE-5`.
 
 Contents: [preflight](#1-lightweight-preflight-and-budget),
 [notes](#2-working-files-and-continuity), [research](#3-research-and-targeted-review),
@@ -93,7 +93,10 @@ first relevant read, the primary also establishes the non-delegated areas'
 reader/writer, persistence and task-changing conditions. Small size or no worker
 is not a reason to skip a contract. Preserve non-obvious existing-value,
 fallback/default, deletion and storage-scope behavior where applicable, using
-a short canonical section rather than a file per component. Local recoverability
+a short canonical section rather than a file per component. Account for small
+capabilities with a distinct state/persistence owner in this same map and router.
+At meaningful boundaries connect allowed value shapes to the actual consumer
+and storage result, including incompatible assumptions. Local recoverability
 may omit obvious details, not a condition that changes a future plan.
 For consequential async claims, follow the actual snapshot/live read, payload,
 submission and acknowledgement sequence; qualify which changes are affected.
@@ -151,7 +154,10 @@ transfer/consistency pass, not another full research phase or automatic seam rev
 A seam assignment, if necessary before final QA, consumes the three-assignment
 research allocation. Before final QA, reconcile global rules with researched
 exceptions and topical guidance; narrow the rule or link the exception. Distinguish
-owner requirements, current behavior and external guarantees. Reuse checked
+owner requirements, current behavior and external guarantees. Verify the actual
+entry-point wording against researched writers: narrow categorical rules, route
+exceptions, and retain unknown external behavior in short tables too. A preferred
+new-write path is not proof that all existing writers already follow it. Reuse checked
 evidence; do not commission another review for this assembly check.
 
 Keep gaps indexes compact with stable IDs and links to canonical details.
@@ -202,9 +208,16 @@ and readiness limits into the handback. Record actual baseline, assignments,
 completed checks and archive limits in the notes. Reconcile stale pending or
 unchecked area entries against actual evidence; retain real scope limits without
 claiming that delegated coverage proves every subflow was examined. Keep helper
-provenance headers intact and record semantic completion separately.
+provenance headers intact and record semantic completion separately. Give each
+remaining pending area its actual disposition and reason; keep task-changing
+state/persistence owners reachable. Do not equate an empty host transcript file
+with loss of an exact delivered handback. Mark missing/truncated handbacks
+separately from unavailable full transcripts.
 Use the master's concise generic rule summary and actionable, linked follow-up
 format; do not turn the handback into a catalog of risks or implementation rules.
+Before sending, reuse final evidence to check scoped statements, full canonical
+links and executable actions. This adds no research phase or QA assignment.
+Resolve confirmed misleading guidance; do not demand exhaustive completeness.
 
 Only after semantic/source-protection/mechanical gates succeed run:
 

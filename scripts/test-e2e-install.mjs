@@ -169,9 +169,7 @@ try {
       "Installed Create instructions differ from the candidate.",
     );
     assert.ok(
-      createInstructions.includes(
-        "RKC-CREATE-FLOW-CONTRACT-PRESERVATION-PILOT-4",
-      ),
+      createInstructions.includes("RKC-CREATE-FLOW-RELEASE-CANDIDATE-5"),
     );
     assert.equal(
       await readFile(join(installedCreateSkill, workflowReference), "utf8"),

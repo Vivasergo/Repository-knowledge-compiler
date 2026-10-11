@@ -4,7 +4,7 @@ Version: **RKC-DOCS-CREATE-2.14**\
 Status: **Unpublished candidate based on approved 2.14**
 Date: 2026-10-11
 
-Unpublished candidate revision: bounded research with task-changing contract preservation.
+Unpublished release candidate: bounded research, scoped contracts and clear owner handback.
 The 2.14 protocol identifier is retained; identify this candidate by its commit,
 flow reference and file hashes, not by the identifier alone.
 
@@ -67,7 +67,7 @@ owner requirements or external experience. Preserve applicable decisions with
 provenance; describe implementation separately when it does not meet them. An old
 document is neither automatically authoritative nor automatically obsolete.
 
-Code cannot prove owner intent or external-system behavior. Mark those statements honestly instead of presenting them as verified facts. Generated source-of-truth guidance must retain the distinction between current implementation and an explicit owner requirement; do not reduce both to a hierarchy that silently overrides the requirement. Absence of external enforcement code means enforcement is not verified here, not that it does not exist.
+Code cannot prove owner intent or external-system behavior. Mark those statements honestly instead of presenting them as verified facts. Generated source-of-truth guidance must retain the distinction between current implementation and an explicit owner requirement; do not reduce both to a hierarchy that silently overrides the requirement. Absence of external enforcement code means enforcement is not verified here, not that it does not exist. Keep this evidence limit consistent in entry-point rules, tables, topical explanations and the final report. Do not turn declared commands, CI inputs, comments about a host or an unknown release policy into verified execution or external guarantees.
 
 The generated documentation is a task map, not proof that every relevant behavior is documented. Absence from the knowledge base never proves absence from the code. Require future agents to reopen the cited primary sources and, before a behavior-changing edit, inspect the immediate writer, consumer, and relevant tests. Keep that verification task-local: do not reread an entire domain, repository, or dependency tree when the direct path is enough.
 
@@ -150,6 +150,8 @@ For a domain that merits deeper inspection, establish task signals, entry points
 
 During the first relevant reading of each material responsibility, including those not delegated, establish who reads and writes its data, where it persists, and which conditions or exceptions change the outcome or a future edit. Retain non-obvious fallback/default behavior, handling of existing values when eligibility changes, deletion consequences, and user-versus-shared storage boundaries when applicable. Use a compact contract note with source and test entry points, not a checklist per component. A short section can retain these conditions without a new file; do not defer them to final QA or excuse their omission as locally recoverable. Stop when the task-changing contract is established.
 
+For a material writer-consumer boundary, retain the allowed value shapes, the consumer's assumptions and the persistence consequence when they differ. State the relevant condition and observable result together; do not leave readers to infer a consequential incompatibility from separate sections. Preserve reasons for ordering, synchronous/asynchronous handling, live-state reads and compatibility constraints when they cross module boundaries and change a future plan. Keep ordinary local contracts in source comments. A small user-visible capability with its own state or persistence owner needs a short route and owner note when that distinction changes future work; size alone does not make it safely recoverable.
+
 For consequential asynchronous operations, distinguish values and markers read before an await, live values read later, payload construction, request submission and acknowledgement/cleanup. State exactly which changes a claim covers; do not imply that all changes during an operation share the same outcome. Verify from the actual read/write sequence, with targeted source checks only where uncertain.
 
 Do not add research files, evidence schemas, agent definitions, or a second pass over unrelated dependencies.
@@ -166,6 +168,8 @@ PHASE 1B — CROSS-DOMAIN SYNTHESIS (READ ONLY)
 8. Propose as many topical documents as the repository genuinely needs. Do not impose a file-count quota and do not create files merely to mirror folders.
 9. Compare task-signal coverage against existing useful documentation before replacing its routes. Preserve or deliberately rehome critical navigation for state/writers, configuration, permissions/workflow, validation and user-facing control state, save/editing, collaboration, and external contracts when they exist in this repository. Do not copy old claims without source checks. For previously undocumented capabilities, compare the Phase 0 inventory with the planned coverage map and proposed router. A broad domain name or topical filename does not prove that its independent owners, subflows, or writer-consumer contracts are covered: give each high-impact item a route or deliberately omit it as locally recoverable and low risk. Note high-impact omissions explicitly; do not require a topical file for every directory.
 10. Reconcile applicable provider-specific instruction files such as `CLAUDE.md`, Copilot instructions, and repository-local agent skills against primary evidence and the planned canonical routes. For each consequential existing task signal or guardrail, preserve it, rehome it to one canonical document, or retire it only when primary evidence shows it is stale. When documentation is moved or deleted, check references from those instructions and skills; update approved documentation routes where permitted and report references in protected files that need a separate owner decision. Do not create a permanent reconciliation ledger, and do not leave contradictory shadow guidance.
+
+Before promoting a finding to a global guardrail, check its scope against the writers and exceptions already researched. Use "always", "never" or "only" only within that supported scope; otherwise narrow the rule and link the applicable exception. Distinguish a recommended path for new changes from an existing exceptional path. Do not silently prescribe an architectural migration to make the implementation fit the generated rule. Recheck the final wording after QA corrections without another research pass.
 
 TARGET INFORMATION ARCHITECTURE
 
@@ -376,22 +380,61 @@ END TASK-USEFULNESS QA BRIEF
 
 FINAL REPORT
 
-Write a concise owner-facing completion report in the owner's language and derive it from the final router, actual documents, and verification results. Lead with the outcome: completed, completed with warnings, or blocked.
+Write a short, natural completion report in the owner's language. Describe what the
+owner can now use and what to do next, not the internal research procedure. Use short
+paragraphs or a few grouped bullets; avoid a file-by-file inventory and repeated
+technical explanations. Do not use a default "key preserved knowledge" section.
+Lead with completed, completed with material limits, or blocked,
+and explain what that status means for using or reviewing the documentation.
 
-Report only:
+Use this order, adapting headings to the owner's language:
 
-- the documentation surface created or updated, grouped as the entry point, orientation/router documents, and the actual major flow/domain documents;
-- a brief explanation of why those flows and domains form the useful task map for this repository;
-- a short generic summary of the material future-agent rule categories actually added, clarified or preserved, with clickable links to canonical documents or sections. Use plain categories such as existing mechanisms, code clarity, critical-behavior tests, commit approval, version/changelog practice and documentation maintenance only when present. Keep project-specific field names, implementation details and complete policies in the linked documents. State changes honestly, distinguish established conventions from generic guidance or open choices, and never imply that future compliance is guaranteed. Do not fill a fixed checklist or launch another policy audit to populate this report;
-- how a future agent will use the result: start at AGENTS.md, follow the smallest relevant task route, reach source and checks quickly, and avoid rediscovering unrelated parts of the repository;
-- a short maintenance note for the owner: future agents follow AGENTS.md to keep materially affected documentation, task routes, and links current during authorized implementation work, or report confirmed drift during read-only work; recommend `/rkc-update-docs` when later repository changes require separate bounded reconciliation, and `/rkc-audit-docs` when an independent review of freshness, routing, or contradictions is needed. Do not imply background monitoring or automatic skill invocation;
-- a plain-language verification summary stating that the documentation was reviewed against relevant evidence, refined where needed, and passed the checks that actually ran; do not enumerate resolved QA findings or present corrected pre-completion drafts as user-facing errors, and disclose only unresolved verification limits that affect readiness or require owner attention;
-- only limitations that materially affect readiness or require a concrete owner action. Use an optional "Owner decision needed" section only when a specific answer is required to finish safely: state the decision, why it matters, its effect on completion and a clickable evidence/detail link. For a substantial non-blocking risk with a useful next action, use "Recommended follow-up" and give the finding, plausible consequence, evidence strength, a clickable canonical detail link and one recommended verification or decision. Distinguish a code-supported mechanism from an inferred or reproduced outcome; discovery does not authorize a fix. Keep other risks, external boundaries and non-blocking intent questions in their canonical documents. Do not emit a default "Requires your attention" list, risk counts or a sample of unrelated defects;
-- documents proposed for later cleanup, only when owner action is useful;
-- confirmation that protected product code, dependencies, CI/CD, and user-owned worktree changes were not modified; derive the changed-file surface from complete worktree status including untracked files, not from `git diff --stat` alone;
-- the next safe action, or that the documentation is ready for review when verification permits it.
+1. Result: name what was created or updated, link AGENTS.md and the canonical router,
+   and briefly describe the major flow/domain groups and why they help future tasks.
+   Explain that agents follow the relevant route to sources and checks; do not promise
+   complete coverage or measured context savings without evidence.
+2. Checks: say what source scope was reviewed, that both final QA passes ran if they
+   did, and which mechanical or application checks actually passed. Separate checks
+   not run or unavailable from successful ones. Explain only limits relevant to use or
+   readiness. Treat resolved QA work as internal verification and refinement, not a client error list.
+3. Future-agent guidance: give a short sentence or grouped list of the rule categories
+   actually added, clarified or preserved, with canonical links. Use plain categories
+   such as code clarity, critical-behavior tests, preservation of project contracts,
+   commit approval, project version/changelog conventions and documentation maintenance.
+   Identify generic guidance or unresolved conventions when material. Keep field names,
+   framework details and full policies in the linked documents; do not imply compliance
+   is guaranteed or invent rules to fill a checklist.
+4. Actions, only when useful: for a material non-blocking issue, give its consequence,
+   the condition that makes it relevant, one executable verification or decision and a
+   clickable link to the exact canonical path/section. State whether the mechanism is
+   source-supported, the outcome inferred or reproduced, and what remains unknown.
+   Preserve the same scope as the detailed document. Do not recommend an unverified
+   reproduction shortcut as if it were established. A filename alone is not a link.
+   Use an owner-decision section only for an answer needed to complete safely; explain
+   the decision and its effect on completion. Omit this section if no useful action is
+   needed. Do not list unrelated defects, raw risk IDs/counts or default attention items.
+5. Next step: state the next safe action. After successful initial creation, offer one
+   review/commit proposal when useful, respecting existing authorization. Never commit,
+   push or edit version/changelog implicitly. Do not invent an exemption from an unknown
+   version policy. Do not recommend `/rkc-update-docs` solely because that documentation-only commit
+   changes HEAD; recommend update after relevant later code/configuration/contract
+   changes. Mention audit for
+   an independent documentation review when relevant, without implying background work.
 
-After a successful initial creation, offer review and one commit proposal for the generated documentation when useful. Follow existing user authorization and the commit/version guidance above; never commit or change version/changelog implicitly. Do not recommend `/rkc-update-docs` solely because that documentation-only commit changes repository HEAD; recommend it after later code, configuration, contract, or repository-structure changes that may affect the documentation.
+Confirm the protected-worktree boundary from complete status including untracked files,
+not git diff --stat alone, without repeating a long protection checklist. Put retained
+research-notes location in one brief closing note. Distinguish preserved reviewer
+handbacks from unavailable full host transcripts: a missing transcript does not make an
+exact delivered handback incomplete. Disclose truncation of the handback itself when it
+occurred. Keep operational archive details out of the main result unless they affect
+confidence or require action. Mention proposed document cleanup only when useful.
 
-Do not use a default "key preserved knowledge" section, list a sample of low-level functions, dump raw risk identifiers, or reproduce detailed QA findings. Treat resolved QA work as internal verification and refinement, not as a user-facing error log. Technical detail belongs in the routed documentation unless it explains a blocker, a warning, or a decision the owner must make. Do not claim broader coverage or verification than the final documents and checks support.
+Before sending, compare this handback with the final router, passages and actual checks.
+Check that links resolve, selected actions are executable, conditions match the canonical
+text and uncertainty has not turned into certainty. This is a brief reuse-based wording
+check, not another QA assignment or policy audit. Do not claim broader verification than
+performed. Treat confirmed misleading rules and material unresolved contract omissions
+as readiness limits; do not block completion merely because sampled coverage is not
+exhaustive. The documentation is a maintained base that future authorized work can extend.
+
 ```
