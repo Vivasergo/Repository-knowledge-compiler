@@ -1,6 +1,6 @@
 # Bounded research and knowledge preservation candidate
 
-Identity: `RKC-CREATE-FLOW-RELEASE-CANDIDATE-7`.
+Identity: `RKC-CREATE-FLOW-RELEASE-CANDIDATE-8`.
 
 Contents: [preflight](#1-lightweight-preflight-and-budget),
 [notes](#2-working-files-and-continuity), [research](#3-research-and-targeted-review),
@@ -92,7 +92,9 @@ An inventory or broad domain heading does not establish coverage. Treat local
 recoverability as an exclusion for obvious presentation, wiring or helpers, not
 non-obvious storage/edit/delete, gating, async, compatibility or external contracts.
 Independent state/persistence owners need a compact explanation and task route,
-even when the capability is small. An unchecked label is an honest limit, not a
+even when the capability is small; a routed section is sufficient. Before excluding
+a UI/helper as locally recoverable, inspect its immediate storage/configuration
+readers and async writers, including user preferences. An unchecked label is an honest limit, not a
 substitute for researching a planned core capability. During each
 first relevant read, the primary also establishes the non-delegated areas'
 reader/writer, persistence and task-changing conditions. Small size or no worker
@@ -101,7 +103,10 @@ fallback/default, deletion and storage-scope behavior where applicable, using
 a short canonical section rather than a file per component. Account for small
 capabilities with a distinct state/persistence owner in this same map and router.
 At meaningful boundaries connect allowed value shapes to the actual consumer
-and storage result, including incompatible assumptions. Local recoverability
+and storage result, including incompatible assumptions. Retain the actual
+load/normalization/edit/transform/save chain where applicable, including data
+indirectly submitted from snapshots; snapshot provenance does not prove lossless
+preservation. Retain significant configurable forms and disabled branches. Local recoverability
 may omit obvious details, not a condition that changes a future plan.
 For consequential async claims, follow the actual snapshot/live read, payload,
 submission and acknowledgement sequence; qualify which changes are affected.
@@ -137,15 +142,18 @@ readiness ceremony, second reviewer or full resweep per area.
 
 ## 4. Transfer, granularity and assembly
 
-Draft from saved findings and corrections. Prefer a separate topical document
-for an independent reader task or responsibility with its own contracts, state
-owners or verification path. One research assignment may produce several files.
-Merge only when readers normally need the topics for the same task and they share
-the evidence/verification path. Source proximity or shared technology is not enough.
-Before merging, check actual passages for retained conditions, exceptions and
-consequences, and that each task remains easy to find. Split if the merger hides
-an independent task or requires substantial unrelated reading. Use sections when
-one task genuinely needs the knowledge together; link shared canonical rules.
+Draft from saved findings and corrections. Give each material responsibility
+a named section or a separate topical document; independent ownership does not
+automatically require a file. Group small related topics when readers need them
+together and mechanisms or verification paths overlap. Before creating a small
+file, check whether a suitable document with a directly routed section provides
+equally useful context. Split for a substantive independent contract/lifecycle
+or when a shared document buries the task in unrelated reading. Research scope,
+source proximity, shared technology and size alone do not decide file boundaries.
+Route tasks directly to section anchors. During this same assembly check both
+excessive fragmentation and overly broad merging. Regroup without removing
+material conditions, exceptions, consequences or source/test entry points; link
+shared canonical rules. One assignment may produce several documents or sections.
 No document quota, target length or default count; retain L0/L1/L2 and AGENTS.
 Every substantive document needs a task route and one canonical home per rule.
 
@@ -199,7 +207,10 @@ second. Disclose unavailable independence instead of implying reviewers ran.
 
 Check actual entry points, routes and consequential claims against primary source
 and test setup. Verify conditions, exceptions, seams and evidence strength;
-challenge categorical statements. Inspect a bounded high-impact source area
+challenge categorical statements. Prioritize global-rule and risk-index wording
+against canonical detail: an EXTERNAL/VERIFY label cannot justify an unsupported
+server guarantee. Verify relevant configuration conditions and value-shape
+boundaries. Keep owner requirements distinct from current implementation. Inspect a bounded high-impact source area
 missing from document headings when the coverage map supports it. Return
 confirmed discrepancies or supported adequacy, source/passage anchors, severity,
 narrow corrections and unchecked scope. Do not rediscover the whole repository,
@@ -207,16 +218,21 @@ modify files or perform unauthorized execution.
 
 ### Task-usefulness QA brief
 
-Choose a realistic maintenance task from source before reading the topical prose;
-choose a second only for a materially different responsibility. Follow AGENTS and
-routes to owners, implementation constraints and meaningful verification. Inspect
-source to judge whether the docs lead to a correct plan and retain constraints
-that change it. Return task outcome, source/passage anchors, narrow corrections
+Choose a realistic maintenance task from source before reading topical prose.
+When a materially different responsibility exists, choose a second involving
+independent storage, a preference/configuration or integration write-back; do not
+choose both only from the most extensively documented area. Use at most two tasks
+and inspect only relevant paths. Follow AGENTS and routes, including section
+anchors, to owners, implementation constraints and meaningful verification. Judge
+whether constraints lead to a correct plan and whether file boundaries cause
+needless switching or bury the task in unrelated material. Do not merge merely
+to reduce count. Return task outcome, source/passage anchors, narrow corrections
 and limits. Do not implement the task or perform unauthorized execution.
 
 Run the master's mechanical checks over every created/modified managed document,
 including untracked files. Record actual results; link validity is not semantic
-proof. The two briefs retain the R2 review responsibilities.
+proof. The two briefs retain accuracy and task-usefulness responsibilities with the
+bounded priorities above; no additional pass or assignment is introduced.
 
 ## 6. Completion and retention
 

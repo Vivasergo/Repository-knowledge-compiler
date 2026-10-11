@@ -1,6 +1,6 @@
 # Granularity 2.1: controlled generation
 
-Status: unpublished candidate. Branch `release/create-docs-granularity-2.1`.
+Status: superseded by [balanced structure control](balanced-2.1-candidate-validation.md). Branch `release/create-docs-granularity-2.1`.
 Flow: `RKC-CREATE-FLOW-RELEASE-CANDIDATE-7`. Package remains unpublished `2.1.0`;
 prompt protocol remains `RKC-DOCS-CREATE-2.14`. Pin the exact commit supplied in
 the implementation handback; version numbers alone do not identify this patch.

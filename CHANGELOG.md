@@ -2,8 +2,10 @@
 
 ## Unreleased
 
-- Prefer independently routed responsibilities; merge documents only for a shared
-  reader task and verification path, without document-count or length targets.
+- Balance named sections and separate topical documents: group small related
+  responsibilities with direct section routes, without count or length targets.
+- Retain indirect transformations and configurable value shapes; check exclusions
+  for persistence, and reconcile concise claims with their evidence in existing QA.
 - Preserve non-obvious core contracts in small and non-delegated areas; distinguish
   layer-specific capabilities from broader behavior or external guarantees.
 
