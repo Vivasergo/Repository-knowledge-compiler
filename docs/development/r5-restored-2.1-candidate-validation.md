@@ -1,3 +1,7 @@
+> Superseded by [R7-restored validation](r7-restored-2.1-candidate-validation.md).
+> This historical procedure retains its original backup policy; the new control
+> deliberately reinstalls without a backup at the owner's request.
+
 # R5-restored 2.1: controlled generation
 
 Unpublished candidate; branch `release/create-docs-r5-restored-2.1`.

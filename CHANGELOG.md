@@ -2,9 +2,10 @@
 
 ## Unreleased
 
-- Restore the candidate-5 Create research, assembly and QA instructions; remove
-  later preferences for separate files or grouped sections. Keep installation
-  fixes, requested note retention and informative completion reports.
+- Restore candidate-7 task-based research, topical separation, transfer and QA
+  instructions. A shared writer does not replace capability-specific storage,
+  edit/delete or async contracts. Keep installation fixes, note cleanup and
+  informative completion reports.
 
 - Preserve informative completion reports with a positive scope explanation, precise
   linked actions and visibility of obsolete routes in protected instructions.
