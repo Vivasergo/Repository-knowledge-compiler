@@ -21,11 +21,13 @@ different installed version or reproduce a divergent copy of its semantics in
 this skill.
 
 Load `references/research-checkpoint-experiment.md` beside this skill and apply
-`RKC-CREATE-FLOW-RELEASE-CANDIDATE-5`. It supplies bounded research checkpoints and retained notes,
+`RKC-CREATE-FLOW-RELEASE-CANDIDATE-6`. It supplies bounded research checkpoints and temporary notes,
 within the master's five-assignment ceiling and two final QA passes. The master remains authoritative for content,
 evidence strength, document selection, uncertainty, source protection and
 completion rules. This is an unpublished release candidate for one final full-repository control
-run. Create its research workspace automatically after ordinary
+run. Delete this run's notes after successful completion unless the owner explicitly
+requests retention for a control run or diagnosis. Preserve interrupted or blocked
+work. Create its research workspace automatically after ordinary
 preflight approval; no extra owner request for notes is needed.
 
 Preserve these operation boundaries:
@@ -86,7 +88,7 @@ boundary above. If a new-version notice is printed, append it to the final
 owner-facing response after the documentation result. A check failure must not
 change the documentation result.
 
-Follow the master's owner-facing report order: result, actual checks, short generic
+Follow the master's substantive owner-facing report order: result, actual checks, generic
 rule categories with canonical links, useful actions only, and one next step.
 Use plain language; keep implementation and detailed QA findings in the docs.
 Reuse final passages to verify scoped claims, links and executable recommendations.

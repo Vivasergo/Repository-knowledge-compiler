@@ -1,6 +1,6 @@
 # Bounded research and knowledge preservation candidate
 
-Identity: `RKC-CREATE-FLOW-RELEASE-CANDIDATE-5`.
+Identity: `RKC-CREATE-FLOW-RELEASE-CANDIDATE-6`.
 
 Contents: [preflight](#1-lightweight-preflight-and-budget),
 [notes](#2-working-files-and-continuity), [research](#3-research-and-targeted-review),
@@ -9,7 +9,7 @@ Contents: [preflight](#1-lightweight-preflight-and-budget),
 
 Use master `RKC-DOCS-CREATE-2.14` with this candidate's content revisions.
 The master owns evidence, architecture and future-agent guidance; this reference
-supplies bounded checkpoints and retained notes, replacing its prohibition on
+supplies bounded checkpoints and temporary notes, replacing its prohibition on
 research files only as stated here. Preserve the single preflight, English
 documentation, source protection and completion rules. No evaluation answers,
 previous test reports or repository-specific expected topics enter generation.
@@ -213,7 +213,12 @@ remaining pending area its actual disposition and reason; keep task-changing
 state/persistence owners reachable. Do not equate an empty host transcript file
 with loss of an exact delivered handback. Mark missing/truncated handbacks
 separately from unavailable full transcripts.
-Use the master's concise generic rule summary and actionable, linked follow-up
+When applying a QA correction, compare the final passage with the verified source
+paths already recorded: preserve separate mechanisms, precedence and exceptions.
+A correction must not replace an overly broad claim with an overly narrow one.
+Carry material contract consequences into the canonical passage, not merely their
+labels in the transfer ledger. This is reuse of checked evidence, not a new pass.
+Use the master's generic rule summary and actionable, linked follow-up
 format; do not turn the handback into a catalog of risks or implementation rules.
 Before sending, reuse final evidence to check scoped statements, full canonical
 links and executable actions. This adds no research phase or QA assignment.
@@ -222,12 +227,17 @@ Resolve confirmed misleading guidance; do not demand exhaustive completeness.
 Only after semantic/source-protection/mechanical gates succeed run:
 
 ```text
-node "<core_path>/node_modules/repository-knowledge-compiler/dist/research-notes.js" finish "<run-path>" retain --verified
+node "<core_path>/node_modules/repository-knowledge-compiler/dist/research-notes.js" finish "<run-path>" delete --verified
 ```
 
-Retain notes automatically for this unpublished candidate and report their exact
-folder. On interruption or blocking checks keep the last checkpoint; do not invoke
-successful finish. Never erase another run. The helper's verified flag is an
+Delete only this successful run's temporary notes by default, after material knowledge
+and review corrections have reached their canonical documentation and all completion
+gates have succeeded. For an explicit owner request to retain a control/diagnostic
+run, use `retain` instead of `delete` and report the exact folder. No extra approval
+is needed to clean up notes created for this operation. On interruption or blocking
+checks keep the last checkpoint; do not invoke successful finish. If cleanup fails,
+report that the notes remain without claiming removal or invalidating the completed
+documentation. Never erase another run. The helper's verified flag is an
 agent assertion, not automated semantic validation. Incomplete review archival
 must remain an explicit warning, not a claim of a full original archive.
 

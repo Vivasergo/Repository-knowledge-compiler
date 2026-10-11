@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+- Preserve informative completion reports with a positive scope explanation, precise
+  linked actions and visibility of obsolete routes in protected instructions.
+- Recheck QA corrections against verified exceptions and precedence; remove temporary
+  research notes after successful completion unless retention is requested.
+
 - Scope global rules to verified contracts, preserve consequential value-shape and
   state-owner boundaries, and keep external uncertainties consistent.
 - Make Create completion reports clearer: usable entry points, actual checks,

@@ -1,6 +1,6 @@
 # Final 2.1 candidate: one full-R4 control run
 
-Status: unpublished release candidate, awaiting one owner-controlled generation run.
+Status: superseded by the final-polish candidate after the completed control run.
 No merge, tag or npm publication is authorized by this procedure.
 
 ## Candidate and preserved boundaries
@@ -219,3 +219,27 @@ instead of beginning another open-ended architecture experiment.
 
 After a favorable result, proceed to the existing 2.1 release preparation and exact
 release-candidate checks. Merge/tag/npm publication remain separate owner decisions.
+
+## Completed full-R4 control (2026-10-11)
+
+- Flow: RKC-CREATE-FLOW-RELEASE-CANDIDATE-5.
+- Result branch: `rkc-docs-full-final-2.1-20261011-124210`.
+- Result commit: `b07e70f0108e77dd93cb0bdb2923aace523c58d0`.
+- Source base unchanged: `25c556fdd5f28ea42c0cbff86580fca1dc767029`.
+- Five assignments (three research, two QA), about 29 minutes after approval.
+- 18 canonical documents (AGENTS + 17 docs/ai), 13,175 whitespace-separated words;
+  19 managed files including the root README. Token usage/cost unavailable.
+- All 525 source/test blobs match the common source base; changes are docs only.
+- Repeat Markdown checks: 19 files, zero issues. Relative links/anchors: 104, zero
+  issues. All five delivered handbacks occur verbatim in review.md.
+- Local residual issues: category-object/canonical consumer mismatch omitted;
+  workflow-stage special save paths described too narrowly; protected handoff route
+  obsolete; some previously captured metadata conditions omitted. These are
+  benchmark findings, not reusable application-specific generator requirements.
+- Owner accepts the richer granularity and informative final response. Final polish
+  preserves both, narrows wording and adopts successful-run note cleanup by default.
+- No new source research phase, no extra QA assignment and no document quota.
+
+The next control uses `release/create-docs-final-polish-2.1` and flow
+`RKC-CREATE-FLOW-RELEASE-CANDIDATE-6`, explicitly retaining temporary notes for
+comparison. The release behavior deletes successful-run notes by default.

@@ -380,7 +380,9 @@ END TASK-USEFULNESS QA BRIEF
 
 FINAL REPORT
 
-Write a short, natural completion report in the owner's language. Describe what the
+Write a clear, substantive completion report in the owner's language. Preserve useful
+information about the result, checks, material risks and unresolved questions; do not
+force a short answer at the expense of understanding. Describe what the
 owner can now use and what to do next, not the internal research procedure. Use short
 paragraphs or a few grouped bullets; avoid a file-by-file inventory and repeated
 technical explanations. Do not use a default "key preserved knowledge" section.
@@ -392,7 +394,10 @@ Use this order, adapting headings to the owner's language:
 1. Result: name what was created or updated, link AGENTS.md and the canonical router,
    and briefly describe the major flow/domain groups and why they help future tasks.
    Explain that agents follow the relevant route to sources and checks; do not promise
-   complete coverage or measured context savings without evidence.
+   measured context savings without evidence. Explain the scope positively: documentation
+   maps the main flows, responsibilities and important contracts rather than narrating
+   every function or line of code. It is a working base that future authorized work
+   can refine and expand. Keep material unchecked boundaries explicit.
 2. Checks: say what source scope was reviewed, that both final QA passes ran if they
    did, and which mechanical or application checks actually passed. Separate checks
    not run or unavailable from successful ones. Explain only limits relevant to use or
@@ -410,6 +415,9 @@ Use this order, adapting headings to the owner's language:
    source-supported, the outcome inferred or reproduced, and what remains unknown.
    Preserve the same scope as the detailed document. Do not recommend an unverified
    reproduction shortcut as if it were established. A filename alone is not a link.
+   If a protected existing instruction or skill has an obsolete route into the new
+   documentation, identify its exact file and target, explain the consequence, and
+   propose the narrow correction; do not edit the protected file implicitly.
    Use an owner-decision section only for an answer needed to complete safely; explain
    the decision and its effect on completion. Omit this section if no useful action is
    needed. Do not list unrelated defects, raw risk IDs/counts or default attention items.
