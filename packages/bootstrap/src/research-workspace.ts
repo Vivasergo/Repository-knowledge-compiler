@@ -22,7 +22,7 @@ import {
 import { installedContext } from "./lifecycle.js";
 
 const noteNames = ["research.md", "review.md", "transfer.md"] as const;
-const flow = "RKC-CREATE-FLOW-BOUNDED-PRESERVATION-PILOT-3";
+const flow = "RKC-CREATE-FLOW-CONTRACT-PRESERVATION-PILOT-4";
 
 async function workspaceRoot(
   testUserHome?: string,

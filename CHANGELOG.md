@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+- Preserve task-changing conditions in non-delegated and compact areas, check
+  semantic transfer and global-rule exceptions, and scope async claims precisely.
+- Retain declared release conventions separately from unknown version sources;
+  report generic agent guidance and only actionable, linked owner follow-ups.
+
 - Bound Create Docs to five subagent assignments, with lightweight preflight,
   targeted research checks and two final accuracy/usefulness reviews.
 - Preserve material existing knowledge and original reviews, verify meaningful

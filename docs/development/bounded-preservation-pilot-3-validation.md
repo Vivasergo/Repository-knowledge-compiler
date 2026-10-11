@@ -1,6 +1,8 @@
 # Bounded preservation pilot 3: full-R4 control run
 
-Status: unpublished candidate for owner evaluation, not release acceptance.
+Status: historical pilot-3 candidate, retained for comparison.
+For the next control run use [pilot 4](contract-preservation-pilot-4-validation.md).
+The installation and flow checks below describe pilot 3 only.
 The previous R2 instructions are historical; use this procedure for pilot 3.
 
 ## Candidate and scope

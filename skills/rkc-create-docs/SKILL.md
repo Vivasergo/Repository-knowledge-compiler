@@ -21,7 +21,7 @@ different installed version or reproduce a divergent copy of its semantics in
 this skill.
 
 Load `references/research-checkpoint-experiment.md` beside this skill and apply
-`RKC-CREATE-FLOW-BOUNDED-PRESERVATION-PILOT-3`. It supplies bounded research checkpoints and retained notes,
+`RKC-CREATE-FLOW-CONTRACT-PRESERVATION-PILOT-4`. It supplies bounded research checkpoints and retained notes,
 within the master's five-assignment ceiling and two final QA passes. The master remains authoritative for content,
 evidence strength, document selection, uncertainty, source protection and
 completion rules. This is an unpublished candidate for a full-repository control
@@ -87,10 +87,12 @@ owner-facing response after the documentation result. A check failure must not
 change the documentation result.
 
 Write the concise owner-facing completion report required by the master prompt.
-Include a short list of material future-agent rules actually added, clarified or
-preserved and their canonical locations; distinguish project conventions from
-generic guidance or unresolved choices. Do not reproduce whole policies or
-claim that a future agent has already followed them.
+Summarize actual future-agent rules in short generic categories with clickable
+canonical links; distinguish added, clarified and preserved guidance. Keep
+project-specific implementation details in the documents. For a material
+owner decision or recommended follow-up, state its purpose, consequence, evidence
+strength, detail link and next action as required by the master. Do not list
+unrelated risks, give risk counts or claim future compliance.
 Summarize the documentation surface, why its routes were selected, how future
 agents will use it, verification actually performed, and only limitations that
 affect readiness or need owner attention. Describe resolved QA work neutrally as

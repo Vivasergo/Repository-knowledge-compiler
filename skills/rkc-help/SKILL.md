@@ -27,8 +27,9 @@ prepares instructions for future coding agents, adapted to the repository and
 existing documentation. These can cover code clarity, meaningful tests, commits
 and version/changelog practices. Existing project rules take priority; absent
 conventions are identified rather than presented as established policy. The
-completion report names the rules actually added, clarified or preserved and
-where to find them. Do not inspect all project policies just to answer Help.
+completion report summarizes the rule categories actually added, clarified or
+preserved and links to their canonical locations; project-specific details stay
+in those documents. Do not inspect all project policies just to answer Help.
 
 Distinguish:
 

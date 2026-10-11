@@ -170,7 +170,7 @@ try {
     );
     assert.ok(
       createInstructions.includes(
-        "RKC-CREATE-FLOW-BOUNDED-PRESERVATION-PILOT-3",
+        "RKC-CREATE-FLOW-CONTRACT-PRESERVATION-PILOT-4",
       ),
     );
     assert.equal(

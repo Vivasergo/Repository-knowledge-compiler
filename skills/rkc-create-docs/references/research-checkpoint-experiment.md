@@ -1,6 +1,6 @@
 # Bounded research and knowledge preservation candidate
 
-Identity: `RKC-CREATE-FLOW-BOUNDED-PRESERVATION-PILOT-3`.
+Identity: `RKC-CREATE-FLOW-CONTRACT-PRESERVATION-PILOT-4`.
 
 Contents: [preflight](#1-lightweight-preflight-and-budget),
 [notes](#2-working-files-and-continuity), [research](#3-research-and-targeted-review),
@@ -88,7 +88,15 @@ Save only task-changing findings: rule, important condition/exception, outcome,
 source anchor and evidence limit. A short reusable map accounts for independent
 capabilities and owners as researched, locally recoverable with reason or
 unchecked; no record per file. A small capability may still need a task route.
-An inventory or broad domain heading does not establish coverage.
+An inventory or broad domain heading does not establish coverage. During each
+first relevant read, the primary also establishes the non-delegated areas'
+reader/writer, persistence and task-changing conditions. Small size or no worker
+is not a reason to skip a contract. Preserve non-obvious existing-value,
+fallback/default, deletion and storage-scope behavior where applicable, using
+a short canonical section rather than a file per component. Local recoverability
+may omit obvious details, not a condition that changes a future plan.
+For consequential async claims, follow the actual snapshot/live read, payload,
+submission and acknowledgement sequence; qualify which changes are affected.
 
 Use a research assignment only for consequential uncertainty, a complex independent
 responsibility, or a seam the primary cannot settle. Give the smallest necessary
@@ -129,7 +137,11 @@ condition/outcome, or a concrete justified exclusion. Related findings may share
 a passage only when their significant conditions are present; vague topic labels,
 RETAINED or source links alone do not prove transfer. Do not transcribe minor
 local facts into a ledger or discard task-changing knowledge merely because code
-contains it.
+contains it. Check the actual canonical passage for both the condition and its
+outcome, not just a topic or status label. A material condition must not be
+excluded solely as locally recoverable. Findings missed in research cannot be
+recovered by a transfer label; resolve a known material gap with the smallest
+relevant source inspection, not another repository pass.
 
 Compare draft text with the saved evidence as it is written. Reopen source only
 for a changed/new claim, disputed condition, correction or unresolved seam.
@@ -137,7 +149,10 @@ At assembly check significant cross-area dependencies on both sides and ensure
 important capabilities and prior useful routes survived. This is one reuse-based
 transfer/consistency pass, not another full research phase or automatic seam review.
 A seam assignment, if necessary before final QA, consumes the three-assignment
-research allocation.
+research allocation. Before final QA, reconcile global rules with researched
+exceptions and topical guidance; narrow the rule or link the exception. Distinguish
+owner requirements, current behavior and external guarantees. Reuse checked
+evidence; do not commission another review for this assembly check.
 
 Keep gaps indexes compact with stable IDs and links to canonical details.
 Use a separate details file or split by area when task reading requires it,
@@ -184,7 +199,12 @@ proof. The two briefs retain the R2 review responsibilities.
 After QA corrections, check affected transfer dispositions and global routes
 without rereading all sources. Carry reader-relevant uncertainty into documents
 and readiness limits into the handback. Record actual baseline, assignments,
-completed checks and archive limits in the notes.
+completed checks and archive limits in the notes. Reconcile stale pending or
+unchecked area entries against actual evidence; retain real scope limits without
+claiming that delegated coverage proves every subflow was examined. Keep helper
+provenance headers intact and record semantic completion separately.
+Use the master's concise generic rule summary and actionable, linked follow-up
+format; do not turn the handback into a catalog of risks or implementation rules.
 
 Only after semantic/source-protection/mechanical gates succeed run:
 
