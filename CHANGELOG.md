@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+- Prefer independently routed responsibilities; merge documents only for a shared
+  reader task and verification path, without document-count or length targets.
+- Preserve non-obvious core contracts in small and non-delegated areas; distinguish
+  layer-specific capabilities from broader behavior or external guarantees.
+
 - Preserve informative completion reports with a positive scope explanation, precise
   linked actions and visibility of obsolete routes in protected instructions.
 - Recheck QA corrections against verified exceptions and precedence; remove temporary

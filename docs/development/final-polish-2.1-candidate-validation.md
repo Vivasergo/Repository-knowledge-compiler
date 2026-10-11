@@ -1,6 +1,6 @@
 # Final polish 2.1: control and cleanup checks
 
-Status: unpublished candidate. Branch `release/create-docs-final-polish-2.1`.
+Status: superseded by the granularity candidate after the R6 control. Branch `release/create-docs-final-polish-2.1`.
 Flow: `RKC-CREATE-FLOW-RELEASE-CANDIDATE-6`. Package remains unpublished `2.1.0`;
 prompt protocol remains `RKC-DOCS-CREATE-2.14`. Pin the exact commit supplied in
 the implementation handback; version numbers alone do not identify this patch.
@@ -213,3 +213,14 @@ instead of beginning another open-ended architecture experiment.
 
 After a favorable result, proceed to the existing 2.1 release preparation and exact
 release-candidate checks. Merge/tag/npm publication remain separate owner decisions.
+
+## Completed R6 control (2026-10-11)
+
+Result: `b6689c9ffad7be182208893772694259d5d51cee`, source `25c556f`, flow 6.
+Four assignments, about 27 minutes; 13 docs/ai files plus AGENTS, README and an
+approved handoff route correction (16 managed, 14 canonical). Mechanical checks
+passed, but semantic comparison found lost non-obvious contracts and overbroad
+layer/external claims. Structural merges and source-only exclusions account for
+the reduction; no file quota was introduced by the prior patch.
+
+Continue with [the granularity candidate](granularity-2.1-candidate-validation.md).
