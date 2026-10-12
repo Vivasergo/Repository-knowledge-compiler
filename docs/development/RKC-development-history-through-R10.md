@@ -186,3 +186,9 @@ Release readiness и semantic quality — разные gates. Свежие те�
 Full validation runtime fix: https://github.com/Vivasergo/Repository-knowledge-compiler/actions/runs/38211937712 — Ubuntu, Windows, macOS, quality и release-candidate успешны. Final release commit изменяет от fix только root changelog; tarball SHA256 остался `00cd45235b42143e36b88b8e5ac438935747afdfcc79f64807409bc043c744d4`. Никакие R10 prompt/skill/flow bytes не изменены при финальной подготовке.
 
 На проверке public npm registry `repository-knowledge-compiler@2.1.0` вернул E404/no matching version. Публикация и v2.1.0 tag ещё не выполнялись; их не считать завершёнными по факту merge. Оставшиеся release/fix refs можно удалять после закрепления release, архивную ветку сохранять.
+
+## Финальные metadata и разрешение на выпуск
+
+12 октября владелец одобрил публикацию 2.1.0, тег и GitHub Release. Повторного запроса разрешения не требуется. Main обновлён до `118f0cfe7685095a5b5e4967e6f3f5eddb1a448f`, tree `65b23b2b2b6d7d2dfd33a00da63f9acac0a385bb`. Изменены только дата/статус CHANGELOG и пояснение npx установки в packages/bootstrap/README.md. Master/skills/flow/runtime остаются принятыми R10 плюс проверенный cwd fix.
+
+Final release:check повторно прошёл: 35 passed, 0 failed, 1 Windows-specific Linux skip; package/install/lifecycle/process-kill E2E успешны. Новый tarball hash `aae025e97c934d8dfc1a238041fc9f4db22c8f34d4856a89e06442b0e5e1247c`; изменение README входит в npm пакет. Registry publication, tag и GitHub Release ещё не выполнены. `npm whoami` в среде агента вернул ENEEDAUTH; создавать tag/release доступный GitHub API не умеет. Владелец получил точные PowerShell-команды с pinned release SHA для публикации из своего npm-аккаунта, tag push, GitHub Release notes и registry install verification. Не просить пароль/токен в чат и не объявлять выпуск состоявшимся до фактической registry проверки.
