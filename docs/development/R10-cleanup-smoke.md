@@ -75,36 +75,53 @@ Write-Host "Open this repository: $rkcSmokeDirectory"
 
 ## 4. Запустить Create
 
-Вызвать установленный `/rkc-create-docs` с таким запросом:
+В свежей сессии вызвать только установленный skill, без дополнительных указаний:
 
-> Создай агентскую документацию этого репозитория обычным /rkc-create-docs. После успешного завершения используй стандартную очистку временных research/review/transfer, без retain. Не устанавливай зависимости, не запускай приложение, не делай commit или push. В итоговом сообщении укажи результат очистки и точный путь папки текущего прогона.
+```text
+/rkc-create-docs
+```
+
+Никаких подсказок про cleanup, retain, зависимости или commit: проверяется стандартное поведение принятой версии.
 
 Одобрить обычный preflight. Зафиксировать путь из stdout команды `research-notes.js start`; итоговый path сверить с ним. Сохранить журнал с обеими финальными QA и `finish ... delete --verified`. Не запускать finish вручную: иначе проверка реального поведения агента будет подменена проверкой helper.
 
 ## 5. Проверить результат в той же PowerShell-сессии
 
 ```powershell
-$rkcCompletedRun = '<точный абсолютный путь из research-notes.js start>'
-if (-not $rkcCompletedRun -or $rkcCompletedRun -like '<*') { throw 'Set the actual run path.' }
-if ([System.IO.Path]::GetFileName($rkcCompletedRun) -notmatch '^create-docs-[A-Za-z0-9]+$') { throw 'Wrong run path.' }
-if (Test-Path -LiteralPath $rkcCompletedRun) { throw 'Successful run notes remain.' }
-foreach ($rkcNotePath in $rkcExistingNoteHashes.Keys) {
-  if (-not (Test-Path -LiteralPath $rkcNotePath -PathType Leaf)) { throw "Previous control note removed: $rkcNotePath" }
-  if ((Get-FileHash -LiteralPath $rkcNotePath -Algorithm SHA256).Hash -ne $rkcExistingNoteHashes[$rkcNotePath]) { throw "Previous control note changed: $rkcNotePath" }
+& {
+  $ErrorActionPreference = 'Stop'
+  $rkcCompletedRun = '<точный абсолютный путь из research-notes.js start>'
+  if (-not $rkcCompletedRun -or $rkcCompletedRun -like '<*') { throw 'Set the actual run path.' }
+  if ([System.IO.Path]::GetFileName($rkcCompletedRun) -notmatch '^create-docs-[A-Za-z0-9]+$') { throw 'Wrong run path.' }
+  if (Test-Path -LiteralPath $rkcCompletedRun) { throw 'Successful run notes remain.' }
+  foreach ($rkcNotePath in $rkcExistingNoteHashes.Keys) {
+    if (-not (Test-Path -LiteralPath $rkcNotePath -PathType Leaf)) { throw "Previous control note removed: $rkcNotePath" }
+    if ((Get-FileHash -LiteralPath $rkcNotePath -Algorithm SHA256).Hash -ne $rkcExistingNoteHashes[$rkcNotePath]) { throw "Previous control note changed: $rkcNotePath" }
+  }
+  Set-Location $rkcSmokeDirectory
+  if ((git rev-parse HEAD) -ne $rkcSmokeBaseline) { throw 'Agent changed Git history.' }
+  foreach ($rkcDoc in @('AGENTS.md', 'docs/ai/README.md')) {
+    if (-not (Test-Path $rkcDoc -PathType Leaf)) { throw "Required documentation missing: $rkcDoc" }
+  }
+  git diff --exit-code -- packages services package.json
+  if ($LASTEXITCODE -ne 0) { throw 'Protected tracked source changed.' }
+  $rkcUnexpectedSource = @(git ls-files --others --exclude-standard -- packages services package.json package-lock.json node_modules .rkc .github)
+  if ($rkcUnexpectedSource.Count -gt 0) { throw "Unexpected source/dependency files: $($rkcUnexpectedSource -join ', ')" }
+  git status --short
+  Write-Host 'PASS: current run removed; old notes and protected sources preserved.'
 }
-Set-Location $rkcSmokeDirectory
-if ((git rev-parse HEAD) -ne $rkcSmokeBaseline) { throw 'Agent changed Git history.' }
-foreach ($rkcDoc in @('AGENTS.md', 'docs/ai/README.md')) {
-  if (-not (Test-Path $rkcDoc -PathType Leaf)) { throw "Required documentation missing: $rkcDoc" }
-}
-git diff --exit-code -- packages services package.json
-if ($LASTEXITCODE -ne 0) { throw 'Protected tracked source changed.' }
-$rkcUnexpectedSource = @(git ls-files --others --exclude-standard -- packages services package.json package-lock.json node_modules .rkc .github)
-if ($rkcUnexpectedSource.Count -gt 0) { throw "Unexpected source/dependency files: $($rkcUnexpectedSource -join ', ')" }
-git status --short
-Write-Host 'PASS: current run removed; old notes and protected sources preserved.'
 ```
 
 Пустой `.rkc/temp` допустим; старые retained folders тоже. Просмотреть общий git status: ожидаются созданные docs и согласованная README navigation, не неожиданные product files. При ошибке или interruption сохранённые notes нормальны; это не успешный cleanup smoke. Не удалять их вручную до диагностики.
 
+Если старые notes были удалены владельцем после создания hash списка, проверка их сохранности неприменима; это не ошибка RKC. Не печатать PASS вручную после исключения.
+
 Вернуть журнал запуска, финальное сообщение агента и вывод блока 5. Не нужен новый полный R4, большой архив исходников или повтор Full validation.
+
+## Результат контроля 12 октября
+
+Чистый вызов skill действительно сам запустил cleanup текущего run `create-docs-KZe6Gi`. Оба QA выполнены; 7 Markdown documents, 0 mechanical issues; source HEAD сохранён. `.vscode/settings.json` существовал до генерации.
+
+Первый finish был вызван из удаляемого run: три notes удалились, rmdir получил Windows EBUSY. Retry снаружи получил отказ из-за неполного комплекта; агент затем удалил пустой каталог отдельным rmdir. Это подтверждённый технический сбой штатного finish, а не пропуск cleanup инструкций. Старые notes владелец удалил лично.
+
+Узкий runtime fix без изменения R10 instructions: `fix/research-notes-windows-cwd-2.1`, commit `700fa01d580c6e8f15f4a9984e3ec808ede07d7e`. Helper отказывает до удаления notes, если cwd внутри run; вне run повторное завершение штатно. Linux release check прошёл; Windows validation точного fix ещё требуется. Этот файл описывает первоначальный smoke, не указание повторять полный Create на R4.

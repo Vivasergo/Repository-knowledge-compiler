@@ -170,3 +170,11 @@ Helper проверяет ownership/path/markers и не удаляет прои
 Начинать с принятого release/main, нового наблюдаемого дефекта и маленькой воспроизводимой задачи. До patch зафиксировать expected retained contracts, immutable baseline и порядок оценки. Не отправлять generator evaluator answers. Сравнивать whole output по одинаковому знаменателю, route и passage; проверять защиты исходников и фактические host/model/settings. Preserve improvements отдельно от rejected changes.
 
 Release readiness и semantic quality — разные gates. Свежие технические checks уже зелёные. Дальнейшая разработка Create требует нового решения владельца; исторические проблемы этого файла не дают автоматического разрешения менять замороженный flow.
+
+## Дополнение: обычный cleanup smoke 12 октября
+
+Чистый `/rkc-create-docs` на маленьком fixture вызвал cleanup самостоятельно. Agent command запускал finish из той же папки, которую удалял. Windows разрешил unlink всех трёх notes, но вернул EBUSY на rmdir. Повтор снаружи не смог пройти completeness guard, потому что files уже исчезли; агент завершил очистку отдельным rmdir. Это конкретный runtime blocker, который cross-platform E2E прежде не покрывал, поскольку запускал helper из другой cwd.
+
+Владелец лично удалил старые retained notes; их отсутствие не связано с генератором. `.vscode/settings.json` был pre-existing owner file.
+
+Разрешённая техническая доводка: `700fa01d580c6e8f15f4a9984e3ec808ede07d7e`, ветка `fix/research-notes-windows-cwd-2.1`, parent — принятый R10. Изменены только helper, installed-tarball E2E и changelog. Before-delete guard сохраняет весь checkpoint при cwd внутри run и сообщает, как повторить снаружи. Master, skill/reference, protocol/flow и package lockfile не изменены. Локальный release check прошёл; fresh Windows/CI для новых bytes ещё ожидается. Не считать это R11 или новым semantic experiment. Финальный release commit должен включить проверенное runtime исправление.
