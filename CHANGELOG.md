@@ -2,39 +2,27 @@
 
 ## Unreleased
 
-- Preserve research notes when cleanup is invoked from inside the run directory;
-  report how to retry outside it before Windows directory locking can cause
-  partial cleanup.
+## 2.1.0
 
-- Restore candidate-7 task-based research, topical separation, transfer and QA
-  instructions. A shared writer does not replace capability-specific storage,
-  edit/delete or async contracts. Keep installation fixes, note cleanup and
-  informative completion reports.
+Prepared release; publication pending.
 
-- Preserve informative completion reports with a positive scope explanation, precise
-  linked actions and visibility of obsolete routes in protected instructions.
-- Remove temporary research notes after successful completion unless retention
-  is requested.
-
-- Scope global rules to verified contracts, preserve consequential value-shape and
-  state-owner boundaries, and keep external uncertainties consistent.
-- Make Create completion reports clearer: usable entry points, actual checks,
-  concise agent guidance and actionable links without technical inventories.
-
-- Preserve task-changing conditions in non-delegated and compact areas, check
-  semantic transfer and global-rule exceptions, and scope async claims precisely.
-- Retain declared release conventions separately from unknown version sources;
-  report generic agent guidance and only actionable, linked owner follow-ups.
-
-- Bound Create Docs to five subagent assignments, with lightweight preflight,
-  targeted research checks and two final accuracy/usefulness reviews.
-- Preserve material existing knowledge and original reviews, verify meaningful
-  transfer, and route focused documents and risk details without file quotas.
-- Add project-adaptive code clarity, risk-based testing, explicit commit approval
-  and version/changelog guidance for future coding agents.
-- Explain skill availability without agent support lists or name-based warnings.
-- Make future-agent guidance visible in Help, Create preflight and completion;
-  distinguish existing project practices, generic guidance and unresolved choices.
+- Strengthen task-based Create research and transfer checks to preserve material
+  edit/delete behavior, gating, asynchronous outcomes, persistence, and state
+  ownership. A shared writer API does not replace capability-specific contracts.
+- Route focused flows and domains without a document quota; preserve useful
+  existing knowledge and distinguish verified behavior from external uncertainty.
+- Bound Create to five subagent assignments, including two final reviews for
+  accuracy and task usefulness, with one owner preflight.
+- Keep temporary research and review notes outside the target repository. Remove
+  successful runs by default; preserve explicitly retained or interrupted runs.
+- Preserve notes when cleanup starts inside its own run directory and explain how
+  to retry outside it, avoiding partial cleanup caused by Windows directory locks.
+- Improve completion reports with usable entry points, actual check results,
+  actionable links, and visibility of obsolete routes in protected instructions.
+- Add project-adaptive guidance for code clarity, risk-based testing, explicit
+  commit approval, and existing version/changelog conventions; keep unresolved
+  owner choices explicit.
+- Explain skill discovery and availability without implying universal host support.
 
 ## 2.0.0
 
