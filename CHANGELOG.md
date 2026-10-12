@@ -2,9 +2,7 @@
 
 ## Unreleased
 
-## 2.1.0
-
-Prepared release; publication pending.
+## 2.1.0 - 2026-10-12
 
 - Strengthen task-based Create research and transfer checks to preserve material
   edit/delete behavior, gating, asynchronous outcomes, persistence, and state

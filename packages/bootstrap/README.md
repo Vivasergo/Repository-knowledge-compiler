@@ -24,6 +24,10 @@ npx --yes repository-knowledge-compiler@latest version
 npx --yes repository-knowledge-compiler@latest doctor
 ```
 
+**Install RKC using the command above.** The npm sidebar command only installs
+the package as a project dependency; it does not set up RKC's user-scoped runtime
+and agent skills.
+
 Installation stores the active versioned core under `~/.rkc`, canonical skills
 under `~/.agents/skills`, and managed Claude Code links under
 `~/.claude/skills`. It does not add dependencies or state to the target
