@@ -21,7 +21,7 @@
 
 [Full validation точного кандидата](https://github.com/Vivasergo/Repository-knowledge-compiler/actions/runs/38207863977) завершилась успешно: quality, release-candidate, Ubuntu, Windows и macOS. Локальный release check 12 октября также прошёл: 35 passed, 0 failed, один Windows-specific skip на Linux; упаковка, install/lifecycle/process-kill E2E успешны.
 
-Остался короткий клиентский Create без retain для подтверждения реального вызова очистки. Затем — финальное release metadata и отдельное решение о merge/tag/npm. Архивная ветка не является release branch и не должна сливаться в main.
+Чистый клиентский Create без retain выполнен. Найденный Windows cwd cleanup defect исправлен отдельно, fresh Full validation исправления прошла на трёх ОС. Release metadata подготовлено; 12 октября main fast-forward обновлён до `923dc0eff5273b10d540dfc7c2190dc6bb494fb6`, PR #2 merged. Package и lockfile — 2.1.0; npm publication и tag ещё не выполнены. Архивная ветка не является release branch и не должна сливаться в main.
 
 ## Что за продукт мы строим
 
@@ -178,3 +178,11 @@ Release readiness и semantic quality — разные gates. Свежие те�
 Владелец лично удалил старые retained notes; их отсутствие не связано с генератором. `.vscode/settings.json` был pre-existing owner file.
 
 Разрешённая техническая доводка: `700fa01d580c6e8f15f4a9984e3ec808ede07d7e`, ветка `fix/research-notes-windows-cwd-2.1`, parent — принятый R10. Изменены только helper, installed-tarball E2E и changelog. Before-delete guard сохраняет весь checkpoint при cwd внутри run и сообщает, как повторить снаружи. Master, skill/reference, protocol/flow и package lockfile не изменены. Локальный release check прошёл; fresh Windows/CI для новых bytes ещё ожидается. Не считать это R11 или новым semantic experiment. Финальный release commit должен включить проверенное runtime исправление.
+
+## Перенос в main 12 октября
+
+После подтверждения владельца выполнен fast-forward main с проверкой expected SHA: `516aebddbf79a775ce9f8156a383a570f04e59c7` → `923dc0eff5273b10d540dfc7c2190dc6bb494fb6`. GitHub PR #2 closed/merged; main tree `fa5245f5ab8aed11742a6b64e4bc65aa907b95c2`. Changed-file preflight прошёл для всех 27 отличающихся от прежнего main файлов. Final release:check прошёл на точном дереве. Предшествующая локальная сборка один раз получила EEXIST при mkdir payload; отдельная rebuild и полный rerun прошли без source change, причина единичного filesystem failure не установлена.
+
+Full validation runtime fix: https://github.com/Vivasergo/Repository-knowledge-compiler/actions/runs/38211937712 — Ubuntu, Windows, macOS, quality и release-candidate успешны. Final release commit изменяет от fix только root changelog; tarball SHA256 остался `00cd45235b42143e36b88b8e5ac438935747afdfcc79f64807409bc043c744d4`. Никакие R10 prompt/skill/flow bytes не изменены при финальной подготовке.
+
+На проверке public npm registry `repository-knowledge-compiler@2.1.0` вернул E404/no matching version. Публикация и v2.1.0 tag ещё не выполнялись; их не считать завершёнными по факту merge. Оставшиеся release/fix refs можно удалять после закрепления release, архивную ветку сохранять.
