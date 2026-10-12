@@ -1,0 +1,178 @@
+{
+  "date": "2026-10-12",
+  "repository": "Vivasergo/Repository-knowledge-compiler",
+  "candidate_sha": "24333c6ded7940fb44dbc901fa3f732c05f4014d",
+  "candidate_tree": "127696bd0e90512fcbb935515bce863f9808685c",
+  "archive_branch": "archive/development-history-2.1-20261012",
+  "preservation": "Archive commit first parent is accepted candidate; extra parents preserve divergent experiment heads without integrating their trees.",
+  "branches": [
+    {
+      "name": "docs/clarify-documentation-value-and-maintenance",
+      "sha": "e25b2b76e7961904ae4df9bcace30e8112cd848b",
+      "protected": false,
+      "decision": "keep",
+      "relation_to_candidate": "diverged",
+      "unique_commits_vs_candidate": 2
+    },
+    {
+      "name": "experiment/chunk-pilot-plan-2.14",
+      "sha": "da240ec02ad61db602c083f3c959d83aa75a92bf",
+      "protected": false,
+      "decision": "delete_after_archive_verification",
+      "relation_to_candidate": "diverged",
+      "unique_commits_vs_candidate": 1
+    },
+    {
+      "name": "experiment/create-docs-bounded-preservation-2.14",
+      "sha": "b9922cfa17c7736b819dd7c465928d6012f1b579",
+      "protected": false,
+      "decision": "delete_after_archive_verification",
+      "relation_to_candidate": "behind",
+      "unique_commits_vs_candidate": 0
+    },
+    {
+      "name": "experiment/create-docs-chunk-cycle-2.14",
+      "sha": "08042acba48d5b1de452a49c253dafe30a183bf3",
+      "protected": false,
+      "decision": "delete_after_archive_verification",
+      "relation_to_candidate": "diverged",
+      "unique_commits_vs_candidate": 2
+    },
+    {
+      "name": "experiment/create-docs-contract-preservation-2.14",
+      "sha": "f30b9aee490961a03ff578f921efe4a6dafc71fe",
+      "protected": false,
+      "decision": "delete_after_archive_verification",
+      "relation_to_candidate": "behind",
+      "unique_commits_vs_candidate": 0
+    },
+    {
+      "name": "experiment/create-docs-contract-transfer-2.14",
+      "sha": "8078c5885580dc4ca931b8b61c99d5523bd8110a",
+      "protected": false,
+      "decision": "delete_after_archive_verification",
+      "relation_to_candidate": "diverged",
+      "unique_commits_vs_candidate": 7
+    },
+    {
+      "name": "experiment/create-docs-research-checkpoints-2.14",
+      "sha": "018db71830958b643dd8202d0a84778a500102aa",
+      "protected": false,
+      "decision": "delete_after_archive_verification",
+      "relation_to_candidate": "behind",
+      "unique_commits_vs_candidate": 0
+    },
+    {
+      "name": "experiment/create-docs-research-fidelity-2.14",
+      "sha": "72c75e2788a70ba9eafdb1527840a26c7bc88115",
+      "protected": false,
+      "decision": "delete_after_archive_verification",
+      "relation_to_candidate": "diverged",
+      "unique_commits_vs_candidate": 8
+    },
+    {
+      "name": "experiment/create-docs-research-granularity-2.14",
+      "sha": "176dd557288aa929372ace8946ac47c595b17396",
+      "protected": false,
+      "decision": "delete_after_archive_verification",
+      "relation_to_candidate": "diverged",
+      "unique_commits_vs_candidate": 8
+    },
+    {
+      "name": "experiment/create-docs-research-review-2.14",
+      "sha": "96003bf92df06aa1303645082793306ab00c6fc1",
+      "protected": false,
+      "decision": "delete_after_archive_verification",
+      "relation_to_candidate": "diverged",
+      "unique_commits_vs_candidate": 8
+    },
+    {
+      "name": "experiment/create-docs-staged-analysis-2.14",
+      "sha": "9c8fd37a240601f4ab308b530f92ce3164a84f2b",
+      "protected": false,
+      "decision": "delete_after_archive_verification",
+      "relation_to_candidate": "diverged",
+      "unique_commits_vs_candidate": 6
+    },
+    {
+      "name": "experiment/create-docs-staged-analysis-2.16",
+      "sha": "4360d88a0e32b6abc0694453d0fe7262fcf9ae72",
+      "protected": false,
+      "decision": "delete_after_archive_verification",
+      "relation_to_candidate": "diverged",
+      "unique_commits_vs_candidate": 5
+    },
+    {
+      "name": "experiment/create-docs-staged-qa",
+      "sha": "69be26603aeb4d512c1dd66e88a07f2928e571b2",
+      "protected": false,
+      "decision": "delete_after_archive_verification",
+      "relation_to_candidate": "diverged",
+      "unique_commits_vs_candidate": 4
+    },
+    {
+      "name": "feat/2.1.0-documentation-maintenance",
+      "sha": "96eb9927b976feb904141f3afa5e33e32c99e58b",
+      "protected": false,
+      "decision": "keep",
+      "relation_to_candidate": "diverged",
+      "unique_commits_vs_candidate": 3
+    },
+    {
+      "name": "main",
+      "sha": "516aebddbf79a775ce9f8156a383a570f04e59c7",
+      "protected": false,
+      "decision": "keep",
+      "relation_to_candidate": "baseline",
+      "unique_commits_vs_candidate": 0
+    },
+    {
+      "name": "release/create-docs-balanced-2.1",
+      "sha": "ca3ca0080040dd07e96d88abdad0bdc34bed9358",
+      "protected": false,
+      "decision": "delete_after_archive_verification",
+      "relation_to_candidate": "behind",
+      "unique_commits_vs_candidate": 0
+    },
+    {
+      "name": "release/create-docs-final-2.1",
+      "sha": "f67aa4a549e9b2deedbdd1b2aae15c8bf5f16bd3",
+      "protected": false,
+      "decision": "delete_after_archive_verification",
+      "relation_to_candidate": "behind",
+      "unique_commits_vs_candidate": 0
+    },
+    {
+      "name": "release/create-docs-final-polish-2.1",
+      "sha": "f6c65552d0debff12c641d5102d43937bcf7637c",
+      "protected": false,
+      "decision": "delete_after_archive_verification",
+      "relation_to_candidate": "behind",
+      "unique_commits_vs_candidate": 0
+    },
+    {
+      "name": "release/create-docs-granularity-2.1",
+      "sha": "18f0a1258ee3a6761fed239067dfe1f7c4718390",
+      "protected": false,
+      "decision": "delete_after_archive_verification",
+      "relation_to_candidate": "behind",
+      "unique_commits_vs_candidate": 0
+    },
+    {
+      "name": "release/create-docs-r5-restored-2.1",
+      "sha": "741908a9ce06bc34054d5dedcf95b9cab78d833e",
+      "protected": false,
+      "decision": "delete_after_archive_verification",
+      "relation_to_candidate": "behind",
+      "unique_commits_vs_candidate": 0
+    },
+    {
+      "name": "release/create-docs-r7-restored-2.1",
+      "sha": "24333c6ded7940fb44dbc901fa3f732c05f4014d",
+      "protected": false,
+      "decision": "keep",
+      "relation_to_candidate": "accepted",
+      "unique_commits_vs_candidate": 0
+    }
+  ]
+}
