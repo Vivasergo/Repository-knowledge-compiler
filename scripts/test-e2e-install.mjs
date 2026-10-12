@@ -186,8 +186,9 @@ try {
     "dist",
     "research-notes.js",
   );
-  const runNotes = (args) =>
+  const runNotes = (args, cwd = repositoryA) =>
     promisify(execFile)(process.execPath, [notesEntry, ...args], {
+      cwd,
       env: { ...process.env, [TEST_USER_HOME_VARIABLE]: environment.userHome },
     });
   const started = await Promise.all([
@@ -208,6 +209,16 @@ try {
   assert.match(
     await readFile(join(firstRun, "research.md"), "utf8"),
     /test revision A/u,
+  );
+  const notesBeforeCwdRefusal = await digestTree(firstRun);
+  await assert.rejects(
+    runNotes(["finish", firstRun, "delete", "--verified"], firstRun),
+    /outside the research run; notes were preserved/u,
+  );
+  assert.equal(
+    await digestTree(firstRun),
+    notesBeforeCwdRefusal,
+    "Cleanup from the run directory must preserve every note for an outside retry.",
   );
   await assert.rejects(
     runNotes(["finish", firstRun, "delete"]),

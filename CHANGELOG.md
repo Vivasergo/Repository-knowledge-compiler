@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+- Preserve research notes when cleanup is invoked from inside the run directory;
+  report how to retry outside it before Windows directory locking can cause
+  partial cleanup.
+
 - Restore candidate-7 task-based research, topical separation, transfer and QA
   instructions. A shared writer does not replace capability-specific storage,
   edit/delete or async contracts. Keep installation fixes, note cleanup and

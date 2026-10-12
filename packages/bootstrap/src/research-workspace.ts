@@ -18,6 +18,7 @@ import {
   resolve,
   sep,
 } from "node:path";
+import { cwd } from "node:process";
 
 import { installedContext } from "./lifecycle.js";
 
@@ -123,6 +124,19 @@ export async function finishResearchWorkspace(options: {
     }
   }
   if (options.disposition === "delete") {
+    // On Windows a shell using this run as its cwd can lock the directory.
+    // Refuse before unlinking notes, so retrying from outside keeps a full checkpoint.
+    const workingDirectory = relative(run, await realpath(cwd()));
+    if (
+      workingDirectory === "" ||
+      (workingDirectory !== ".." &&
+        !workingDirectory.startsWith(`..${sep}`) &&
+        !isAbsolute(workingDirectory))
+    ) {
+      throw new Error(
+        "Run completion from the target repository or another directory outside the research run; notes were preserved.",
+      );
+    }
     // No recursive removal: unexpected children and sibling runs are protected.
     for (const name of noteNames) await unlink(join(run, name));
     await rmdir(run);
