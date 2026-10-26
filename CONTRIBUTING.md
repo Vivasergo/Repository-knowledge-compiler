@@ -32,6 +32,20 @@ npm run test:e2e:process-kill
 
 None of these commands publishes to npm.
 
+The Claude Code plugin in `plugins/rkc` is generated from `skills/`, the master
+prompt, `packages/core`, and the plugin runtime in `packages/bootstrap`. After
+changing any of them, regenerate and commit it:
+
+```bash
+npm run build:plugin
+npm run test:e2e:plugin
+```
+
+`npm run check` fails when the committed plugin differs from its sources. When
+a canonical skill change breaks an exact transform in
+`scripts/claude-plugin-files.mjs`, review the plugin wording and update the
+transform; do not loosen it.
+
 ## Versioning and changelog
 
 Only `packages/bootstrap` is published as `repository-knowledge-compiler`.
@@ -50,6 +64,12 @@ the changelog. For the next npm release, choose a version using SemVer:
 and `MAJOR` for incompatible changes. Move the relevant entries into the new
 version section, update the published package version and lockfile, validate
 the exact release commit, then tag and publish that version.
+
+The Claude Code plugin uses the package version from
+`packages/bootstrap/package.json`. Claude Code delivers plugin changes to
+existing installations only when that version changes, so plugin-content
+changes reach them with the next release; new installations from `main` receive
+the current generated plugin.
 
 A Git commit does not automatically require an npm release. Repository-only
 changes may stay in Git; changes to files shipped in the npm package, such as
@@ -72,5 +92,6 @@ the package README, need a new version if they are to reach npm users after
 6. Deterministic checks may validate structure and evidence but must not present
    inference as verified repository truth.
 7. Never commit secrets, generated `dist` output, package tarballs, caches, or
-   target-repository artifacts.
+   target-repository artifacts. The sole exception is the generated Claude Code
+   plugin in `plugins/rkc`, which must match `npm run build:plugin` output.
 8. Public npm publication requires a separate owner decision.

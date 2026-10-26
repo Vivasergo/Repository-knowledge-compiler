@@ -1,0 +1,20 @@
+{
+  "name": "repository-knowledge-compiler",
+  "owner": {
+    "name": "Serhii Vasilikhin",
+    "url": "https://github.com/Vivasergo"
+  },
+  "metadata": {
+    "description": "Repository Knowledge Compiler (RKC) for Claude Code: create, maintain, and audit task-routed Markdown documentation for coding agents."
+  },
+  "plugins": [
+    {
+      "name": "rkc",
+      "source": "./plugins/rkc",
+      "description": "Create, maintain, and audit task-routed Markdown documentation for coding agents.",
+      "homepage": "https://github.com/Vivasergo/Repository-knowledge-compiler#readme",
+      "license": "MIT",
+      "category": "documentation"
+    }
+  ]
+}

@@ -25,6 +25,21 @@ skills:
 - `/rkc-update-docs` — update documentation affected by source changes;
 - `/rkc-audit-docs` — report drift without edits by default.
 
+### Claude Code plugin
+
+Claude Code users can install the same skills, master prompt, and helpers as a
+plugin instead of the npm runtime:
+
+```text
+/plugin marketplace add Vivasergo/Repository-knowledge-compiler
+/plugin install rkc@repository-knowledge-compiler
+```
+
+The plugin exposes `/rkc:help`, `/rkc:create-docs`, `/rkc:update-docs`, and
+`/rkc:audit-docs`; its helpers need Node.js 22 or later on `PATH`. The
+[plugin guide](plugins/README.md) covers team setup, updates, and use alongside
+the npm installation.
+
 See the [package guide](packages/bootstrap/README.md) for update, diagnostic,
 uninstall, privacy, host discovery, and troubleshooting instructions.
 
@@ -51,7 +66,9 @@ periodically to review accuracy, coverage, and routing.
 The workspace contains `packages/bootstrap` (the publishable npm package),
 `packages/core` (runtime and deterministic checks), `skills` (four
 operations), `scripts` (build and validation), and `fixtures` (isolated test
-repositories). The npm tarball includes only the package's declared runtime,
+repositories). `plugins/rkc` is the Claude Code plugin generated from those
+sources by `npm run build:plugin`, and `.claude-plugin/marketplace.json`
+publishes it as a marketplace. The npm tarball includes only the package's declared runtime,
 payload, package README, and license.
 
 Use Node.js `>=24.12.0 <25` and npm `>=11 <12`:

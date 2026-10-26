@@ -1,0 +1,124 @@
+import { RKC_DOCUMENTATION_PROMPT_VERSION } from "../documentation/prompt-version.js";
+export const RKC_HELP_TOPICS = [
+    "overview",
+    "architecture",
+    "operations",
+    "artifacts",
+    "quality",
+    "safety",
+    "installation",
+    "updates",
+    "hosts",
+    "troubleshooting",
+    "project_status",
+];
+export const RKC_ACTIONS = [
+    "create-docs",
+    "update-docs",
+    "audit-docs",
+];
+const skills = [
+    "rkc-help",
+    "rkc-create-docs",
+    "rkc-update-docs",
+    "rkc-audit-docs",
+];
+const modules = {
+    overview: module("overview", "RKC overview", "RKC creates and maintains task-routed, evidence-backed Markdown to help coding agents find relevant repository knowledge without re-reading the entire codebase for every task.", [
+        "RKC is provider-neutral and repository-agnostic.",
+        "RKC aims to reduce future agent context and token use, speed up task navigation, and improve the accuracy of changes.",
+        "Documentation prioritizes routing, guardrails, hidden contracts, risky flows, and verified repository facts.",
+        "RKC does not edit product code or turn repository documentation into a generated encyclopedia.",
+    ], ["rkc-help", "rkc-create-docs"]),
+    architecture: module("architecture", "Architecture", "A versioned per-user runtime supplies the protocol and safety mechanics; thin skills select operations.", [
+        "Target repositories need no RKC project-local state; the installed runtime remains user-scoped.",
+        "Permanent repository knowledge remains in Markdown.",
+        "Root AGENTS.md is the mandatory provider-neutral entry point for documentation created by RKC.",
+    ], ["rkc-help"]),
+    operations: module("operations", "Operations", "Four skills separate help, documentation creation, focused maintenance, and audit.", [
+        "rkc-create-docs investigates the repository, proposes a documentation plan, and writes only after owner approval.",
+        "rkc-update-docs performs focused maintenance; rkc-audit-docs reports drift and corrects documentation only when authorized.",
+    ], skills),
+    artifacts: module("artifacts", "Artifacts and documentation", "The primary product artifact is a layered Markdown documentation set stored in the target repository.", [
+        "AGENTS.md is the compact entry router and docs/ai/README.md may provide deeper task routing.",
+        "Document count follows repository complexity rather than a fixed quota.",
+        "Existing documentation is preserved and reconciled within the approved scope.",
+        "Documentation also includes future-agent instructions adapted to project practices; the completion report identifies rules actually added, clarified or preserved and their locations.",
+        "Existing testing and version/changelog conventions take priority; missing conventions remain explicit choices rather than silently adopted policies.",
+    ], ["rkc-create-docs", "rkc-update-docs", "rkc-audit-docs"]),
+    quality: module("quality", "Quality and terminal status", "RKC separates verified facts from risks, external dependencies, legacy behavior, and items requiring verification.", [
+        "High-impact claims require direct repository evidence.",
+        "Mechanical checks cover paths, links, language, required sections, and scope; the host agent checks meaning against repository evidence.",
+        "Completion is bounded by the requested operation rather than an unlimited improvement loop.",
+    ], ["rkc-audit-docs", "rkc-help"]),
+    safety: module("safety", "Safety model", "RKC is read-oriented by default and limits permanent mutation to authorized documentation behavior.", [
+        "Application source, dependencies, CI/CD, secrets, and production configuration remain read-only during documentation operations.",
+        "Project code is not executed without separate authorization.",
+        "Incidental code risks are reported rather than fixed automatically.",
+    ], ["rkc-audit-docs", "rkc-help"]),
+    installation: module("installation", "Installation lifecycle", "The bootstrap installs one versioned runtime and four skills per user without adding target-project dependencies.", [
+        "Create Docs can start in any repository without project initialization.",
+        "Self-update is explicit and retains the active version plus two usable predecessors.",
+        "Confirmed uninstall removes the fixed per-user runtime and managed skill directories while preserving repositories.",
+    ], ["rkc-create-docs", "rkc-help"]),
+    updates: module("updates", "Installed-runtime updates", "Update discovery is lazy, machine-local, advisory, and separate from repository-documentation updates.", [
+        "Successful automatic checks use a seven-day cadence; failed checks retry after 24 hours.",
+        "Normal help reports cached state; doctor --check-updates performs a fresh diagnostic check.",
+        "No discovered update is installed automatically.",
+    ], ["rkc-help", "rkc-update-docs"]),
+    hosts: module("hosts", "Skill availability", "RKC provides skills for creating and maintaining project documentation; the AI agent in which you invoke them uses its own model and settings.", [
+        "Installation supplies four canonical skills and their version-matched instructions.",
+        "Invocation follows the skill discovery mechanism available in your environment.",
+        "Report a concrete missing skill or unavailable operation without inferring support from the agent's name.",
+    ], ["rkc-help"]),
+    troubleshooting: module("troubleshooting", "Troubleshooting", "RKC reports missing or inaccessible installation and uncertain repository documentation instead of inventing an answer.", [
+        "Use rkc version for installed-version evidence.",
+        "Use rkc doctor for cached diagnostics or rkc doctor --check-updates for fresh update evidence.",
+        "Resolve incompatible installation or ambiguous repository documentation before claiming readiness.",
+    ], ["rkc-help"]),
+    project_status: module("project_status", "Current project status", "Project answers use the actual repository documentation and its declared verification baseline.", [
+        "Missing documentation routes call for Create Docs; no project initialization is required.",
+        "A missing or unclear verified revision means freshness is unknown.",
+        "The canonical Markdown index records verified source provenance and material scope limits.",
+    ], ["rkc-help", "rkc-create-docs"]),
+};
+export function createSelfDescriptionManifest(distributionVersion) {
+    if (!/^[0-9]+\.[0-9]+\.[0-9]+(?:-[0-9A-Za-z.-]+)?$/u.test(distributionVersion)) {
+        throw new Error("RKC distribution version is not valid SemVer.");
+    }
+    return {
+        format_version: 1,
+        product: "Repository Knowledge Compiler",
+        distribution_version: distributionVersion,
+        documentation_prompt_version: RKC_DOCUMENTATION_PROMPT_VERSION,
+        skills,
+        capabilities: [
+            "evidence_backed_documentation_creation",
+            "documentation_maintenance",
+            "documentation_audit",
+            "read_only_help",
+            "installed_runtime_update_discovery",
+            "versioned_markdown_documentation_protocol",
+        ],
+        topics: RKC_HELP_TOPICS,
+        provider_specific_instruction_files: false,
+    };
+}
+export function getSelfDescriptionModule(topic) {
+    return modules[topic];
+}
+export function isRkcHelpTopic(value) {
+    return RKC_HELP_TOPICS.includes(value);
+}
+export function isRkcAction(value) {
+    return RKC_ACTIONS.includes(value);
+}
+function module(topic, title, summary, facts, relatedSkills) {
+    return {
+        topic,
+        title,
+        summary,
+        facts,
+        related_skills: relatedSkills,
+    };
+}

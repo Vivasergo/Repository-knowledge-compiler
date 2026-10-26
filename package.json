@@ -17,9 +17,12 @@
     "clean": "node scripts/clean.mjs",
     "typecheck": "tsc -b --pretty false",
     "lint": "eslint .",
-    "format": "prettier --write package.json tsconfig.json tsconfig.base.json eslint.config.mjs .github/**/*.yml packages/**/*.{json,ts,md} scripts/**/*.mjs skills/**/*.md fixtures/*.{json,md} README.md CHANGELOG.md CONTRIBUTING.md AGENTS.md docs/current/**/*.md",
-    "format:check": "prettier --check package.json tsconfig.json tsconfig.base.json eslint.config.mjs .github/**/*.yml packages/**/*.{json,ts,md} scripts/**/*.mjs skills/**/*.md fixtures/*.{json,md} README.md CHANGELOG.md CONTRIBUTING.md AGENTS.md docs/current/**/*.md",
+    "format": "prettier --write package.json tsconfig.json tsconfig.base.json eslint.config.mjs .github/**/*.yml packages/**/*.{json,ts,md} scripts/**/*.mjs skills/**/*.md .claude-plugin/*.json fixtures/*.{json,md} plugins/README.md README.md CLAUDE.md CHANGELOG.md CONTRIBUTING.md AGENTS.md docs/current/**/*.md",
+    "format:check": "prettier --check package.json tsconfig.json tsconfig.base.json eslint.config.mjs .github/**/*.yml packages/**/*.{json,ts,md} scripts/**/*.mjs skills/**/*.md .claude-plugin/*.json fixtures/*.{json,md} plugins/README.md README.md CLAUDE.md CHANGELOG.md CONTRIBUTING.md AGENTS.md docs/current/**/*.md",
     "test": "npm run build && node scripts/run-tests.mjs",
+    "build:plugin": "npm run build && node scripts/assemble-claude-plugin.mjs",
+    "check:plugin": "npm run build && node scripts/check-claude-plugin.mjs",
+    "test:e2e:plugin": "node scripts/test-e2e-plugin.mjs",
     "check:changed": "node scripts/check-changed-files.mjs",
     "check:boundaries": "node scripts/check-boundaries.mjs",
     "check:secrets": "node scripts/check-secrets.mjs",
@@ -29,7 +32,7 @@
     "test:e2e:lifecycle": "npm run build && node scripts/test-e2e-lifecycle.mjs",
     "test:e2e:process-kill": "npm run build && node scripts/test-e2e-process-kill.mjs",
     "release:check": "npm run check && npm run pack:local && npm run test:e2e:install && npm run test:e2e:lifecycle && npm run test:e2e:process-kill",
-    "check": "npm run format:check && npm run lint && npm run typecheck && npm run check:boundaries && npm run test && npm run check:secrets && npm run pack:check"
+    "check": "npm run format:check && npm run lint && npm run typecheck && npm run check:boundaries && npm run test && npm run check:plugin && npm run test:e2e:plugin && npm run check:secrets && npm run pack:check"
   },
   "devDependencies": {
     "@eslint/js": "10.0.1",

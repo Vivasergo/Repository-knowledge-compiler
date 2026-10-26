@@ -353,7 +353,7 @@ function validateUninstallTarget(userHome: string, target: string): void {
   }
 }
 
-async function resolveUserHome(testUserHome?: string): Promise<string> {
+export async function resolveUserHome(testUserHome?: string): Promise<string> {
   if (testUserHome === undefined) return resolve(homedir());
   if (!isAbsolute(testUserHome)) {
     throw new Error(`${TEST_USER_HOME_VARIABLE} must be an absolute path.`);

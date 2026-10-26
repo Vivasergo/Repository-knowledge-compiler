@@ -1,0 +1,18 @@
+{
+  "name": "rkc",
+  "version": "2.1.0",
+  "description": "Create, maintain, and audit task-routed Markdown documentation for coding agents.",
+  "author": {
+    "name": "Serhii Vasilikhin"
+  },
+  "homepage": "https://github.com/Vivasergo/Repository-knowledge-compiler#readme",
+  "repository": "https://github.com/Vivasergo/Repository-knowledge-compiler",
+  "license": "MIT",
+  "keywords": [
+    "repository-documentation",
+    "coding-agents",
+    "markdown",
+    "agent-skills",
+    "claude-code-plugin"
+  ]
+}

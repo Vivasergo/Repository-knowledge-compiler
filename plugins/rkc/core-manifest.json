@@ -1,0 +1,11 @@
+{
+  "format_version": 1,
+  "package_name": "repository-knowledge-compiler",
+  "distribution": "claude-code-plugin",
+  "version": "2.1.0",
+  "core_package": "runtime/core",
+  "plugin_entry": "scripts/rkc.mjs",
+  "self_description_manifest": "self-description-manifest.json",
+  "documentation_master_prompt": "documentation/RKC-Documentation-Master-Prompt.md",
+  "documentation_prompt_version": "RKC-DOCS-CREATE-2.14"
+}

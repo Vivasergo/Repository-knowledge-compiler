@@ -1,16 +1,7 @@
-import { createHash } from "node:crypto";
 import { execFile, spawn } from "node:child_process";
-import {
-  mkdir,
-  mkdtemp,
-  readFile,
-  readdir,
-  rm,
-  stat,
-  writeFile,
-} from "node:fs/promises";
+import { mkdir, mkdtemp, rm, stat, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
-import { join, relative, resolve } from "node:path";
+import { join } from "node:path";
 import { setTimeout as delay } from "node:timers/promises";
 import { promisify } from "node:util";
 
@@ -19,6 +10,8 @@ import {
   TEST_USER_HOME_VARIABLE,
 } from "../packages/bootstrap/dist/lifecycle.js";
 import { executeNpm, packLocalTarball } from "./local-package.mjs";
+
+export { digestTree } from "./e2e-research-notes-contract.mjs";
 
 const execFileAsync = promisify(execFile);
 
@@ -175,38 +168,6 @@ function packedRkcInvocation(
     cwd,
     env: childEnvironment,
   };
-}
-
-export async function digestTree(root, options = {}) {
-  const base = resolve(root);
-  const hash = createHash("sha256");
-  await walk(base);
-  return hash.digest("hex");
-
-  async function walk(directory) {
-    const entries = await readdir(directory, { withFileTypes: true });
-    entries.sort((left, right) => left.name.localeCompare(right.name));
-    for (const entry of entries) {
-      const path = join(directory, entry.name);
-      const relativePath = relative(base, path).replaceAll("\\", "/");
-      if (
-        options.excludeProjectState === true &&
-        (relativePath === ".gitignore" ||
-          relativePath === ".rkc" ||
-          relativePath.startsWith(".rkc/"))
-      ) {
-        continue;
-      }
-      hash.update(`${entry.isDirectory() ? "d" : "f"}:${relativePath}\n`);
-      if (entry.isDirectory()) {
-        await walk(path);
-      } else if (entry.isFile()) {
-        hash.update(await readFile(path));
-      } else {
-        throw new Error(`Unsupported E2E fixture entry: ${path}`);
-      }
-    }
-  }
 }
 
 export async function pathExists(path) {
