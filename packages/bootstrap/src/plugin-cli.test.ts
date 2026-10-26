@@ -31,7 +31,7 @@ void test("plugin version validates every version-bearing plugin file", async (c
     new RegExp(`^RKC ${FOUNDATION_VERSION.replaceAll(".", "\\.")} \\(Claude`),
   );
   assert.match(ok.stdout, new RegExp(`Prompt: ${promptVersion}`));
-  assert.match(ok.stdout, /Research notes: .*user-home.\.rkc-plugin.temp\n/u);
+  assert.match(ok.stdout, /Research notes: .*user-home[\\/]\.rkc-plugin[\\/]temp\n/u);
 
   await writeJson(join(environment.pluginRoot, ".claude-plugin/plugin.json"), {
     name: "rkc",
