@@ -31,7 +31,7 @@ void test("plugin version validates every version-bearing plugin file", async (c
     new RegExp(`^RKC ${FOUNDATION_VERSION.replaceAll(".", "\\.")} \\(Claude`),
   );
   assert.match(ok.stdout, new RegExp(`Prompt: ${promptVersion}`));
-  assert.match(ok.stdout, /Research notes: .*user-home.\.rkc.temp\n/u);
+  assert.match(ok.stdout, /Research notes: .*user-home.\.rkc-plugin.temp\n/u);
 
   await writeJson(join(environment.pluginRoot, ".claude-plugin/plugin.json"), {
     name: "rkc",
@@ -109,7 +109,7 @@ void test("plugin check-docs reports core results through exit codes", async (co
   assert.equal(calls.length, 2);
 });
 
-void test("plugin research notes live in the user-scoped RKC temp root", async (context) => {
+void test("plugin research notes use an isolated user-scoped temp root", async (context) => {
   const environment = await createPluginEnvironment(context);
   const started = await run(environment, [
     "research-notes",
@@ -121,7 +121,7 @@ void test("plugin research notes live in the user-scoped RKC temp root", async (
   const runPath = started.stdout.trim();
   assert.equal(
     dirname(runPath),
-    await realpath(join(environment.userHome, ".rkc", "temp")),
+    await realpath(join(environment.userHome, ".rkc-plugin", "temp")),
   );
   assert.match(
     await readFile(join(runPath, "research.md"), "utf8"),
