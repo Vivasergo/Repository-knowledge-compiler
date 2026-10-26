@@ -51,7 +51,7 @@ Open a target repository in Claude Code and invoke one skill:
 The skills behave like their npm counterparts (`/rkc-help` and so on). They
 refer to operations in the `/rkc:<operation>` form in their answers and in the
 documentation they write. Create keeps its temporary research notes in
-`~/.rkc/temp`, outside the target repository, and removes them after a
+`~/.rkc-plugin/temp`, outside the target repository, and removes them after a
 successful run.
 
 ## Set up a team repository
@@ -95,15 +95,15 @@ repository-knowledge-compiler` followed by
   `claude plugin uninstall rkc@repository-knowledge-compiler` and the
   marketplace with
   `claude plugin marketplace remove repository-knowledge-compiler`. Removing
-  the plugin does not change repository documentation or `~/.rkc/temp`.
+  the plugin does not change repository documentation or `~/.rkc-plugin/temp`.
 
 ## Plugin and npm installation together
 
 Both distributions can be installed on one machine, but they are separate
 copies that may be at different versions: `/rkc-help` comes from the npm
-runtime and `/rkc:help` from the plugin. Choose one per machine. Note that
-`npx repository-knowledge-compiler@latest uninstall` removes `~/.rkc`,
-including research notes retained by the plugin.
+runtime and `/rkc:help` from the plugin. Choose one per machine. The plugin keeps its research notes in `~/.rkc-plugin/temp`, independent
+of the npm installation. Uninstalling npm removes `~/.rkc` but does not
+delete plugin notes.
 
 If you installed an earlier hand-made RKC plugin, uninstall it first; any other
 plugin named `rkc` provides conflicting `/rkc:*` skills.
