@@ -86,7 +86,10 @@ export async function runPluginCli(options: PluginCliOptions): Promise<number> {
       case "research-notes": {
         options.io.stdout(
           `${await runResearchNotesCommand(arguments_, async () => {
-            const rkcRoot = join(await resolveUserHome(testUserHome), ".rkc-plugin");
+            const rkcRoot = join(
+              await resolveUserHome(testUserHome),
+              ".rkc-plugin",
+            );
             await mkdir(rkcRoot, { recursive: true, mode: 0o700 });
             return rkcRoot;
           })}\n`,

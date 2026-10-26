@@ -33,7 +33,9 @@ export async function assertResearchNotesContract({
   const secondRun = started[1].stdout.trim();
   assert.notEqual(firstRun, secondRun, "Concurrent runs must not share notes.");
   // The helper returns a canonical path; Windows TEMP may use an 8.3 alias.
-  const expectedNotesRoot = await realpath(join(userHome, storageDirectory, "temp"));
+  const expectedNotesRoot = await realpath(
+    join(userHome, storageDirectory, "temp"),
+  );
   for (const run of [firstRun, secondRun]) {
     assert.equal(dirname(run), expectedNotesRoot);
     assert.match(basename(run), /^create-docs-[A-Za-z0-9]+$/u);
