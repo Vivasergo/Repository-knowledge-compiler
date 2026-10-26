@@ -3,3 +3,4 @@ packages/*/dist/
 package-lock.json
 upload/
 library-verify/
+plugins/rkc/

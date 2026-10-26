@@ -47,6 +47,23 @@ jobs:
       - run: npm run test:e2e:install
       - run: npm run test:e2e:lifecycle
       - run: npm run test:e2e:process-kill
+      - run: npm run check:plugin
+      - run: npm run test:e2e:plugin
+
+  # The committed Claude Code plugin needs no build or npm ci, and accepts
+  # older Node.js versions than the development workspace.
+  claude-plugin-minimum-node:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+      - run: node scripts/test-e2e-plugin.mjs
 
   release-candidate:
     runs-on: ubuntu-latest

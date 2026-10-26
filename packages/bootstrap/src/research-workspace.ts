@@ -20,17 +20,17 @@ import {
 } from "node:path";
 import { cwd } from "node:process";
 
-import { installedContext } from "./lifecycle.js";
-
 const noteNames = ["research.md", "review.md", "transfer.md"] as const;
 const flow = "RKC-CREATE-FLOW-RELEASE-CANDIDATE-10";
 
+// Resolves the user-scoped RKC root whose temp/ directory owns research runs.
+export type RkcRootResolver = () => Promise<string>;
+
 async function workspaceRoot(
-  testUserHome?: string,
+  resolveRkcRoot: RkcRootResolver,
   repository?: string,
 ): Promise<string> {
-  const installation = await installedContext(testUserHome);
-  const root = join(await realpath(installation.rkc_root), "temp");
+  const root = join(await realpath(await resolveRkcRoot()), "temp");
   if (repository !== undefined) {
     const distance = relative(repository, root);
     if (
@@ -56,7 +56,7 @@ function marker(run: string): string {
 export async function startResearchWorkspace(options: {
   repository: string;
   revision: string;
-  testUserHome?: string;
+  resolveRkcRoot: RkcRootResolver;
 }): Promise<string> {
   const repository = await realpath(options.repository);
   if (!(await lstat(repository)).isDirectory() || !options.revision.trim()) {
@@ -64,7 +64,7 @@ export async function startResearchWorkspace(options: {
       "A repository directory and checked revision are required.",
     );
   }
-  const root = await workspaceRoot(options.testUserHome, repository);
+  const root = await workspaceRoot(options.resolveRkcRoot, repository);
   const run = await mkdtemp(join(root, "create-docs-"));
   const provenance = `${marker(run)}\n\nRepository: ${JSON.stringify(repository)}\nRevision: ${JSON.stringify(options.revision)}\nFlow: ${flow}\nCreated: ${new Date().toISOString()}\n\nStatus: started; not semantically verified.\n`;
   const sections = {
@@ -90,11 +90,11 @@ export async function finishResearchWorkspace(options: {
   run: string;
   disposition: "retain" | "delete";
   verified: boolean;
-  testUserHome?: string;
+  resolveRkcRoot: RkcRootResolver;
 }): Promise<string> {
   if (!options.verified)
     throw new Error("Completion requires explicit verified status.");
-  const root = await workspaceRoot(options.testUserHome);
+  const root = await workspaceRoot(options.resolveRkcRoot);
   const run = resolve(options.run);
   if (
     dirname(run) !== root ||
@@ -142,4 +142,37 @@ export async function finishResearchWorkspace(options: {
     await rmdir(run);
   }
   return `${options.disposition === "retain" ? "Retained" : "Removed"}: ${run}`;
+}
+
+// Shared command grammar for the npm research-notes entry and the Claude Code
+// plugin CLI. Returns the line to print; throws with a usage or safety message.
+export async function runResearchNotesCommand(
+  arguments_: readonly string[],
+  resolveRkcRoot: RkcRootResolver,
+): Promise<string> {
+  const [operation, first, second, verification, ...extra] = arguments_;
+  if (operation === "start" && first && second && verification === undefined) {
+    return startResearchWorkspace({
+      repository: first,
+      revision: second,
+      resolveRkcRoot,
+    });
+  }
+  if (
+    operation === "finish" &&
+    first &&
+    (second === "retain" || second === "delete") &&
+    verification === "--verified" &&
+    extra.length === 0
+  ) {
+    return finishResearchWorkspace({
+      run: first,
+      disposition: second,
+      verified: true,
+      resolveRkcRoot,
+    });
+  }
+  throw new Error(
+    "Expected start <repository> <checked-revision>, or finish <run> retain|delete --verified.",
+  );
 }

@@ -1,6 +1,14 @@
 # Changelog
 
-## Unreleased
+## 2.2.0 - 2026-10-19
+
+- Add a Claude Code plugin marketplace. The `rkc` plugin from the
+  `repository-knowledge-compiler` marketplace installs the same skills, master
+  prompt, Markdown checks, and research-notes helper as the npm runtime,
+  invoked as `/rkc:help`, `/rkc:create-docs`, `/rkc:update-docs`, and
+  `/rkc:audit-docs`. The plugin is generated from the canonical sources and is
+  updated through Claude Code's plugin manager instead of the npm update
+  notice.
 
 ## 2.1.0 - 2026-10-12
 

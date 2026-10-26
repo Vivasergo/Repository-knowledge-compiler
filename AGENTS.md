@@ -43,6 +43,10 @@ and protected mutation boundary are the product contract.
 - Protect application source, dependencies, lockfiles, CI/CD, secrets,
   production configuration, Git history, and user-owned worktree changes.
 - Run `npm run check` for foundation changes.
+- Never edit the generated Claude Code plugin in `plugins/rkc` by hand. Change
+  the canonical skills, master prompt, or workspace source, then run
+  `npm run build:plugin`. Plugin-specific wording lives in the exact transforms
+  of `scripts/claude-plugin-files.mjs`.
 - Preserve repository text-file policy. Deterministic Markdown checks must
   cover mixed line endings and trailing whitespace in created or modified
   managed documents, including untracked files.
