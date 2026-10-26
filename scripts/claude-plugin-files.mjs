@@ -129,7 +129,7 @@ const markdownTransforms = {
     ),
     replace(
       "`.rkc/temp/create-docs-<run>/` adjacent to user-scoped `versions/`, outside the\ntarget and installed version.",
-      "`~/.rkc/temp/create-docs-<run>/` in the user's home directory, outside the\ntarget and the plugin directory.",
+      "`~/.rkc-plugin/temp/create-docs-<run>/` in the user's home directory, outside the\ntarget and the plugin directory.",
     ),
   ],
 };
