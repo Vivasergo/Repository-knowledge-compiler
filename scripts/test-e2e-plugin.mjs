@@ -175,6 +175,7 @@ try {
     repositoryB,
     runNotes: (args, cwd) => runPlugin(["research-notes", ...args], cwd),
     userHome,
+    storageDirectory: ".rkc-plugin",
   });
 
   // Every helper command named by the plugin's skills and references must be
@@ -213,6 +214,7 @@ try {
   assert.match((await outcome(["install"])).stderr, /^Usage:/u);
 
   assert.deepEqual(await readdir(userHome), [".rkc-plugin"]);
+  // A plugin-only run must not create or depend on the npm installation root.
   assert.deepEqual(await readdir(join(userHome, ".rkc-plugin")), ["temp"]);
   assert.equal(await digestTree(pluginRoot), pluginDigest);
   assert.equal(await digestTree(repositories), repositoryDigest);
