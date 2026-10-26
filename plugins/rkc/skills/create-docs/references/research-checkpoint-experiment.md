@@ -42,7 +42,7 @@ node "<plugin-root>/scripts/rkc.mjs" research-notes start "<target-root>" "<chec
 
 For uncommitted evidence retain its boundary. If a revision is unavailable,
 record that explicitly, never invent it. The helper creates an owned
-`~/.rkc/temp/create-docs-<run>/` in the user's home directory, outside the
+`~/.rkc-plugin/temp/create-docs-<run>/` in the user's home directory, outside the
 target and the plugin directory. This local helper is not application execution.
 
 Preserve its ownership/provenance headers. Use only these three Markdown files:
