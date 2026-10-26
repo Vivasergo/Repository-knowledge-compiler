@@ -102,7 +102,7 @@ try {
       `RKC ${manifest.version} (Claude Code plugin)`,
       `Prompt: ${coreManifest.documentation_prompt_version}`,
       `Plugin root: ${pluginRoot}`,
-      `Research notes: ${join(userHome, ".rkc", "temp")}`,
+      `Research notes: ${join(userHome, ".rkc-plugin", "temp")}`,
       "",
     ].join("\n"),
   );
@@ -212,8 +212,8 @@ try {
   }
   assert.match((await outcome(["install"])).stderr, /^Usage:/u);
 
-  assert.deepEqual(await readdir(userHome), [".rkc"]);
-  assert.deepEqual(await readdir(join(userHome, ".rkc")), ["temp"]);
+  assert.deepEqual(await readdir(userHome), [".rkc-plugin"]);
+  assert.deepEqual(await readdir(join(userHome, ".rkc-plugin")), ["temp"]);
   assert.equal(await digestTree(pluginRoot), pluginDigest);
   assert.equal(await digestTree(repositories), repositoryDigest);
 
