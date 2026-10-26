@@ -42,7 +42,7 @@ export async function runPluginCli(options) {
             }
             case "research-notes": {
                 options.io.stdout(`${await runResearchNotesCommand(arguments_, async () => {
-                    const rkcRoot = join(await resolveUserHome(testUserHome), ".rkc");
+                    const rkcRoot = join(await resolveUserHome(testUserHome), ".rkc-plugin");
                     await mkdir(rkcRoot, { recursive: true, mode: 0o700 });
                     return rkcRoot;
                 })}\n`);
@@ -58,7 +58,7 @@ export async function runPluginCli(options) {
                     `RKC ${identity.version} (Claude Code plugin)`,
                     `Prompt: ${identity.documentation_prompt_version}`,
                     `Plugin root: ${identity.plugin_root}`,
-                    `Research notes: ${join(userHome, ".rkc", "temp")}`,
+                    `Research notes: ${join(userHome, ".rkc-plugin", "temp")}`,
                     "",
                 ].join("\n"));
                 return 0;
